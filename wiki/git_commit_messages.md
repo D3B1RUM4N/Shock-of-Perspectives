@@ -4,4 +4,6 @@
 - [Emojis list](#emojis-list)
 
 ## Emojis list
-- 🎉 :tada: Init project
+You would find the complete emoji list and explanations [here](https://gitmoji.dev/).
+
+> Written by [**Loïc MAES**](https://github.com/loicmaes) in 2023
