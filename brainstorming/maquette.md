@@ -19,4 +19,5 @@
 >    b. Style visual novel si événement
 
 **Comment montrer à l'utilisateur que le temps passe ?**
-> 1. Cycle jour/nuit ?
+> 1. Cycle jour/nuit
+> 2. Déplacement des PNJs
