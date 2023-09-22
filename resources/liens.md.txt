@@ -10,3 +10,9 @@ https://docs.google.com/document/d/1VTplouhpDeVRCV3NTh99ixXQ8ASkHN-8ed7704f2Bhw/
 
 tutoriel Unity 
 https://www.youtube.com/playlist?list=PLUWxWDlz8PYKnrd27LTqOxL2lr3KhEVRT
+
+tuto unity - git
+https://www.youtube.com/watch?v=KFmanEeW3LU
+
+gitignore pour unity
+https://github.com/github/gitignore/blob/main/Unity.gitignore
