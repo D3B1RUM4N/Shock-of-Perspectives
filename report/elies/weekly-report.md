@@ -1,0 +1,36 @@
+# Rapport de la 1ere semaine - Brainstorming 
+15/09 - 20/09 
+- choix des technologie :
+    - [ ] godot
+    - [x] unity
+    - [ ] autres
+- choix du type de graphisme :
+    - [ ] 3D
+    - [ ] Pixelisé Isometrique
+    - [x] Pixelisé (a la pokemon rouge feu)
+
+# Rapport semaine 2 - on recommence
+22/09 - 27/09
+
+Debut de la semaine on apprend que notre 1ere idee d'utilisé Unity afin de cree un jeu avec des dialogues n'ettaient pas resepective des regles du T3 (trop de dialogues). <br>
+Nous 
+Avons donc decidé de reinitialisé notre projet et de repartire sur une idee differente. 
+- choix des technologie :
+    - [ ] godot
+    - [ ] unity
+    - [x] Web App
+- choix du langage pour la Web App
+    - [x] Vue JS
+    - [ ] PHP
+    - [ ] Autres
+
+Apres brainstorm avec l'equipe nous avons decidé d'utilisé Vue JS et nous nous somme deonné 2 semaine pour prendre en main l'outil.
+
+# Rapport semaine 3 - Vacances
+30/09 - 03/11
+
+Un peu d'avancement dans les projets perso.
+Reaprentissage de CSS.
+
+# Rapport semaine 4 - Reprise du projet
+07/11 - 
