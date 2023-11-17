@@ -13,8 +13,15 @@ export default {
 
 <template>
   <div class="page">
+    <h1>Crédits</h1>
     <div class="credit">
-      <h1>Crédits</h1>
+      <h4>quoicoubaka</h4>
+      <p>T'as les cramptéz : hein ?</p>
+      <p>Apagnan : quoicoubeh</p>
+      <p>quoicoubeh : quoicoubeh</p>
+      <h4>booting the pc</h4>
+      <p>fortnite : battlepass</p>
+      <p>i just shit : out my ass</p>
     </div>
     <div class="return">
       <button class="btn" @click.prevent="arriere()">&#8592</button>
@@ -32,16 +39,33 @@ export default {
   transform: translate(-50%,-50%);
   padding-top: 20px;
 
-  box-shadow: 0 0 10px black;
-
-
   display: flex;
   flex-direction: column;
   justify-content: center;
 
-  background-color: #000000;
-  opacity: 0.5; /* Vous devez spécifier la valeur de l'opacité entre 0 et 1 */
-  color: #ffffff;
-  border-radius: 10px; /* Ajoutez cette ligne pour arrondir les bords */
+  text-align: center;
 }
+
+.credit {
+  width: 200px;
+
+  background: grey;
+  opacity: 0.3;
+  border-radius: 10px;
+
+  text-align: center;
+}
+
+h1 {
+  //bold text plz
+  font-size: 30px;
+}
+h4 {
+  font-size: 20px;
+}
+
+p {
+  font-size: 12px;
+}
+
 </style>
