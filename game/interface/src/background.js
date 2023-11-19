@@ -19,7 +19,8 @@ async function createWindow() {
       devTools: true,
       nodeIntegration: process.env.ELECTRON_NODE_INTEGRATION,
       contextIsolation: !process.env.ELECTRON_NODE_INTEGRATION
-    }
+    },
+    frame : false
   })
 
   if (process.env.WEBPACK_DEV_SERVER_URL) {
