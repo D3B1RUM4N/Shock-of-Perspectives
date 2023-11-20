@@ -1,5 +1,5 @@
 <script>
-  import { closeApp } from "@/app";
+  import { closeApp } from './app.js';
 
   export default {
     name: 'App',
