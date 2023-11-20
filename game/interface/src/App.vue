@@ -1,11 +1,13 @@
 <script>
+  import { closeApp } from "@/app";
+
   export default {
     name: 'App',
     methods: {
       closeBtnClick () {
         //call closeBut.eventlistener on app.js
         console.log('closeBtnClick')
-        this.$emit('click');
+        closeApp()
         //router.push('/Acceuil')
       }
     }
