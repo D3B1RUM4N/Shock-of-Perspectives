@@ -1,4 +1,4 @@
-const { ipcRenderer } = require('electron')
+import {ipcRenderer} from "electron";
 const ipc = ipcRenderer
 
 /*const closeButton = document.getElementById('closeBTN');
