@@ -1,5 +1,6 @@
 <script>
   import { closeApp } from './app.js';
+  import router from "@/router";
 
   export default {
     name: 'App',
@@ -9,7 +10,7 @@
         console.log('closeBtnClick')
         closeApp()
         //router.push('/Acceuil')
-      }
+      },
     }
   }
 </script>

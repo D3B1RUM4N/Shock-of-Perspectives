@@ -1,19 +1,21 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
-import AcceuilView from '../views/AcceuilView.vue'
-import CreditView from "@/views/CreditView.vue";
 
 const routes = [
   {
     path: '/',
     name: 'Acceuil',
-    component: AcceuilView
+    component: () => import(/* webpackChunkName: "about" */ '../views/AcceuilView.vue')
   },
-    {
-      path: '/credits',
-      name: 'CreditView',
-      component: CreditView
-    }
+  {
+    path: '/credits',
+    name: 'CreditView',
+    component: () => import(/* webpackChunkName: "about" */ '../views/CreditView.vue')
+  },
+  {
+    path: '/altercation',
+    name: 'AltercationView',
+    component: () => import(/* webpackChunkName: "about" */ '../views/AltercationView.vue')
+  }
 ]
 
 const router = createRouter({
