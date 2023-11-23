@@ -33,4 +33,15 @@ Un peu d'avancement dans les projets perso.
 Reaprentissage de CSS.
 
 # Rapport semaine 4 - Reprise du projet
-07/11 - 
+07/11 - 17/11
+
+Creation des pages d'acceuil et page de credit, avec CSS de base
+pas plus car j'ai pas les maquettes des collegues
+
+# Rapport semaine 5 - interface
+
+22/11 - 24/11
+
+La fenetre est sans bords
+tentative de bouton fermé application non fructueuse pour le moment (22/11)
+toujours pas moyen d'avancé pas de maquettes
