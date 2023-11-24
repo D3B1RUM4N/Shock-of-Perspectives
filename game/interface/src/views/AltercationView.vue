@@ -1,8 +1,10 @@
 <script>
 import router from "@/router";
+import AltercationButton from "@/views/component/AltercationButton.vue";
 
 export default {
   name: "AltercationView",
+  components: {AltercationButton},
   methods:{
     arriere(){
       router.push('/')
@@ -29,10 +31,10 @@ export default {
         Never gonna tell a lie and hurt you</p>
     </div>
     <div class="interaction">
-      <button class="btn" @click.prevent="">1</button>
-      <button class="btn" @click.prevent="">2</button>
-      <button class="btn" @click.prevent="">3</button>
-      <button class="btn" @click.prevent="">4</button>
+      <AltercationButton class="btn" buttonText="91"></AltercationButton>
+      <AltercationButton class="btn" buttonText="82"></AltercationButton>
+      <AltercationButton class="btn" buttonText="73"></AltercationButton>
+      <AltercationButton class="btn" buttonText="64"></AltercationButton>
     </div>
   </div>
 </template>
@@ -57,14 +59,4 @@ export default {
       display: flex;
       flex-direction: column;
     }
-      .btn {
-        background-color: red;
-        color: #ffffff;
-
-        padding:10px;
-        margin-top:10px;
-      }
-
-
-
 </style>
