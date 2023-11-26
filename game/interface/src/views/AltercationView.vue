@@ -59,4 +59,8 @@ export default {
       display: flex;
       flex-direction: column;
     }
+
+      .btn{
+        margin-top: 5px;
+      }
 </style>
