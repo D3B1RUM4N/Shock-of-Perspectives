@@ -30,8 +30,8 @@ export default {
   color: #000000;
 
   //padding:10px;
-  width: 40px;
-  height: 40px;
+  width: 70px;
+  height: 70px;
 
   border: black 1px solid;
 
@@ -51,7 +51,7 @@ export default {
   }
 
 .btn:hover{
-  width: 150px;
+  width: 225px;
 }
 .btn:hover .text{
   opacity: 1;

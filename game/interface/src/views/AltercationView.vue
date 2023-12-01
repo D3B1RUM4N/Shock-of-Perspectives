@@ -36,6 +36,8 @@ export default {
       <AltercationButton class="btn" buttonText="73"></AltercationButton>
       <AltercationButton class="btn" buttonText="64"></AltercationButton>
     </div>
+    <div class="perso"></div>
+    <div class="enemi"></div>
   </div>
 </template>
 
@@ -82,8 +84,33 @@ export default {
       display: flex;
       flex-direction: column;
     }
-
       .btn{
         margin-top: 5px;
       }
+
+    .perso {
+      position: absolute;
+      top: 400px;
+      right: 750px;
+      width: 150px;
+      height: 250px;
+      background-color: red;
+      text-align: center;
+      line-height: 100px;
+      font-size: 50px;
+      color: white;
+    }
+
+    .enemi {
+      position: absolute;
+      top: 300px;
+      right: 150px;
+      width: 150px;
+      height: 250px;
+      background-color: pink;
+      text-align: center;
+      line-height: 100px;
+      font-size: 50px;
+      color: white;
+    }
 </style>
