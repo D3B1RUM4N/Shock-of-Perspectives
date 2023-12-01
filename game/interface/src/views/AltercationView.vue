@@ -52,7 +52,7 @@ export default {
       position: absolute;
       border: black 1px solid;
       inset-inline: 100px;
-      max-height: 200px;
+      max-height: 170px;
       overflow: hidden;
     }
       .text p {
