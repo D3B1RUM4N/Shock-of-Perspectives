@@ -15,6 +15,11 @@ const routes = [
     path: '/altercation',
     name: 'AltercationView',
     component: () => import(/* webpackChunkName: "about" */ '../views/AltercationView.vue')
+  },
+  {
+    path: '/customisation',
+    name: 'CharacterChoiceView',
+    component: () => import(/* webpackChunkName: "about" */ '../views/CharacterChoiceView.vue')
   }
 ]
 
