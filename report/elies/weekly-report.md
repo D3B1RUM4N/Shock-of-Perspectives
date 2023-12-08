@@ -45,3 +45,11 @@ pas plus car j'ai pas les maquettes des collegues
 La fenetre est sans bords
 tentative de bouton fermé application non fructueuse pour le moment (22/11)
 toujours pas moyen d'avancé pas de maquettes
+
+# Rapport semaine 6 : interface
+
+Le bouton fermé l'app fonctionne enfiiin.
+Les maquette on un peu avancé mais sans plus, donc a nouveau bloqué.
+Des boutons interractif ont ete fait
+quelques animation pour tué le temps
+objectif pour la prochaine semaine, espéré que les maquettes soit fini pour la suite, et que le back soit enfin fini aussi car toujours rien non plus.

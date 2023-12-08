@@ -9,5 +9,6 @@ closeButton.addEventListener('click', function () {
 })*/
 
 export function closeApp() {
+    console.log('close button clicked')
     ipc.send('closeApp')
 }
