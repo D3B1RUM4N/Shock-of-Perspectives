@@ -1,13 +1,34 @@
 <script>
 import router from "@/router";
 import AltercationButton from "@/views/component/AltercationButton.vue";
+import {Enum as Enum} from "../../public/Model/Enum";
+import { interact } from "../../public/Model/InteractionReact";
+
+
 
 export default {
   name: "AltercationView",
   components: {AltercationButton},
+
+  computed: {
+    player() {
+      return this.$store.state.player;
+    },
+    npc() {
+      return this.$store.state.npc;
+    }
+  },
+
+
   methods:{
     arriere(){
       router.push('/')
+    },
+
+    fight(){
+      console.log("fight")
+      console.log(this.player)
+      interact(this.player, this.npc, Enum.FIGHT)
     }
   }
 }
@@ -31,9 +52,9 @@ export default {
         Never gonna tell a lie and hurt you</p>
     </div>
     <div class="interaction">
-      <AltercationButton class="btn" buttonText="91"></AltercationButton>
-      <AltercationButton class="btn" buttonText="82"></AltercationButton>
-      <AltercationButton class="btn" buttonText="73"></AltercationButton>
+      <AltercationButton @click.prevent="fight" class="btn" buttonText="Fight"></AltercationButton>
+      <AltercationButton class="btn" buttonText="Talk"></AltercationButton>
+      <AltercationButton class="btn" buttonText="89"></AltercationButton>
       <AltercationButton class="btn" buttonText="64"></AltercationButton>
     </div>
     <div class="perso"></div>

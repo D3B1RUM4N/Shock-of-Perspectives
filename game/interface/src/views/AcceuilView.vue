@@ -6,7 +6,7 @@ export default {
   methods: {
     jouer () {
       console.log('jouer click')
-      router.push('/customisation')
+      router.push('/altercation')
     },
     parametre () {
       console.log('parametre click')

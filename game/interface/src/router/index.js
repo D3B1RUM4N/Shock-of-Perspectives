@@ -20,6 +20,11 @@ const routes = [
     path: '/customisation',
     name: 'CharacterChoiceView',
     component: () => import(/* webpackChunkName: "about" */ '../views/CharacterChoiceView.vue')
+  },
+  {
+    path: '/stats',
+    name: 'StatView',
+    component: () => import(/* webpackChunkName: "about" */ '../views/StatView.vue')
   }
 ]
 
