@@ -14,6 +14,7 @@ export default {
   <div class="ecran">
     <p>Calm : {{ this.player.calm }}</p>
     <p>Frustration : {{ this.player.frustration }}</p>
+    <a href="/">Home</a>
   </div>
 </template>
 

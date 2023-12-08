@@ -2,6 +2,7 @@ import { createStore } from 'vuex'
 
 export default createStore({
   state: {
+    nbInteractions: 5,
     player: {
       calm: 50,
       frustration: 50,
@@ -15,13 +16,22 @@ export default createStore({
   getters: {
   },
   mutations: {
+    // interactions restantes
+    changeNbInteractions(state, payload){
+      state.nbInteractions += payload
+    },
     // change player statistic
-    changeCalm(state, payload){
+    changePlayerCalm(state, payload){
       state.player.calm += payload
     },
-    changeFrustration(state, payload){
+    changePlayerFrustration(state, payload){
       state.player.frustration += payload
     },
+
+    newNPC(state, payload){
+      state.npc.calm = payload.calm
+      state.npc.resistance = payload.resistance
+    }
   },
   actions: {
   },
