@@ -25,7 +25,11 @@ export default {
       <img src="" alt="player" class="showPlayer">
       <a href="" class="rightOutfitBtn"><img src="../../images/buttons/right_semi_arrow.png" alt="right_semi_arrow"></a>
     </div>
-    <div class="navigation"></div>
+    <div class="navigation">
+      <a href="" class="previous"><img src="../../images/buttons/left_arrow.png"></a>
+      <p class="selectedOutfit">Outfit selectionné</p>
+      <a href="" class="next"><img src="../../images/buttons/right_arrow.png"></a>
+    </div>
   </div>
 </template>
 
@@ -76,7 +80,7 @@ export default {
   .outfitChoice {
     position: absolute;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
 
@@ -98,15 +102,18 @@ export default {
       height: 60px;
     }
     .showPlayer {
-      position: absolute;
       width: 150px;
       height: 350px;
-      top: 10px;
       background-color: brown;
     }
 
   .navigation {
     position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
     width: 100%;
     height: 140px;
     bottom: 0;
@@ -114,4 +121,23 @@ export default {
 
     background-color: yellow;
   }
+
+    .previous {
+      //position: absolute;
+      width: 60px;
+      height: 60px;
+    }
+
+    .selectedOutfit {
+      //position: absolute;
+      width: 200px;
+      height: 60px;
+      font-size: 30px;
+    }
+
+    .next {
+      //position: absolute;
+      width: 60px;
+      height: 60px;
+    }
 </style>
