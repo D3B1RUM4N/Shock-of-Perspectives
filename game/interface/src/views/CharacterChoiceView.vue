@@ -1,12 +1,10 @@
 <script>
 export default {
   name: "CharacterChoiceView",
-  
-  data() {
-    return {
-      player: {
-        
-      }
+
+  methods : {
+    next() {
+      routeur.push('/altercation')
     }
   }
 }
@@ -26,9 +24,9 @@ export default {
       <a href="" class="rightOutfitBtn"><img src="../../images/buttons/right_semi_arrow.png" alt="right_semi_arrow"></a>
     </div>
     <div class="navigation">
-      <a href="" class="previous"><img src="../../images/buttons/left_arrow.png"></a>
+      <a href="/" class="previous"><img src="../../images/buttons/left_arrow.png"></a>
       <p class="selectedOutfit">Outfit selectionné</p>
-      <a href="" class="next"><img src="../../images/buttons/right_arrow.png"></a>
+      <a href="altercation" class="next"><img src="../../images/buttons/right_arrow.png"></a>
     </div>
   </div>
 </template>
