@@ -13,20 +13,20 @@ export default {
 <template>
   <div class="ecran">
     <div class="sexeChoice">
-      <a href="" class="leftSexeBtn"><img src="../../images/buttons/left_semi_arrow.png" alt="left_semi_arrow"></a>
+      <a href="" class="leftSexeBtn"><img src="/images/buttons/left_semi_arrow.png" alt="left_semi_arrow"></a>
       <p>sexe : choix</p>
-      <a href="" class="rightSexeBtn"><img src="../../images/buttons/right_semi_arrow.png" alt="right_semi_arrow"></a>
+      <a href="" class="rightSexeBtn"><img src="/images/buttons/right_semi_arrow.png" alt="right_semi_arrow"></a>
     </div>
     <div class="skinChoice"></div>
     <div class="outfitChoice">
-      <a href="" class="leftOutfitBtn"><img src="../../images/buttons/left_semi_arrow.png" alt="left_semi_arrow"></a>
+      <a href="" class="leftOutfitBtn"><img src="/images/buttons/left_semi_arrow.png" alt="left_semi_arrow"></a>
       <img src="" alt="player" class="showPlayer">
-      <a href="" class="rightOutfitBtn"><img src="../../images/buttons/right_semi_arrow.png" alt="right_semi_arrow"></a>
+      <a href="" class="rightOutfitBtn"><img src="/images/buttons/right_semi_arrow.png" alt="right_semi_arrow"></a>
     </div>
     <div class="navigation">
-      <a href="/" class="previous"><img src="../../images/buttons/left_arrow.png"></a>
+      <a href="/" class="previous"><img src="/images/buttons/left_arrow.png"></a>
       <p class="selectedOutfit">Outfit selectionné</p>
-      <a href="altercation" class="next"><img src="../../images/buttons/right_arrow.png"></a>
+      <a href="altercation" class="next"><img src="/images/buttons/right_arrow.png"></a>
     </div>
   </div>
 </template>
