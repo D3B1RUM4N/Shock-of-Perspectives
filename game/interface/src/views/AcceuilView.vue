@@ -1,5 +1,6 @@
 <script>
 import router from "@/router";
+import {closeApp} from "@/app";
 
 export default {
   name: 'AcceuilView',
@@ -12,12 +13,12 @@ export default {
       console.log('parametre click')
       //router.push('/Parametre')
     },
-    quitter () {
-      console.log('quitter click')
-
-    },
     credit () {
       router.push('/credits')
+    },
+    quitter () {
+      console.log('closeBtnClick')
+      closeApp()
     }
   }
 }

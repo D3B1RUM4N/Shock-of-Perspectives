@@ -41,10 +41,10 @@ export default {
       <p>{{ altercation(this.player, this.npc) }}</p>
     </div>
     <div class="interaction">
-      <AltercationButton @click.prevent="fight" class="btn" buttonText="Fight" ImageAlter="/images/buttons/ButtonFight.jpg"></AltercationButton>
-      <AltercationButton class="btn" buttonText="Talk"></AltercationButton>
-      <AltercationButton class="btn" buttonText="89"></AltercationButton>
-      <AltercationButton class="btn" buttonText="64"></AltercationButton>
+      <AltercationButton @click.prevent="fight" class="btn" buttonText="Fight" ImageAlter="/images/buttons/ButtonFight.png"></AltercationButton>
+      <AltercationButton class="btn" buttonText="Talk" ImageAlter="/images/buttons/ButtonTalk.png"></AltercationButton>
+      <AltercationButton class="btn" buttonText="Insult" ImageAlter="/images/buttons/ButtonInsult.png"></AltercationButton>
+      <AltercationButton class="btn" buttonText="Leave" ImageAlter="/images/buttons/ButtonLeave.png"></AltercationButton>
     </div>
     <div class="perso"></div>
     <div class="enemi"></div>
@@ -53,9 +53,13 @@ export default {
 
 <style scoped lang="scss">
   .ecran {
-    position: relative;
+    position: absolute;
     width: 100%;
-    margin-top: 50px;
+    margin-top: 30px;
+    height: 690px;
+    background-image: url("../../public/images/backgrounds/NightBackgroundNightClub.png");
+    background-size: cover;
+    background-position-y: -330px;
   }
 
     .text {
