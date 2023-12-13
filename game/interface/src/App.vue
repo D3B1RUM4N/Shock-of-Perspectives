@@ -1,5 +1,5 @@
 <script>
- // import { closeApp } from './app.js';
+  //import { closeApp } from './app.js';
   import router from "@/router";
 
   export default {
@@ -8,7 +8,7 @@
       closeBtnClick () {
         //call closeBut.eventlistener on app.js
         console.log('closeBtnClick')
-        // closeApp()
+        //closeApp()
         //router.push('/Acceuil')
       },
     }

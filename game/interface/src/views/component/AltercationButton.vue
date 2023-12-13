@@ -22,7 +22,7 @@ export default {
 <template>
   <div class="btn">
     <button class="image" @click="handleClick">
-      <img v-for="img in {ImageAlter}" v-bind:src="img" alt="Image du bouton">
+      <img :src="ImageAlter" alt="Image altercation">
     </button>
     <span class="text">{{ buttonText }}</span>
   </div>

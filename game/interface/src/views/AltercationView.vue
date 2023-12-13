@@ -41,7 +41,7 @@ export default {
       <p>{{ altercation(this.player, this.npc) }}</p>
     </div>
     <div class="interaction">
-      <AltercationButton @click.prevent="fight" class="btn" buttonText="Fight" ImageAlter="../../public/assets/imgAlercation/ButtonFight.png"></AltercationButton>
+      <AltercationButton @click.prevent="fight" class="btn" buttonText="Fight" ImageAlter="/images/buttons/ButtonFight.jpg"></AltercationButton>
       <AltercationButton class="btn" buttonText="Talk"></AltercationButton>
       <AltercationButton class="btn" buttonText="89"></AltercationButton>
       <AltercationButton class="btn" buttonText="64"></AltercationButton>
