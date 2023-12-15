@@ -55,7 +55,7 @@ export default {
 .page{
   height: 720px;
   width: 100%;
-  padding-top: 20px;
+  top: 30px;
 
   display: flex;
   flex-direction: column;

@@ -55,11 +55,10 @@ export default {
 .ecran {
   position: absolute;
   width: 100%;
-  margin-top: 30px;
-  height: 690px;
+  height: 720px;
   background-image: url("../../public/images/backgrounds/NightBackgroundNightClub.png");
   background-size: cover;
-  background-position-y: -330px;
+  background-position-y: -300px;
 }
 
 .text {

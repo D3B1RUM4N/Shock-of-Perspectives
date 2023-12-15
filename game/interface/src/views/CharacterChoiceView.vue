@@ -13,20 +13,20 @@ export default {
 <template>
   <div class="ecran">
     <div class="sexeChoice">
-      <a href="" class="leftSexeBtn"><img src="../../images/buttons/left_semi_arrow.png" alt="left_semi_arrow"></a>
+      <a href="" class="leftSexeBtn"><img src="/images/buttons/left_semi_arrow.png" alt="left_semi_arrow"></a>
       <p>sexe : choix</p>
-      <a href="" class="rightSexeBtn"><img src="../../images/buttons/right_semi_arrow.png" alt="right_semi_arrow"></a>
+      <a href="" class="rightSexeBtn"><img src="/images/buttons/right_semi_arrow.png" alt="right_semi_arrow"></a>
     </div>
     <div class="skinChoice"></div>
     <div class="outfitChoice">
-      <a href="" class="leftOutfitBtn"><img src="../../images/buttons/left_semi_arrow.png" alt="left_semi_arrow"></a>
+      <a href="" class="leftOutfitBtn"><img src="/images/buttons/left_semi_arrow.png" alt="left_semi_arrow"></a>
       <img src="" alt="player" class="showPlayer">
-      <a href="" class="rightOutfitBtn"><img src="../../images/buttons/right_semi_arrow.png" alt="right_semi_arrow"></a>
+      <a href="" class="rightOutfitBtn"><img src="/images/buttons/right_semi_arrow.png" alt="right_semi_arrow"></a>
     </div>
     <div class="navigation">
-      <a href="/" class="previous"><img src="../../images/buttons/left_arrow.png"></a>
+      <a href="/" class="previous"><img src="/images/buttons/left_arrow.png"></a>
       <p class="selectedOutfit">Outfit selectionné</p>
-      <a href="altercation" class="next"><img src="../../images/buttons/right_arrow.png"></a>
+      <a href="altercation" class="next"><img src="/images/buttons/right_arrow.png"></a>
     </div>
   </div>
 </template>
@@ -35,8 +35,10 @@ export default {
 .ecran {
   position: absolute;
   width: 100%;
-  height: 95.8%;
-  top : 30px;
+  height: 720px;
+  display:flex;
+  justify-content: center;
+  align-items: center;
 
   background-color: grey;
 }
@@ -47,7 +49,7 @@ export default {
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 100px;
+    height: 130px;
     top: 0;
     left: 0;
 
@@ -68,23 +70,22 @@ export default {
   .skinChoice {
     position: absolute;
     width: 300px;
-    height: 450px;
-    top: 100px;
+    height: 460px;
+    top: 130px;
     left: 0;
 
     background-color: blue;
   }
 
   .outfitChoice {
-    position: absolute;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
 
     width: 375px;
-    height: 450px;
-    top: 100px;
+    height: 460px;
+    top: 130px;
     right: 300px;
 
     background-color: green;
@@ -113,7 +114,7 @@ export default {
     align-items: center;
 
     width: 100%;
-    height: 140px;
+    height: 130px;
     bottom: 0;
     left: 0;
 
