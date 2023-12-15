@@ -48,8 +48,28 @@ toujours pas moyen d'avancé pas de maquettes
 
 # Rapport semaine 6 : interface
 
+27/11 - 1/12
+
 Le bouton fermé l'app fonctionne enfiiin.
 Les maquette on un peu avancé mais sans plus, donc a nouveau bloqué.
 Des boutons interractif ont ete fait
 quelques animation pour tué le temps
 objectif pour la prochaine semaine, espéré que les maquettes soit fini pour la suite, et que le back soit enfin fini aussi car toujours rien non plus.
+
+# Rapport semaine 7 : interactions
+
+04/12 - 08/12
+
+Les maquettes sont enfin rendu,
+j'ai donc travaillé sur les fonction pour les altercation avec des statistique joueur aleatoire et des statisitique adversaire aleatoire aussi
+Prise en compte des game over, gestion de la frustration
+Fin de la gestion des altercation pour la semaine pro + interface customisation du personnage
+
+# Rapport semaine 8 : Customisation perso
+
+11/12 - 15/12
+
+Le squelette de la custom personnage est fait,
+Simon travaille sur du CSS,
+Les interraction avance bien, talk est pris en compte et une nouvelle altercation est lancée
+
