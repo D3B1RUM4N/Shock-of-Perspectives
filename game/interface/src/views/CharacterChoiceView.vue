@@ -1,10 +1,21 @@
 <script>
+import { characterString, changeSexe } from "../../public/Model/CharacterCreate";
+
 export default {
   name: "CharacterChoiceView",
+  computed : {
+    stringChar() {
+      console.log(characterString())
+      return "/images/characters/" + characterString() + "Front.png"
 
+    }
+  },
   methods : {
     next() {
       routeur.push('/altercation')
+    },
+    nextSexe() {
+      changeSexe()
     }
   }
 }
@@ -20,7 +31,7 @@ export default {
     <div class="skinChoice"></div>
     <div class="outfitChoice">
       <a href="" class="leftOutfitBtn"><img src="/images/buttons/left_semi_arrow.png" alt="left_semi_arrow"></a>
-      <img src="" alt="player" class="showPlayer">
+      <img :src="stringChar" :alt="stringChar" class="showPlayer">
       <a href="" class="rightOutfitBtn"><img src="/images/buttons/right_semi_arrow.png" alt="right_semi_arrow"></a>
     </div>
     <div class="navigation">
