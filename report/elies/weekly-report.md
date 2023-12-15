@@ -71,3 +71,5 @@ Fin de la gestion des altercation pour la semaine pro + interface customisation 
 
 Le squelette de la custom personnage est fait,
 Simon travaille sur du CSS,
+Les interraction avance bien, talk est pris en compte et une nouvelle altercation est lancée
+
