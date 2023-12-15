@@ -6,11 +6,14 @@ export default createStore({
     player: {
       calm: 50,
       frustration: 50,
-      strength: 50,
+      resistance: 50,
+      strength: 80,
     },
     npc: {
       calm: 0,
+      frustration : 0,
       resistance: 40,
+      strength: 40,
     },
     text: "altercation"
   },
@@ -30,8 +33,7 @@ export default createStore({
     },
 
     newNPC(state, payload){
-      state.npc.calm = payload.calm
-      state.npc.resistance = payload.resistance
+      state.npc = payload
     },
     newAltercation(state, payload){
       state.text = payload

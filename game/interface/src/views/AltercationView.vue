@@ -32,7 +32,15 @@ export default {
     fight(){
       console.log("fight")
       interact(this.player, this.npc, Enum.FIGHT)
-    }
+    },
+    talk(){
+      console.log("talk")
+      interact(this.player, this.npc, Enum.TALK)
+    },
+    insult(){
+      /*console.log("insult")
+      interact(this.player, this.npc, Enum.INSULT)*/
+    },
   }
 }
 </script>
@@ -45,9 +53,38 @@ export default {
     </div>
     <div class="interaction">
       <AltercationButton @click.prevent="fight" class="btn" buttonText="Fight"></AltercationButton>
-      <AltercationButton class="btn" buttonText="Talk"></AltercationButton>
+      <AltercationButton @click.prevent="talk" class="btn" buttonText="Talk"></AltercationButton>
       <AltercationButton class="btn" buttonText="89"></AltercationButton>
       <AltercationButton class="btn" buttonText="64"></AltercationButton>
+    </div>
+    <div class="stats">
+      <table>
+        <tr>
+          <th>Stat</th>
+          <th>Player</th>
+          <th>NPC</th>
+        </tr>
+        <tr>
+          <td>calm</td>
+          <td>{{ player.calm }}</td>
+          <td>{{ npc.calm }}</td>
+        </tr>
+        <tr>
+          <td>frustration</td>
+          <td>{{ player.frustration }}</td>
+          <td>{{ npc.frustration }}</td>
+        </tr>
+        <tr>
+          <td>Strength</td>
+          <td>{{ player.strength }}</td>
+          <td>{{ npc.strength }}</td>
+        </tr>
+        <tr>
+          <td>Resistance</td>
+          <td>{{ player.resistance }}</td>
+          <td>{{ npc.resistance }}</td>
+        </tr>
+      </table>
     </div>
     <div class="perso"></div>
     <div class="enemi"></div>
@@ -100,6 +137,20 @@ export default {
       .btn{
         margin-top: 5px;
       }
+
+    .stats {
+      position: absolute;
+      top: 125px;
+      right: 0;
+    }
+      table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+      }
+      th, td {
+        padding: 5px;
+        text-align: left;
+    }
 
     .perso {
       position: absolute;
