@@ -24,26 +24,24 @@ export default {
     <button class="image" @click="handleClick">
       <img :src="ImageAlter" alt="Image altercation">
     </button>
-    <span class="text">{{ buttonText }}</span>
   </div>
 </template>
 
 <style scoped lang="scss">
 .btn {
-  background-color: green;
+  background-size: cover;
+  background-repeat: no-repeat;
   color: #000000;
 
   //padding:10px;
   width: 70px;
   height: 70px;
 
-  border: black 1px solid;
-
   transition: width 0.3s;
 }
   .image {
-    width: 30px;
-    margin: 4px;
+    width: 62px;
+    margin-left: 4px;
   }
 
   .text {
@@ -55,7 +53,9 @@ export default {
   }
 
 .btn:hover{
-  width: 225px;
+  background-image: url("../../../public/images/buttons/TitleButtonFight.png");
+  width: 235px;
+  opacity: 1;
 }
 .btn:hover .text{
   opacity: 1;
