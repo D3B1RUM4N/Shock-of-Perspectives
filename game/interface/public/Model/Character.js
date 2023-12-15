@@ -2,15 +2,78 @@ let colors = ["African", "Asian", "Caucasian"];
 let sexes = ["Men", "Woman"];
 let outfits = ["Casual", "Streetwear", "Chic"];
 
-export function Character() {
-    this.frustration = 0
-    this.calm = 0
-    this.resistance = 0
-    this.strength = 0
+export default class Character {
+    constructor() {
+        this.frustration = 0;
+        this.calm = 0;
+        this.resistance = 0;
+        this.strength = 0;
+        this.colorI = 0;
+        this.sexeI = 0;
+        this.outfitI = 0;
+    }
+}
 
-    this.colorI = 0
-    this.sexeI = 0
-    this.outfitI = 0
+export function setStats(character) {
+    switch (character.colorI) {
+        case 0:
+            character.frustration = 10
+            character.calm = 10
+            character.resistance = 10
+            character.strength = 10
+            break;
+        case 1:
+            character.frustration = 10
+            character.calm = 10
+            character.resistance = 10
+            character.strength = 10
+            break;
+        case 2:
+            character.frustration = 10
+            character.calm = 10
+            character.resistance = 10
+            character.strength = 10
+            break;
+    }
+    switch (character.sexeI) {
+        case 0:
+            character.frustration += 10
+            character.calm += 10
+            character.resistance += 10
+            character.strength += 10
+            break;
+        case 1:
+            character.frustration += 10
+            character.calm += 10
+            character.resistance += 10
+            character.strength += 10
+            break;
+    }
+    switch (character.outfitI) {
+        case 0:
+            character.frustration += 10
+            character.calm += 10
+            character.resistance += 10
+            character.strength += 10
+            break;
+        case 1:
+            character.frustration += 10
+            character.calm += 10
+            character.resistance += 10
+            character.strength += 10
+            break;
+        case 2:
+            character.frustration += 10
+            character.calm += 10
+            character.resistance += 10
+            character.strength += 10
+            break;
+    }
+    return character
+}
+
+export function getFrustration(character) {
+    return character.frustration
 }
 
 function getColor(character) {

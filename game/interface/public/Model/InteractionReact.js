@@ -1,5 +1,5 @@
 import { Enum } from "./Enum";
-import {altercation} from "../../public/Model/InteractionCreate";
+import {altercation} from "./InteractionCreate";
 import store from "@/store";
 import router from "@/router";
 

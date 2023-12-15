@@ -4,7 +4,8 @@ import AltercationButton from "@/views/component/AltercationButton.vue";
 import {Enum as Enum} from "../../public/Model/Enum";
 import { interact } from "../../public/Model/InteractionReact";
 import {altercation, newNPC} from "../../public/Model/InteractionCreate";
-
+import Character from "../../public/Model/Character";
+import store from "@/store";
 
 export default {
   name: "AltercationView",
@@ -12,7 +13,7 @@ export default {
 
   computed: {
     player() {
-      return this.$store.state.player;
+      return store.state.player;
     },
     npc() {
       return newNPC();
@@ -24,7 +25,6 @@ export default {
 
 
   methods:{
-    altercation,
     arriere(){
       router.push('/')
     },
@@ -55,7 +55,7 @@ export default {
       <AltercationButton @click.prevent="fight" class="btn" buttonText="Fight"></AltercationButton>
       <AltercationButton @click.prevent="talk" class="btn" buttonText="Talk"></AltercationButton>
       <AltercationButton class="btn" buttonText="89"></AltercationButton>
-      <AltercationButton class="btn" buttonText="64"></AltercationButton>
+      <AltercationButton @click.prevent="arriere" class="btn" buttonText="64"></AltercationButton>
     </div>
     <div class="stats">
       <table>

@@ -1,5 +1,13 @@
 <script>
-import {Character, changeSexe, characterString, changeOutfit, changeColor} from "../../public/Model/Character.js";
+import Character, {
+  changeSexe,
+  characterString,
+  changeOutfit,
+  changeColor,
+  setStats
+} from "../../public/Model/Character.js";
+import store from "@/store";
+import router from "@/router";
 
 
 let character = new Character();
@@ -15,9 +23,13 @@ export default {
   },
   methods : {
     next() {
-      routeur.push('/altercation')
+      character = setStats(character)
+      store.commit('setPlayerStat', character);
+      //console.log(store.state.player)
+      router.push('/altercation')
     },
     nextSexe() {
+      character = setStats(character)
       this.stringChar = "/images/characters/" + changeSexe(character) + "Front.png"
     },
     nextOutfit(direction) {
@@ -51,7 +63,7 @@ export default {
     <div class="navigation">
       <a href="/" class="previous"><img src="/images/buttons/left_arrow.png"></a>
       <p class="selectedOutfit">Outfit selectionné</p>
-      <a href="altercation" class="next"><img src="/images/buttons/right_arrow.png"></a>
+      <a href="" class="next" @click.prevent="next"><img src="/images/buttons/right_arrow.png"></a>
     </div>
   </div>
 </template>
@@ -65,6 +77,7 @@ export default {
 
   background-color: grey;
 }
+
   .sexeChoice {
     position: absolute;
     display: flex;
