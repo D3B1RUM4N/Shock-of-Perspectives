@@ -11,7 +11,8 @@ export default createStore({
     npc: {
       calm: 0,
       resistance: 40,
-    }
+    },
+    text: "altercation"
   },
   getters: {
   },
@@ -31,6 +32,9 @@ export default createStore({
     newNPC(state, payload){
       state.npc.calm = payload.calm
       state.npc.resistance = payload.resistance
+    },
+    newAltercation(state, payload){
+      state.text = payload
     }
   },
   actions: {

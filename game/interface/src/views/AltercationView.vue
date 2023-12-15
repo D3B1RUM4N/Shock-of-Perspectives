@@ -16,6 +16,9 @@ export default {
     },
     npc() {
       return newNPC();
+    },
+    text() {
+      return this.$store.state.text;
     }
   },
 
@@ -38,7 +41,7 @@ export default {
   <div class="ecran">
     <h1>AltercationView</h1>
     <div class="text">
-      <p>{{ altercation(this.player, this.npc) }}</p>
+      <p>{{ text }}</p>
     </div>
     <div class="interaction">
       <AltercationButton @click.prevent="fight" class="btn" buttonText="Fight"></AltercationButton>
