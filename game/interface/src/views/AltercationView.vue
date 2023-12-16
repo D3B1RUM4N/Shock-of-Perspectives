@@ -66,18 +66,11 @@ export default {
       <p>{{ text }}</p>
     </div>
     <div class="interaction">
-<<<<<<< HEAD
-      <AltercationButton @click.prevent="fight" class="btn" buttonText="Fight" ImageAlter="/images/buttons/ButtonFight.png"></AltercationButton>
-      <AltercationButton class="btn" buttonText="Talk" ImageAlter="/images/buttons/ButtonTalk.png"></AltercationButton>
-      <AltercationButton class="btn" buttonText="Insult" ImageAlter="/images/buttons/ButtonInsult.png"></AltercationButton>
-      <AltercationButton class="btn" buttonText="Leave" ImageAlter="/images/buttons/ButtonLeave.png"></AltercationButton>
-    </div>
-=======
       <AltercationButton @click.prevent="fight" class="btn" ImageAlter="/images/buttons/ButtonFight.png"></AltercationButton>
       <AltercationButton @click.prevent="talk" class="btn" ImageAlter="/images/buttons/ButtonTalk.png"></AltercationButton>
       <AltercationButton class="btn" buttonText="Insult" ImageAlter="/images/buttons/ButtonInsult.png"></AltercationButton>
-      <AltercationButton class="btn" buttonText="Leave" ImageAlter="/images/buttons/ButtonLeave.png"></AltercationButton>    </div>
->>>>>>> 9cae1592998bf0cbacf582408cd8203cc6526ff3
+      <AltercationButton class="btn" buttonText="Leave" ImageAlter="/images/buttons/ButtonLeave.png"></AltercationButton>
+    </div>
     <div class="stats">
       <table>
         <tr>
