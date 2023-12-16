@@ -56,10 +56,6 @@ export default {
       <AltercationButton class="btn" buttonText="Talk" ImageAlter="/images/buttons/ButtonTalk.png"></AltercationButton>
       <AltercationButton class="btn" buttonText="Insult" ImageAlter="/images/buttons/ButtonInsult.png"></AltercationButton>
       <AltercationButton class="btn" buttonText="Leave" ImageAlter="/images/buttons/ButtonLeave.png"></AltercationButton>
-      <AltercationButton @click.prevent="fight" class="btn" buttonText="Fight"></AltercationButton>
-      <AltercationButton @click.prevent="talk" class="btn" buttonText="Talk"></AltercationButton>
-      <AltercationButton class="btn" buttonText="89"></AltercationButton>
-      <AltercationButton @click.prevent="arriere" class="btn" buttonText="64"></AltercationButton>
     </div>
     <div class="stats">
       <table>
@@ -148,6 +144,7 @@ export default {
   font-size: 50px;
   color: white;
 }
+
 .ennemi {
   position: absolute;
   top: 300px;
