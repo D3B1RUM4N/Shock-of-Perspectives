@@ -16,12 +16,12 @@
 </script>
 
 <template>
+  <RouterView />
   <ul class="nav" id="topMenuBtns">
     <li>
       <button @click.prevent="closeBtnClick()" id="closeBTN" class="topMenuBtns">&#128473;&#xFE0E;</button>
     </li>
   </ul>
-  <RouterView />
 </template>
 
 <style lang="scss">

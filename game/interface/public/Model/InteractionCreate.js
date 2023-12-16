@@ -9,7 +9,10 @@ npc = {
 export function newNPC() {
     //random stat
     npc.calm = Math.floor(Math.random() * 100);
+    npc.frustration = Math.floor(Math.random() * 100);
     npc.resistance = Math.floor(Math.random() * 100);
+    npc.strength = Math.floor(Math.random() * 100);
+
 
     store.commit('newNPC', npc);
     store.commit('changeNbInteractions', -1);
@@ -19,6 +22,7 @@ export function newNPC() {
 
 export function altercation(player, npc) {
     // s'occupé des origines des joueurs
-    return "vas manger du poulet"
+    store.commit('newAltercation', 'altercation');
+    newNPC();
 }
 
