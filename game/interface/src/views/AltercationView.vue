@@ -52,6 +52,12 @@ export default {
       <p>{{ text }}</p>
     </div>
     <div class="interaction">
+<<<<<<< dabeb6ea9246b6a9514eb925f007e46922acca91
+      <AltercationButton @click.prevent="fight" class="btn" buttonText="Fight" ImageAlter="/images/buttons/ButtonFight.png"></AltercationButton>
+      <AltercationButton class="btn" buttonText="Talk" ImageAlter="/images/buttons/ButtonTalk.png"></AltercationButton>
+      <AltercationButton class="btn" buttonText="Insult" ImageAlter="/images/buttons/ButtonInsult.png"></AltercationButton>
+      <AltercationButton class="btn" buttonText="Leave" ImageAlter="/images/buttons/ButtonLeave.png"></AltercationButton>
+=======
       <AltercationButton @click.prevent="fight" class="btn" buttonText="Fight"></AltercationButton>
       <AltercationButton @click.prevent="talk" class="btn" buttonText="Talk"></AltercationButton>
       <AltercationButton class="btn" buttonText="89"></AltercationButton>
@@ -85,52 +91,82 @@ export default {
           <td>{{ npc.resistance }}</td>
         </tr>
       </table>
+>>>>>>> dd0efe642e61b293690e9ed96146b891489b8613
     </div>
     <div class="perso"></div>
-    <div class="enemi"></div>
+    <div class="ennemi"></div>
   </div>
 </template>
 
 <style scoped lang="scss">
-  .ecran {
-    position: relative;
-    width: 100%;
-    margin-top: 50px;
-  }
+.ecran {
+  position: absolute;
+  width: 100%;
+  height: 720px;
+  background-image: url("../../public/images/backgrounds/NightBackgroundNightClub.png");
+  background-size: cover;
+  background-position-y: -300px;
+}
 
-    .text {
-      position: absolute;
-      border: black 1px solid;
-      inset-inline: 100px;
-      max-height: 170px;
-      overflow: hidden;
-    }
-      .text p {
-        overflow: hidden; /* Ensures the content is not revealed until the animation */
-        border-right: .15em solid orange; /* The typwriter cursor */
-        //white-space: nowrap; /* Keeps the content on a single line */
-        margin: 0 auto; /* Gives that scrolling effect as the typing happens */
-        //letter-spacing: .15em; /* Adjust as needed */
-        animation:
-            typing 3.5s steps(40, end),
-            blink-caret .75s step-end infinite;
-      }
+.text {
+  position: absolute;
+  border: black 1px solid;
+  inset-inline: 100px;
+  max-height: 170px;
+ overflow: hidden;
+}
+.text p {
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  //letter-spacing: .15em; /* Adjust as needed */
+  animation:
+    typing 1.5s steps(40, end);
+}
       /* The typing effect */
-      @keyframes typing {
-        from { width: 0 }
-        to { width: 100% }
-      }
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
 
-      /* The typewriter cursor effect */
-      @keyframes blink-caret {
-        from, to { border-color: transparent }
-        50% { border-color: orange; }
-      }
+.interaction {
+  position: absolute;
+  top:200px;
+  display: flex;
+  flex-direction: column;
+}
+.btn{
+  margin-top: 5px;
+}
 
-    .interaction {
-      position: absolute;
-      top:200px;
+.perso {
+  position: absolute;
+  top: 400px;
+  right: 750px;
+  width: 150px;
+  height: 250px;
+  background-color: red;
+  text-align: center;
+  line-height: 100px;
+  font-size: 50px;
+  color: white;
+}
 
+<<<<<<< dabeb6ea9246b6a9514eb925f007e46922acca91
+.ennemi {
+  position: absolute;
+  top: 300px;
+  right: 150px;
+  width: 150px;
+  height: 250px;
+  background-color: pink;
+  text-align: center;
+  line-height: 100px;
+  font-size: 50px;
+  color: white;
+}
+</style>
+=======
       display: flex;
       flex-direction: column;
     }
@@ -178,3 +214,4 @@ export default {
       color: white;
     }
 </style>
+>>>>>>> dd0efe642e61b293690e9ed96146b891489b8613
