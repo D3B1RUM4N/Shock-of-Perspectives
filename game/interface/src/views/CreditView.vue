@@ -18,31 +18,36 @@ export default {
       <section>
         <h4>Elies Mekhinini</h4>
         <div class="photo">
-          <img src="">
+          <img src="/images/characters/EliesFront.png">
         </div>
-        <p></p>
+        <p>● Toujours dans le Back ^^</p>
+        <p>● TheRock me demande des conseils</p>
       </section>
       <section>
         <h4>Simon Williams</h4>
         <div class="photo">
-          <img src="">
+          <img src="/images/characters/SimonFront.png">
         </div>
-        <p></p>
+        <p>● Toujours dans le Front ...</p>
+        <p>● Qu'est ce que je fou là ?</p>
       </section>
       <section>
         <h4>Eléa Menu</h4>
         <div class="photo">
-          <img src="">
+          <img src="/images/characters/EleaFront.png">
         </div>
-        <p>Maquettes</p>
-        <p>Design</p>
+        <p>● Designer 667</p>
+        <p>● Je coco toutes les recettes des maquettes</p>
+        <p>● Top 2 pipou World</p>
+        <br><br>
+        <p>Approved By Gossa</p>
       </section>
       <section>
         <h4>Loïc Maes</h4>
         <div class="photo">
-          <img src="">
+          <img src="/images/characters/LoicFront.png">
         </div>
-        <p></p>
+        <p>● Je fais l'API tkt</p>
       </section>
     </div>
     <div class="return">
@@ -106,17 +111,25 @@ h4 {
   animation: pulsateBlue 0.01s ease-in-out infinite alternate
 }
 
-p {
-  font-size: 18px;
+section p {
+  font-size: 16px;
+  margin-bottom: 4px;
 }
 
 .photo {
   width: 200px;
   height: 200px;
-  background: red;
-  opacity: 0.7;
+  background: #848484;
+  opacity: 1;
   border-radius: 20px 20px 20px 20px;
   margin-bottom: 4px;
+  box-shadow: #707070 0.1em 0.1em 0.5em;
+}
+.photo img {
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  border-radius: 20px 20px 20px 20px;
 }
 
 .btn
