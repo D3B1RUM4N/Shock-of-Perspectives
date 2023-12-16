@@ -1,4 +1,3 @@
-<<<<<<< game/interface/src/views/AltercationView.vue
 <script>
 import router from "@/router";
 import AltercationButton from "@/views/component/AltercationButton.vue";
@@ -67,11 +66,10 @@ export default {
       <p>{{ text }}</p>
     </div>
     <div class="interaction">
-      <AltercationButton @click.prevent="fight" class="btn" buttonText="Fight"></AltercationButton>
-      <AltercationButton @click.prevent="talk" class="btn" buttonText="Talk"></AltercationButton>
-      <AltercationButton class="btn" buttonText="89"></AltercationButton>
-      <AltercationButton @click.prevent="arriere" class="btn" buttonText="64"></AltercationButton>
-    </div>
+      <AltercationButton @click.prevent="fight" class="btn" ImageAlter="/images/buttons/ButtonFight.png"></AltercationButton>
+      <AltercationButton @click.prevent="talk" class="btn" ImageAlter="/images/buttons/ButtonTalk.png"></AltercationButton>
+      <AltercationButton class="btn" buttonText="Insult" ImageAlter="/images/buttons/ButtonInsult.png"></AltercationButton>
+      <AltercationButton class="btn" buttonText="Leave" ImageAlter="/images/buttons/ButtonLeave.png"></AltercationButton>    </div>
     <div class="stats">
       <table>
         <tr>
@@ -125,7 +123,7 @@ export default {
   border: black 1px solid;
   inset-inline: 100px;
   max-height: 170px;
- overflow: hidden;
+  overflow: hidden;
 }
 .text p {
   overflow: hidden; /* Ensures the content is not revealed until the animation */
@@ -133,9 +131,9 @@ export default {
   margin: 0 auto; /* Gives that scrolling effect as the typing happens */
   //letter-spacing: .15em; /* Adjust as needed */
   animation:
-    typing 1.5s steps(40, end);
+      typing 1.5s steps(40, end);
 }
-      /* The typing effect */
+/* The typing effect */
 @keyframes typing {
   from { width: 0 }
   to { width: 100% }
