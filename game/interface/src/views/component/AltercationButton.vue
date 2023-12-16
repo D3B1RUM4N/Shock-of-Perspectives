@@ -21,6 +21,8 @@ export default {
     },
   },
 };
+var r = document.querySelector(':root');
+r.style.setProperty('--path', 'url(TitleAlter)');
 </script>
 
 <template>
@@ -32,6 +34,9 @@ export default {
 </template>
 
 <style scoped lang="scss">
+:root {
+  --path: url("../../../public/images/buttons/TitleButtonFight.png");
+}
 .btn {
   background-size: cover;
   background-repeat: no-repeat;
@@ -57,7 +62,7 @@ export default {
   }
 
 .btn:hover{
-  background-image: var(TitleAlter);
+  background: var(--path) center/cover no-repeat;
   width: 235px;
   opacity: 1;
 }
