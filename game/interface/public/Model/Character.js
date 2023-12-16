@@ -2,7 +2,32 @@ let colors = ["African", "Asian", "Caucasian"];
 let sexes = ["Men", "Woman"];
 let outfits = ["Casual", "Streetwear", "Chic"];
 
+const STATS_BY_COLOR = {
+    0: { frustration: 10, calm: 10, resistance: 10, strength: 10 },
+    1: { frustration: 10, calm: 10, resistance: 10, strength: 10 },
+    2: { frustration: 10, calm: 10, resistance: 10, strength: 10 }
+};
+
+const STATS_BY_SEXE = {
+    0: { frustration: 10, calm: 10, resistance: 10, strength: 10 },
+    1: { frustration: 10, calm: 10, resistance: 10, strength: 10 }
+};
+
+const STATS_BY_OUTFIT = {
+    0: { frustration: 10, calm: 10, resistance: 10, strength: 10 },
+    1: { frustration: 10, calm: 10, resistance: 10, strength: 10 },
+    2: { frustration: 10, calm: 10, resistance: 10, strength: 10 }
+};
+
 export default class Character {
+    frustration
+    calm
+    resistance
+    strength
+    colorI
+    sexeI
+    outfitI
+
     constructor() {
         this.frustration = 0;
         this.calm = 0;
@@ -12,112 +37,63 @@ export default class Character {
         this.sexeI = 0;
         this.outfitI = 0;
     }
-}
-
-export function setStats(character) {
-    switch (character.colorI) {
-        case 0:
-            character.frustration = 10
-            character.calm = 10
-            character.resistance = 10
-            character.strength = 10
-            break;
-        case 1:
-            character.frustration = 10
-            character.calm = 10
-            character.resistance = 10
-            character.strength = 10
-            break;
-        case 2:
-            character.frustration = 10
-            character.calm = 10
-            character.resistance = 10
-            character.strength = 10
-            break;
+    setStats() {
+        this.updateStats(STATS_BY_COLOR[this.colorI]);
+        this.updateStats(STATS_BY_SEXE[this.sexeI]);
+        this.updateStats(STATS_BY_OUTFIT[this.outfitI]);
     }
-    switch (character.sexeI) {
-        case 0:
-            character.frustration += 10
-            character.calm += 10
-            character.resistance += 10
-            character.strength += 10
-            break;
-        case 1:
-            character.frustration += 10
-            character.calm += 10
-            character.resistance += 10
-            character.strength += 10
-            break;
+
+    updateStats(stats) {
+        this.frustration += stats.frustration;
+        this.calm += stats.calm;
+        this.resistance += stats.resistance;
+        this.strength += stats.strength;
     }
-    switch (character.outfitI) {
-        case 0:
-            character.frustration += 10
-            character.calm += 10
-            character.resistance += 10
-            character.strength += 10
-            break;
-        case 1:
-            character.frustration += 10
-            character.calm += 10
-            character.resistance += 10
-            character.strength += 10
-            break;
-        case 2:
-            character.frustration += 10
-            character.calm += 10
-            character.resistance += 10
-            character.strength += 10
-            break;
+
+    //getters
+    getFrustration() {
+        return this.frustration
     }
-    return character
-}
-
-export function getFrustration(character) {
-    return character.frustration
-}
-
-export function getColor(character) {
-    return colors[character.colorI]
-}
-
-export function getSexe(character) {
-    return sexes[character.sexeI]
-}
-
-export function getOutfit(character) {
-    return outfits[character.outfitI]
-}
-
-export function characterString(character) {
-    return getColor(character) + getSexe(character) + getOutfit(character)
-}
-
-export function changeSexe(character) {
-    if(character.sexeI < 1) {
-        character.sexeI++;
-    }else{
-        character.sexeI--;
+    getColor() {
+        return colors[this.colorI]
     }
-    return characterString(character)
-    //router.push('/customisation');
-}
-
-export function changeOutfit(character, direction) {
-    character.outfitI += direction;
-    switch (character.outfitI) {
-        case -1:
-            character.outfitI = 2;
-            break;
-        case 3:
-            character.outfitI = 0;
-            break;
+    getSexe() {
+        return sexes[this.sexeI]
     }
-    return characterString(character)
-    //router.push('/customisation');
-}
+    getOutfit() {
+        return outfits[this.outfitI]
+    }
+    characterString() {
+        return this.getColor() + this.getSexe() + this.getOutfit()
+    }
 
-export function changeColor(character, _color) {
-    character.colorI = _color;
-    return characterString(character)
-    //router.push('/customisation');
+    //setters
+    changeSexe() {
+        if(this.sexeI < 1) {
+            this.sexeI++;
+        }else{
+            this.sexeI--;
+        }
+        return this.characterString()
+        //router.push('/customisation');
+    }
+    changeOutfit(direction) {
+        this.outfitI += direction;
+        switch (this.outfitI) {
+            case -1:
+                this.outfitI = 2;
+                break;
+            case 3:
+                this.outfitI = 0;
+                break;
+        }
+        return this.characterString()
+        //router.push('/customisation');
+    }
+    changeColor(_color) {
+        if(_color < 0 || _color > 2)
+            return this.characterString()
+        this.colorI = _color;
+        return this.characterString()
+    }
 }

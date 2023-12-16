@@ -1,46 +1,41 @@
 <script>
-import Character, {
-  characterString,
-  changeOutfit, changeColor, changeSexe,
-  getOutfit, getSexe, getColor,
-  setStats
-} from "../../public/Model/Character.js";
+import Character from "../../public/Model/Character.js";
 import store from "@/store";
 import router from "@/router";
 
 
-let character = new Character();
-
+let controller = store.state.Controller;
+let character = controller.getCharacter();
 
 export default {
   name: "CharacterChoiceView",
   data() {
     return {
       character: character,
-      stringChar: "/images/characters/" + characterString(character) + "Front.png",
-      stringColor: getColor(character),
-      stringSexe: getSexe(character),
-      stringOutfit: getOutfit(character)
+      stringChar: "/images/characters/" + character.characterString() + "Front.png",
+      stringColor: character.getColor(),
+      stringSexe: character.getSexe(),
+      stringOutfit: character.getOutfit()
     }
   },
   methods : {
     next() {
-      character = setStats(character)
-      store.commit('setPlayerStat', character);
+      character.setStats()
+      controller.setCharacter(character)
       //console.log(store.state.player)
       router.push('/altercation')
     },
     nextSexe() {
-      this.stringChar = "/images/characters/" + changeSexe(character) + "Front.png"
-      this.stringSexe = getSexe(character)
+      this.stringChar = "/images/characters/" + character.changeSexe() + "Front.png"
+      this.stringSexe = character.getSexe()
     },
     nextOutfit(direction) {
-      this.stringChar = "/images/characters/" + changeOutfit(character, direction) + "Front.png"
-      this.stringOutfit = getOutfit(character)
+      this.stringChar = "/images/characters/" + character.changeOutfit(direction) + "Front.png"
+      this.stringOutfit = character.getOutfit()
     },
     nextColor(color) {
-      this.stringChar = "/images/characters/" + changeColor(character, color) + "Front.png"
-      this.stringColor = getColor(character)
+      this.stringChar = "/images/characters/" + character.changeColor(color) + "Front.png"
+      this.stringColor = character.getColor()
     }
   }
 }
