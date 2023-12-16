@@ -1,9 +1,8 @@
 <script>
 import Character, {
-  changeSexe,
   characterString,
-  changeOutfit,
-  changeColor,
+  changeOutfit, changeColor, changeSexe,
+  getOutfit, getSexe, getColor,
   setStats
 } from "../../public/Model/Character.js";
 import store from "@/store";
@@ -18,7 +17,10 @@ export default {
   data() {
     return {
       character: character,
-      stringChar: "/images/characters/" + characterString(character) + "Front.png"
+      stringChar: "/images/characters/" + characterString(character) + "Front.png",
+      stringColor: getColor(character),
+      stringSexe: getSexe(character),
+      stringOutfit: getOutfit(character)
     }
   },
   methods : {
@@ -29,14 +31,16 @@ export default {
       router.push('/altercation')
     },
     nextSexe() {
-      character = setStats(character)
       this.stringChar = "/images/characters/" + changeSexe(character) + "Front.png"
+      this.stringSexe = getSexe(character)
     },
     nextOutfit(direction) {
       this.stringChar = "/images/characters/" + changeOutfit(character, direction) + "Front.png"
+      this.stringOutfit = getOutfit(character)
     },
     nextColor(color) {
       this.stringChar = "/images/characters/" + changeColor(character, color) + "Front.png"
+      this.stringColor = getColor(character)
     }
   }
 }
@@ -46,11 +50,11 @@ export default {
   <div class="ecran">
     <div class="sexeChoice">
       <a href="" class="leftSexeBtn" @click.prevent="nextSexe"><img src="/images/buttons/left_semi_arrow.png" alt="left_semi_arrow"></a>
-      <p>sexe : choix</p>
+      <p>sexe : {{ stringSexe }}</p>
       <a href="" class="rightSexeBtn" @click.prevent="nextSexe"><img src="/images/buttons/right_semi_arrow.png" alt="right_semi_arrow"></a>
     </div>
     <div class="skinChoice">
-      <p>skin : choix</p>
+      <p>skin : {{ stringColor }}</p>
       <div class="whiteSkin" @click.prevent="nextColor(2)"></div>
       <div class="yellowSkin" @click.prevent="nextColor(1)"></div>
       <div class="blackSkin" @click.prevent="nextColor(0)"></div>
@@ -62,7 +66,7 @@ export default {
     </div>
     <div class="navigation">
       <a href="/" class="previous"><img src="/images/buttons/left_arrow.png"></a>
-      <p class="selectedOutfit">Outfit selectionné</p>
+      <p class="selectedOutfit">{{ stringOutfit }}</p>
       <a href="" class="next" @click.prevent="next"><img src="/images/buttons/right_arrow.png"></a>
     </div>
   </div>

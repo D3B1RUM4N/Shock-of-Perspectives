@@ -76,15 +76,15 @@ export function getFrustration(character) {
     return character.frustration
 }
 
-function getColor(character) {
+export function getColor(character) {
     return colors[character.colorI]
 }
 
-function getSexe(character) {
+export function getSexe(character) {
     return sexes[character.sexeI]
 }
 
-function getOutfit(character) {
+export function getOutfit(character) {
     return outfits[character.outfitI]
 }
 
