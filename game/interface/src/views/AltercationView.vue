@@ -1,3 +1,4 @@
+<<<<<<< game/interface/src/views/AltercationView.vue
 <script>
 import router from "@/router";
 import AltercationButton from "@/views/component/AltercationButton.vue";
@@ -110,89 +111,69 @@ export default {
 </template>
 
 <style scoped lang="scss">
-  .ecran {
-    position: relative;
-    width: 100%;
-    margin-top: 50px;
-  }
+.ecran {
+  position: absolute;
+  width: 100%;
+  height: 720px;
+  background-image: url("../../public/images/backgrounds/NightBackgroundNightClub.png");
+  background-size: cover;
+  background-position-y: -300px;
+}
 
-    .text {
-      position: absolute;
-      border: black 1px solid;
-      inset-inline: 100px;
-      max-height: 170px;
-      overflow: hidden;
-    }
-      .text p {
-        overflow: hidden; /* Ensures the content is not revealed until the animation */
-        border-right: .15em solid orange; /* The typwriter cursor */
-        //white-space: nowrap; /* Keeps the content on a single line */
-        margin: 0 auto; /* Gives that scrolling effect as the typing happens */
-        //letter-spacing: .15em; /* Adjust as needed */
-        animation:
-            typing 3.5s steps(40, end),
-            blink-caret .75s step-end infinite;
-      }
+.text {
+  position: absolute;
+  border: black 1px solid;
+  inset-inline: 100px;
+  max-height: 170px;
+ overflow: hidden;
+}
+.text p {
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  //letter-spacing: .15em; /* Adjust as needed */
+  animation:
+    typing 1.5s steps(40, end);
+}
       /* The typing effect */
-      @keyframes typing {
-        from { width: 0 }
-        to { width: 100% }
-      }
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
 
-      /* The typewriter cursor effect */
-      @keyframes blink-caret {
-        from, to { border-color: transparent }
-        50% { border-color: orange; }
-      }
+.interaction {
+  position: absolute;
+  top:200px;
+  display: flex;
+  flex-direction: column;
+}
+.btn{
+  margin-top: 5px;
+}
 
-    .interaction {
-      position: absolute;
-      top:200px;
+.perso {
+  position: absolute;
+  top: 400px;
+  right: 750px;
+  width: 150px;
+  height: 250px;
+  background-color: red;
+  text-align: center;
+  line-height: 100px;
+  font-size: 50px;
+  color: white;
+}
 
-      display: flex;
-      flex-direction: column;
-    }
-      .btn{
-        margin-top: 5px;
-      }
-
-    .stats {
-      position: absolute;
-      top: 125px;
-      right: 0;
-    }
-      table, th, td {
-        border: 1px solid black;
-        border-collapse: collapse;
-      }
-      th, td {
-        padding: 5px;
-        text-align: left;
-    }
-
-    .perso {
-      position: absolute;
-      top: 400px;
-      right: 750px;
-      width: 150px;
-      height: 250px;
-      background-color: red;
-      text-align: center;
-      line-height: 100px;
-      font-size: 50px;
-      color: white;
-    }
-
-    .enemi {
-      position: absolute;
-      top: 300px;
-      right: 150px;
-      width: 150px;
-      height: 250px;
-      background-color: pink;
-      text-align: center;
-      line-height: 100px;
-      font-size: 50px;
-      color: white;
-    }
+.ennemi {
+  position: absolute;
+  top: 300px;
+  right: 150px;
+  width: 150px;
+  height: 250px;
+  background-color: pink;
+  text-align: center;
+  line-height: 100px;
+  font-size: 50px;
+  color: white;
+}
 </style>

@@ -71,8 +71,10 @@ export default {
 .ecran {
   position: absolute;
   width: 100%;
-  height: 95.8%;
-  top : 30px;
+  height: 720px;
+  display:flex;
+  justify-content: center;
+  align-items: center;
 
   background-color: grey;
 }
@@ -84,7 +86,7 @@ export default {
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 100px;
+    height: 130px;
     top: 0;
     left: 0;
 
@@ -105,8 +107,8 @@ export default {
   .skinChoice {
     position: absolute;
     width: 300px;
-    height: 450px;
-    top: 100px;
+    height: 460px;
+    top: 130px;
     left: 0;
 
     display: flex;
@@ -163,15 +165,14 @@ export default {
     }
 
   .outfitChoice {
-    position: absolute;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
 
     width: 375px;
-    height: 450px;
-    top: 100px;
+    height: 460px;
+    top: 130px;
     right: 300px;
 
     background-color: green;
@@ -200,7 +201,7 @@ export default {
     align-items: center;
 
     width: 100%;
-    height: 140px;
+    height: 130px;
     bottom: 0;
     left: 0;
 
