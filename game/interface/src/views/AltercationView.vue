@@ -52,12 +52,10 @@ export default {
       <p>{{ text }}</p>
     </div>
     <div class="interaction">
-<<<<<<< dabeb6ea9246b6a9514eb925f007e46922acca91
       <AltercationButton @click.prevent="fight" class="btn" buttonText="Fight" ImageAlter="/images/buttons/ButtonFight.png"></AltercationButton>
       <AltercationButton class="btn" buttonText="Talk" ImageAlter="/images/buttons/ButtonTalk.png"></AltercationButton>
       <AltercationButton class="btn" buttonText="Insult" ImageAlter="/images/buttons/ButtonInsult.png"></AltercationButton>
       <AltercationButton class="btn" buttonText="Leave" ImageAlter="/images/buttons/ButtonLeave.png"></AltercationButton>
-=======
       <AltercationButton @click.prevent="fight" class="btn" buttonText="Fight"></AltercationButton>
       <AltercationButton @click.prevent="talk" class="btn" buttonText="Talk"></AltercationButton>
       <AltercationButton class="btn" buttonText="89"></AltercationButton>
@@ -91,7 +89,6 @@ export default {
           <td>{{ npc.resistance }}</td>
         </tr>
       </table>
->>>>>>> dd0efe642e61b293690e9ed96146b891489b8613
     </div>
     <div class="perso"></div>
     <div class="ennemi"></div>
@@ -151,8 +148,6 @@ export default {
   font-size: 50px;
   color: white;
 }
-
-<<<<<<< dabeb6ea9246b6a9514eb925f007e46922acca91
 .ennemi {
   position: absolute;
   top: 300px;
@@ -166,52 +161,3 @@ export default {
   color: white;
 }
 </style>
-=======
-      display: flex;
-      flex-direction: column;
-    }
-      .btn{
-        margin-top: 5px;
-      }
-
-    .stats {
-      position: absolute;
-      top: 125px;
-      right: 0;
-    }
-      table, th, td {
-        border: 1px solid black;
-        border-collapse: collapse;
-      }
-      th, td {
-        padding: 5px;
-        text-align: left;
-    }
-
-    .perso {
-      position: absolute;
-      top: 400px;
-      right: 750px;
-      width: 150px;
-      height: 250px;
-      background-color: red;
-      text-align: center;
-      line-height: 100px;
-      font-size: 50px;
-      color: white;
-    }
-
-    .enemi {
-      position: absolute;
-      top: 300px;
-      right: 150px;
-      width: 150px;
-      height: 250px;
-      background-color: pink;
-      text-align: center;
-      line-height: 100px;
-      font-size: 50px;
-      color: white;
-    }
-</style>
->>>>>>> dd0efe642e61b293690e9ed96146b891489b8613
