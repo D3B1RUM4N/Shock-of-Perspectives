@@ -1,11 +1,13 @@
 <script>
 import router from "@/router";
+import {initGame} from "../../public/Controller/GameController";
+import store from "@/store";
 
 export default {
   name: 'AcceuilView',
   methods: {
     jouer () {
-      console.log('jouer click')
+      store.commit('setController', initGame());
       router.push('/customisation')
     },
     parametre () {

@@ -1,24 +1,34 @@
 import Character from "../Model/Character";
 import store from "@/store";
 import router from "@/router";
+import AltercationController from "./AltercationController";
 
 export default class GameController{
     player
+    nbAltercation = 5
+    altercations = []
+
     constructor(){
         this.player = new Character();
-
-        // custom du character
         store.commit('setController', this);
-        router.push('/customisation').then(r => console.log(r));
-
-        store.commit('setController', this);
-        router.push('/altercation').then(r => console.log(r));
     }
 
-    getCharacter(){
-        return this.player;
+    getCharacter(){return this.player;}
+    //return last altercation
+    getAltercation(){return this.altercations[this.altercations.length - 1];}
+
+    setCharacter(character){this.player = character; store.commit('setController', this);}
+
+    newAltercation(){
+        if(this.nbAltercation > 0) {
+            this.nbAltercation--;
+
+            let altercation = new AltercationController("Vas manger du poulet");
+            this.altercations.push(altercation);
+        }
     }
-    setCharacter(character){
-        this.player = character;
-    }
+}
+
+export function initGame(){
+    return new GameController();
 }

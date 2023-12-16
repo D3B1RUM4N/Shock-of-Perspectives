@@ -3,9 +3,15 @@ import router from "@/router";
 import AltercationButton from "@/views/component/AltercationButton.vue";
 import {Enum as Enum} from "../../public/Model/Enum";
 import { interact } from "../../public/Model/InteractionReact";
-import {altercation, newNPC} from "../../public/Model/InteractionCreate";
-import Character from "../../public/Model/Character";
 import store from "@/store";
+
+
+let controller = store.state.Controller;
+if(controller == null)
+  router.push('/')
+controller.newAltercation();
+
+console.log(controller)
 
 export default {
   name: "AltercationView",
@@ -13,17 +19,26 @@ export default {
 
   computed: {
     player() {
-      return store.state.player;
+      return controller.getCharacter();
     },
     npc() {
-      return newNPC();
+      return controller.getAltercation().getNPC();
     },
     text() {
-      return this.$store.state.text;
-    }
+      return controller.getAltercation().getText();
+    },
+    stringPlayer(){
+      console.log(this.player.characterString())
+      return "/images/characters/" + this.player.characterString() + "Right.png"
+    },
+
+    stringNPC(){
+      console.log(this.npc.characterString())
+      return "/images/characters/" + this.npc.characterString() + "Left.png"
+    },
+
+
   },
-
-
   methods:{
     arriere(){
       router.push('/')
@@ -86,8 +101,12 @@ export default {
         </tr>
       </table>
     </div>
-    <div class="perso"></div>
-    <div class="enemi"></div>
+    <div class="perso">
+      <img :src="stringPlayer" :alt="stringPlayer" class="showPlayer">
+    </div>
+    <div class="enemi">
+      <img :src="stringNPC" :alt="stringNPC" class="showNPC">
+    </div>
   </div>
 </template>
 
