@@ -2,7 +2,6 @@
 import router from "@/router";
 import AltercationButton from "@/views/component/AltercationButton.vue";
 import {Enum as Enum} from "../../public/Model/Enum";
-import { interact } from "../../public/Model/InteractionReact";
 import store from "@/store";
 
 
@@ -46,11 +45,11 @@ export default {
 
     fight(){
       console.log("fight")
-      interact(this.player, this.npc, Enum.FIGHT)
+      controller.getAltercation().interact(Enum.FIGHT)
     },
     talk(){
       console.log("talk")
-      interact(this.player, this.npc, Enum.TALK)
+      controller.getAltercation().interact(Enum.TALK)
     },
     insult(){
       /*console.log("insult")

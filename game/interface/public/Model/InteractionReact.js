@@ -48,7 +48,6 @@ export async function interact(player, npc, action) {
             }
             break;
     }
-    altercation(player, npc);
     router.push('/altercation');
 }
 

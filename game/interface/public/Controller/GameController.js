@@ -1,7 +1,7 @@
 import Character from "../Model/Character";
 import store from "@/store";
 import router from "@/router";
-import AltercationController from "./AltercationController";
+import Altercation from "../Model/Altercation";
 
 export default class GameController{
     player
@@ -23,7 +23,7 @@ export default class GameController{
         if(this.nbAltercation > 0) {
             this.nbAltercation--;
 
-            let altercation = new AltercationController("Vas manger du poulet");
+            let altercation = new Altercation("Vas manger du poulet", this.player);
             this.altercations.push(altercation);
         }
     }

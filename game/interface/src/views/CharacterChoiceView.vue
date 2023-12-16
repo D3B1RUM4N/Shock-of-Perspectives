@@ -20,7 +20,7 @@ export default {
   },
   methods : {
     next() {
-      character.setStats()
+      character.initStats()
       controller.setCharacter(character)
       //console.log(store.state.player)
       router.push('/altercation')
