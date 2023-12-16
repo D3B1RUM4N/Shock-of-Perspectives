@@ -1,11 +1,17 @@
+<<<<<<< game/interface/src/views/AltercationView.vue
 <script>
 import router from "@/router";
 import AltercationButton from "@/views/component/AltercationButton.vue";
 import {Enum as Enum} from "../../public/Model/Enum";
-import { interact } from "../../public/Model/InteractionReact";
-import {altercation, newNPC} from "../../public/Model/InteractionCreate";
-import Character from "../../public/Model/Character";
 import store from "@/store";
+
+
+let controller = store.state.Controller;
+if(controller == null)
+  router.push('/')
+controller.newAltercation();
+
+console.log(controller)
 
 export default {
   name: "AltercationView",
@@ -13,17 +19,26 @@ export default {
 
   computed: {
     player() {
-      return store.state.player;
+      return controller.getCharacter();
     },
     npc() {
-      return newNPC();
+      return controller.getAltercation().getNPC();
     },
     text() {
-      return this.$store.state.text;
-    }
+      return controller.getAltercation().getText();
+    },
+    stringPlayer(){
+      console.log(this.player.characterString())
+      return "/images/characters/" + this.player.characterString() + "Right.png"
+    },
+
+    stringNPC(){
+      console.log(this.npc.characterString())
+      return "/images/characters/" + this.npc.characterString() + "Left.png"
+    },
+
+
   },
-
-
   methods:{
     arriere(){
       router.push('/')
@@ -31,11 +46,11 @@ export default {
 
     fight(){
       console.log("fight")
-      interact(this.player, this.npc, Enum.FIGHT)
+      controller.getAltercation().interact(Enum.FIGHT)
     },
     talk(){
       console.log("talk")
-      interact(this.player, this.npc, Enum.TALK)
+      controller.getAltercation().interact(Enum.TALK)
     },
     insult(){
       /*console.log("insult")
@@ -52,10 +67,10 @@ export default {
       <p>{{ text }}</p>
     </div>
     <div class="interaction">
-      <AltercationButton @click.prevent="fight" class="btn" buttonText="Fight" ImageAlter="/images/buttons/ButtonFight.png"></AltercationButton>
-      <AltercationButton class="btn" buttonText="Talk" ImageAlter="/images/buttons/ButtonTalk.png"></AltercationButton>
-      <AltercationButton class="btn" buttonText="Insult" ImageAlter="/images/buttons/ButtonInsult.png"></AltercationButton>
-      <AltercationButton class="btn" buttonText="Leave" ImageAlter="/images/buttons/ButtonLeave.png"></AltercationButton>
+      <AltercationButton @click.prevent="fight" class="btn" buttonText="Fight"></AltercationButton>
+      <AltercationButton @click.prevent="talk" class="btn" buttonText="Talk"></AltercationButton>
+      <AltercationButton class="btn" buttonText="89"></AltercationButton>
+      <AltercationButton @click.prevent="arriere" class="btn" buttonText="64"></AltercationButton>
     </div>
     <div class="stats">
       <table>
@@ -86,8 +101,12 @@ export default {
         </tr>
       </table>
     </div>
-    <div class="perso"></div>
-    <div class="ennemi"></div>
+    <div class="perso">
+      <img :src="stringPlayer" :alt="stringPlayer" class="showPlayer">
+    </div>
+    <div class="enemi">
+      <img :src="stringNPC" :alt="stringNPC" class="showNPC">
+    </div>
   </div>
 </template>
 
