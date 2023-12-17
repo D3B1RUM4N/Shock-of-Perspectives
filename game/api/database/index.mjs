@@ -1,5 +1,9 @@
 import { Sequelize } from 'sequelize'
 import registerModels from '#models/register.mjs'
+import seedCharacters from '#db/seeds/characters.seeds.mjs'
+import seedAltercations from '#db/seeds/altercations.seeds.mjs'
+import seedReactions from '#db/seeds/reactions.seeds.mjs'
+import seedStatistics from '#db/seeds/statistics.seeds.mjs'
 
 export function createORM () {
     const dialect = process.env.DB_DIALECT?.toLowerCase() || 'sqlite'
@@ -36,9 +40,21 @@ export default async function initDatabase () {
 
     try {
         await sequelize.sync({ force: process.env.NODE_ENV === 'development' })
-        // TODO: seed?
-        console.log('> Database synced!')
+
+        // SEEDS
+        await seedCharacters()
+        await seedAltercations()
+        await seedReactions()
+        await seedStatistics()
+
+        console.log('\n> Database synced!')
     } catch (e) {
         console.log(e)
     }
+}
+
+export function getModel(name) {
+    if (!sequelize) throw new Error('Database not initialized, unable to recover a model!')
+    if (!sequelize.models[name]) throw new Error(`Model '${name}' doesn't exist!`)
+    return sequelize.models[name]
 }

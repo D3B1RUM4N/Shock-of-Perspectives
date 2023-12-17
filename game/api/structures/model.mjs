@@ -5,6 +5,10 @@ export class Model {
     foreignKeys
     loadLater
 
+    static DEFAULT_OPTIONS = {
+        timestamps: false
+    }
+
     constructor (name, attributes, options, foreignKeys = [], loadLater = false) {
         this.name = name
         this.attributes = attributes

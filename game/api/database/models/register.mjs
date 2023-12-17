@@ -1,6 +1,7 @@
 import recover from '#handlers/files.handler.mjs'
 import { AsciiTable3 } from 'ascii-table3'
 import { Model } from '#structs/model.mjs'
+import {getModel} from "#db/index.mjs";
 
 export default async function registerModels (sequelize) {
     const files = recover('./database/models', true)
@@ -55,16 +56,16 @@ export function registerForeignKey (foreignKey) {
 
     switch (foreignKey.method) {
         case 0:
-            source.hasOne(target, options)
+            getModel(source).hasOne(getModel(target), options)
             break
         case 1:
-            source.hasMany(target, options)
+            getModel(source).hasMany(getModel(target), options)
             break
         case 2:
-            source.belongsTo(target, options)
+            getModel(source).belongsTo(getModel(target), options)
             break
         case 3:
-            source.belongsToMany(target, options)
+            getModel(source).belongsToMany(getModel(target), options)
             break
         default:
             throw new Error(`Invalid foreign key constraint method!`)
