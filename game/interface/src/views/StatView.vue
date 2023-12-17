@@ -28,7 +28,7 @@ export default {
             <li>Resistance : 50</li>
           </ul>
         </div>
-        <img src="Button Fight.png" id="img2" alt="Image de fin">
+        <img src="/images/buttons/ButtonFight.png" id="img2" alt="Image de fin">
       </div>
 
       <div class="section">
@@ -44,7 +44,7 @@ export default {
             <li>Resistance : 50</li>
           </ul>
         </div>
-        <img src="Button Talk.png" id="img2" alt="Image de fin">
+        <img src="/images/buttons/ButtonTalk.png" id="img2" alt="Image de fin">
       </div>
 
 
@@ -61,7 +61,7 @@ export default {
             <li>Resistance : 50</li>
           </ul>
         </div>
-        <img src="Button Insult.png" id="img2" alt="Image de fin">
+        <img src="/images/buttons/ButtonInsult.png" id="img2" alt="Image de fin">
       </div>
 
 
@@ -78,7 +78,7 @@ export default {
             <li>Resistance : 50</li>
           </ul>
         </div>
-        <img src="Button Fight.png" id="img2" alt="Image de fin" >
+        <img src="/images/buttons/ButtonFight.png" id="img2" alt="Image de fin" >
       </div>
 
       <div class="section">
@@ -94,7 +94,7 @@ export default {
             <li>Resistance : 50</li>
           </ul>
         </div>
-        <img src="Button Insult.png" id="img2" alt="Image de fin">
+        <img src="/images/buttons/ButtonInsult.png" id="img2" alt="Image de fin">
       </div>
 
 
