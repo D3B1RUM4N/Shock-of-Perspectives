@@ -2,6 +2,7 @@ import Character from "../Model/Character";
 import store from "@/store";
 import router from "@/router";
 import Altercation from "../Model/Altercation";
+import DojoAltercation from "../Model/DojoAltercation";
 
 export default class GameController{
     player
@@ -24,6 +25,10 @@ export default class GameController{
             this.nbAltercation--;
 
             let altercation = new Altercation("Vas manger du poulet", this.player);
+            this.altercations.push(altercation);
+        }else{
+            let altercation = new DojoAltercation("vous vous dirigez vers le dojo pour votre entrainement quotidient", this.player);
+            altercation.setNPC(altercation.newNPC())
             this.altercations.push(altercation);
         }
     }

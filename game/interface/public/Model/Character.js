@@ -1,22 +1,23 @@
 let colors = ["African", "Asian", "Caucasian"];
 let sexes = ["Men", "Woman"];
-let outfits = ["Casual", "Streetwear", "Chic"];
+let outfits = ["Casual", "Streetwear", "Chic", "Dojo"];
 
 const STATS_BY_COLOR = {
-    0: { frustration: 10, calm: 10, resistance: 10, strength: 10 },
-    1: { frustration: 10, calm: 10, resistance: 10, strength: 10 },
-    2: { frustration: 10, calm: 10, resistance: 10, strength: 10 }
+    0: { frustration: 10, calm: 10, resistance: 10, strength: 10 },     //african
+    1: { frustration: 10, calm: 10, resistance: 10, strength: 10 },     //asian
+    2: { frustration: 10, calm: 10, resistance: 10, strength: 10 }      //caucasian
 };
 
 const STATS_BY_SEXE = {
-    0: { frustration: 10, calm: 10, resistance: 10, strength: 10 },
-    1: { frustration: 10, calm: 10, resistance: 10, strength: 10 }
+    0: { frustration: 10, calm: 10, resistance: 10, strength: 10 },     //femme
+    1: { frustration: 10, calm: 10, resistance: 10, strength: 10 }      //homme
 };
 
 const STATS_BY_OUTFIT = {
-    0: { frustration: 10, calm: 10, resistance: 10, strength: 10 },
-    1: { frustration: 10, calm: 10, resistance: 10, strength: 10 },
-    2: { frustration: 10, calm: 10, resistance: 10, strength: 10 }
+    0: { frustration: 10, calm: 10, resistance: 10, strength: 10 },     //casual
+    1: { frustration: 10, calm: 10, resistance: 10, strength: 10 },     //streetwear
+    2: { frustration: 10, calm: 10, resistance: 10, strength: 10 },     //chic
+    3: { frustration: 10, calm: 10, resistance: 10, strength: 10 }      //dojo
 };
 
 export default class Character {
@@ -57,9 +58,6 @@ export default class Character {
     }
 
     //getters
-    getFrustration() {
-        return this.frustration
-    }
     getColor() {return colors[this.colorI]}
     getSexe() {return sexes[this.sexeI]}
     getOutfit() {return outfits[this.outfitI]}
@@ -85,6 +83,11 @@ export default class Character {
         //router.push('/customisation');
     }
     changeOutfit(direction) {
+        //dojo
+        if(direction > 1){
+            this.outfitI = 3;
+            return this.characterString()
+        }
         this.outfitI += direction;
         switch (this.outfitI) {
             case -1:

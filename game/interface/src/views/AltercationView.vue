@@ -4,13 +4,13 @@ import AltercationButton from "@/views/component/AltercationButton.vue";
 import {Enum as Enum} from "../../public/Model/Enum";
 import store from "@/store";
 
-
 let controller = store.state.Controller;
 if(controller == null)
   router.push('/')
-controller.newAltercation();
-
-console.log(controller)
+refresh()
+export function refresh() {
+  controller.newAltercation();
+}
 
 export default {
   name: "AltercationView",
@@ -43,13 +43,15 @@ export default {
       router.push('/')
     },
 
-    fight(){
+    async fight() {
       console.log("fight")
-      controller.getAltercation().interact(Enum.FIGHT)
+      await controller.getAltercation().interact(Enum.FIGHT)
+      refresh()
     },
-    talk(){
+    async talk() {
       console.log("talk")
-      controller.getAltercation().interact(Enum.TALK)
+      await controller.getAltercation().interact(Enum.TALK)
+      refresh()
     },
     insult(){
       /*console.log("insult")

@@ -12,6 +12,7 @@ export default class Altercation {
         this.player = _player
     }
 
+
     getText(){return this.text}
     getNPC(){return this.npc}
 
@@ -61,8 +62,8 @@ export default class Altercation {
                         this.setText("La personne est trop énervé pour parler");
                         await this.wait(1000);
                         this.player.setStats(player);
-                        this.npc.setStats(npc);
                         this.interact(Enum.GET_FIGHT);
+                        this.npc.setStats(npc);
                     } else {
                         this.setText("Vous avez réussi a calmé la personne, vous vous sentez un peu plus frustré");
                         await this.wait(1000);
@@ -82,7 +83,6 @@ export default class Altercation {
         this.player.setStats(player);
         this.npc.setStats(npc);
         //altercation(player, npc);
-        router.push('/altercation');
     }
 
     wait(milliseconds) {
