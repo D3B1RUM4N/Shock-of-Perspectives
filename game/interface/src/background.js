@@ -1,6 +1,6 @@
 'use strict'
 
-import { app, protocol, BrowserWindow } from 'electron'
+import { app, protocol, BrowserWindow, ipcMain } from 'electron'
 import { createProtocol } from 'vue-cli-plugin-electron-builder/lib'
 import installExtension, { VUEJS3_DEVTOOLS } from 'electron-devtools-installer'
 const isDevelopment = process.env.NODE_ENV !== 'production'
@@ -13,13 +13,14 @@ protocol.registerSchemesAsPrivileged([
 async function createWindow() {
   // Create the browser window.
   const win = new BrowserWindow({
-    width: 800,
-    height: 600,
+    width: 1024,
+    height: 720,
     webPreferences: {
       devTools: true,
       nodeIntegration: process.env.ELECTRON_NODE_INTEGRATION,
       contextIsolation: !process.env.ELECTRON_NODE_INTEGRATION
-    }
+    },
+    frame : false
   })
 
   if (process.env.WEBPACK_DEV_SERVER_URL) {
@@ -76,3 +77,9 @@ if (isDevelopment) {
     })
   }
 }
+
+// fermer l'app
+ipcMain.on('closeApp', () => {
+    app.quit()
+})
+
