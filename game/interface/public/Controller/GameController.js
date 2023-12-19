@@ -6,6 +6,7 @@ import DojoAltercation from "../Model/DojoAltercation";
 import TutoAltercation from "../Model/TutoAltercation";
 
 export default class GameController{
+    type
     player
     nbAltercation = 5
     altercations = []
@@ -13,8 +14,10 @@ export default class GameController{
     constructor(){
         this.player = new Character();
         store.commit('setController', this);
+        this.type = "game"
     }
 
+    getType(){return this.type;}
     getCharacter(){return this.player;}
     //return last altercation
     getAltercation(){return this.altercations[this.altercations.length - 1];}
@@ -35,13 +38,19 @@ export default class GameController{
     }
 
     tutoAltercation(){
-        let alercation = new TutoAltercation("Bienvenue dans le tuto. Vous rencontrerais des personnes" +
+        let altercation = new TutoAltercation("Bienvenue dans le tuto. Vous rencontrerais des personnes" +
             " dans la rues qui vont vous lancé des pics. A vous de voir comment vous allez reagire a cela. Prennez bien en " +
             "compte quel personnage vous incarnez. Vos choix impacte votre personne ce qui peut faire varié vos prochaines altercation.", this.player);
-
+        this.altercations.push(altercation);
+        this.type = "tuto";
     }
 }
 
-export function initGame(){
+export function initGame(_type){
+    if(_type === "tuto"){
+        let controller = new GameController();
+        controller.tutoAltercation();
+        return controller;
+    }
     return new GameController();
 }

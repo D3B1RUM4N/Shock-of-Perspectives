@@ -9,7 +9,7 @@ export default {
   name: 'AcceuilView',
   methods: {
     jouer () {
-      store.commit('setController', initGame());
+      store.commit('setController', initGame("")); // _type = 0 : new game
       router.push('/customisation')
     },
     parametre () {

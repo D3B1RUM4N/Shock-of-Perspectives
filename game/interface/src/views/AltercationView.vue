@@ -7,7 +7,10 @@ import store from "@/store";
 let controller = store.state.Controller;
 if(controller == null)
   router.push('/')
-refresh()
+if(controller.getType() !== "tuto") {
+  refresh()
+}
+
 export function refresh() {
   controller.newAltercation();
 }
