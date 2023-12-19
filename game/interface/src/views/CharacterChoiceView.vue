@@ -178,30 +178,30 @@ export default {
     background-color: green;
   }
     .leftOutfitBtn{
-      //position: absolute;
       width: 60px;
       height: 60px;
     }
     .rightOutfitBtn{
-      //position: absolute;
       width: 60px;
       height: 60px;
     }
     .showPlayer {
+      background-color: red;
       width: 150px;
       height: 350px;
-      background-color: brown;
+      overflow: hidden;
     }
 
   .navigation {
     position: absolute;
     display: flex;
-    flex-direction: row;
+    text-align: center;
     justify-content: center;
     align-items: center;
 
     width: 100%;
     height: 130px;
+    line-height: 55px;
     bottom: 0;
     left: 0;
 
@@ -209,20 +209,17 @@ export default {
   }
 
     .previous {
-      //position: absolute;
       width: 60px;
       height: 60px;
     }
 
-    .selectedOutfit {
-      //position: absolute;
+    .navigation p {
       width: 200px;
       height: 60px;
       font-size: 30px;
     }
 
     .next {
-      //position: absolute;
       width: 60px;
       height: 60px;
     }

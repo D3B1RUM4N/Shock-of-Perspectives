@@ -69,9 +69,10 @@ export default {
     </div>
     <div class="interaction">
       <AltercationButton @click.prevent="fight" class="btn" ImageAlter="/images/buttons/ButtonFight.png"></AltercationButton>
-      <AltercationButton @click.prevent="talk" class="btn" ImageAlter="/images/buttons/ButtonTalk.png"></AltercationButton>
-      <AltercationButton class="btn" buttonText="Insult" ImageAlter="/images/buttons/ButtonInsult.png"></AltercationButton>
-      <AltercationButton class="btn" buttonText="Leave" ImageAlter="/images/buttons/ButtonLeave.png"></AltercationButton>    </div>
+      <AltercationButton @click.prevent="talk" class="btn" ImageAlter="/images/buttons/ButtonTalk.png" TitleAlter="../../../public/images/buttons/TitleButtonTalk.png"></AltercationButton>
+      <AltercationButton class="btn" buttonText="Insult" ImageAlter="/images/buttons/ButtonInsult.png" TitleAlter="../../../public/images/buttons/TitleButtonInsult.png"></AltercationButton>
+      <AltercationButton class="btn" buttonText="Leave" ImageAlter="/images/buttons/ButtonLeave.png" TitleAlter="../../../public/images/buttons/TitleButtonLeave.png"></AltercationButton>
+    </div>
     <div class="stats">
       <table>
         <tr>
