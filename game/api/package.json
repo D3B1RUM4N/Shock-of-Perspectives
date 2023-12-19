@@ -1,48 +1,42 @@
 {
   "name": "api",
   "version": "0.1.0",
+  "type": "module",
   "description": "",
   "main": "app.js",
   "scripts": {
-    "serve": "nodemon .",
-    "start": "node ."
+    "serve:win": "set NODE_ENV=development&& nodemon .",
+    "start:win": "set NODE_ENV=production&& node .",
+    "serve": "NODE_ENV=development nodemon .",
+    "start": "NODE_ENV=production node ."
   },
-  "keywords": [
-    "Rest API",
-    "Express",
-    "Sequelize"
-  ],
+  "keywords": [],
   "author": "Loïc MAES",
-  "license": "GPL-3.0-or-later",
+  "license": "MIT",
+  "imports": {
+    "#/*": "./*",
+    "#utils/*": "./utils/*",
+    "#db/*": "./database/*",
+    "#routes/*": "./routes/*",
+    "#handlers/*": "./handlers/*",
+    "#structs/*": "./structures/*",
+    "#models/*": "./database/models/*",
+    "#controllers/*": "./controllers/*"
+  },
+  "devDependencies": {
+    "ascii-table3": "^0.9.0",
+    "mariadb": "^3.2.2",
+    "module-alias": "^2.2.3",
+    "mysql2": "^3.6.5",
+    "nodemon": "^3.0.1",
+    "sqlite3": "^5.1.6"
+  },
   "dependencies": {
     "bcrypt": "^5.1.1",
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "https": "^1.0.0",
-    "joi": "^17.11.0",
-    "module-alias": "^2.2.3",
-    "sequelize": "^6.33.0"
-  },
-  "devDependencies": {
-    "ascii-table": "^0.0.9",
-    "mariadb": "^3.2.1",
-    "morgan": "^1.10.0",
-    "mysql2": "^3.6.1",
-    "nodemon": "^3.0.1",
-    "sqlite3": "^5.1.6"
-  },
-  "_moduleAliases": {
-    "@": "./",
-    "@structs": "./structures",
-    "@handlers": "./handlers",
-    "@routes": "./routes",
-    "@middlewares": "./middlewares",
-    "@database": "./database",
-    "@models": "./database/models",
-    "@controllers": "./controllers",
-    "@validators": "./validators",
-    "@utils": "./utils",
-    "@foreignKeys": "./database/foreignKeys"
+    "sequelize": "^6.35.1"
   }
 }
