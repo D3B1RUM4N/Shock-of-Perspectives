@@ -3,6 +3,7 @@ import store from "@/store";
 import router from "@/router";
 import Altercation from "../Model/Altercation";
 import DojoAltercation from "../Model/DojoAltercation";
+import TutoAltercation from "../Model/TutoAltercation";
 
 export default class GameController{
     player
@@ -31,6 +32,13 @@ export default class GameController{
             altercation.setNPC(altercation.newNPC())
             this.altercations.push(altercation);
         }
+    }
+
+    tutoAltercation(){
+        let alercation = new TutoAltercation("Bienvenue dans le tuto. Vous rencontrerais des personnes" +
+            " dans la rues qui vont vous lancé des pics. A vous de voir comment vous allez reagire a cela. Prennez bien en " +
+            "compte quel personnage vous incarnez. Vos choix impacte votre personne ce qui peut faire varié vos prochaines altercation.", this.player);
+
     }
 }
 

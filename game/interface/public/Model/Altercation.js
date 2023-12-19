@@ -20,7 +20,7 @@ export default class Altercation {
 
     newNPC(){
         let npc = new Character()
-        for(let i = 0; i < Math.floor(Math.random()); i++){
+        for(let i = 0; i < Math.floor(Math.random() * 100)%2 ; i++){
             npc.changeSexe()
         }
         npc.changeOutfit(Math.floor(Math.random() * 3))
