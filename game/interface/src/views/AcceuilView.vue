@@ -28,43 +28,61 @@ export default {
 </script>
 
 <template>
-  <div class="titre">
-    <p>Nom du jeu</p>
-  </div>
-  <div class="panel">
-    <button class="btn" @click.prevent="jouer()">Jouer</button><br>
-    <button class="btn" @click.prevent="parametre()">Paramètre</button><br>
-    <button class="btn" @click.prevent="quitter()">Quitter</button><br>
-    <button class="btn" @click.prevent="credit()">Crédits</button><br>
+  <div class="ecran">
+    <div class="titre">
+      <p>Nom du jeu</p>
+    </div>
+    <div class="panel">
+      <button class="btn" @click.prevent="jouer()">Jouer</button>
+      <button class="btn" @click.prevent="parametre()">Tutoriel</button>
+      <button class="btn" @click.prevent="credit()">Crédits</button>
+      <button class="btn" @click.prevent="quitter()">Quitter</button>
+
+    </div>
   </div>
 </template>
 
 <style scoped lang="scss">
+
+.ecran {
+  background-image: url("../../public/images/backgrounds/AccueilBackgroundBlur2.png");
+  position: absolute;
+  width: 100%;
+  height: 720px;
+  background-size: cover;
+
+
+}
+
+
 .titre {
   color: #000000;
-  font-size: 50px;
+  font-size: 64px;
+  font-family: 'Press Start 2P', serif;
   text-align: center;
-  margin-top: 10px;
+  margin-top: 270px;
   margin-bottom: 0px;
   animation: translateFromTop 1.5s, fadein100 1.5s;
 }
 .panel {
   position: absolute;
-  height: 300px;
-  width: 200px;
-  top: 50%;
-  left: 50%;
+  height: 80px;
+  width: 710px;
+  top: 60%;
+  left: 52%;
   transform: translate(-50%,-50%);
-  padding-top: 20px;
+  padding-top: 0px;
 
-  box-shadow: 0 0 10px black;
+
+ // box-shadow: 0 0 10px black;
+
 
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
 
-  background-color: #000000;
-  opacity: 0.5; /* Vous devez spécifier la valeur de l'opacité entre 0 et 1 */
+ // background-color: purple;
+  opacity: 1; /* Vous devez spécifier la valeur de l'opacité entre 0 et 1 */
   color: #ffffff;
   border-radius: 10px; /* Ajoutez cette ligne pour arrondir les bords */
 
@@ -74,22 +92,44 @@ export default {
 
 
 .btn {
-  background-color: green;
-  color: #ffffff;
-  padding:10px;
-  margin-left: 20%;
-  margin-right: 20%;
+  background-color: lightskyblue;
+  color: #000000;
+  padding:0px;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  margin-right:40px;
+  margin-left:40px;
+  font-weight: bold;
+  border: solid black;
+  //font-size:12px;
+
+  width:150px;
   border-radius: 10px; /* Ajoutez cette ligne pour arrondir les bords */
+  opacity: 1;
   animation: translateFromTop 1.5s;
 }
+
 .btn:hover {
-  background-color: #195f19;
-  padding:10px;
-  margin-left: 20%;
-  margin-right: 20%;
+  background-color: lightskyblue;
+  color: #000000;
+  padding:0px;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  margin-right:40px;
+  margin-left:40px;
+  font-weight: bold;
+  border: solid black;
+  box-shadow: 0px 5px 5x midnightblue;
+
+  //font-size:12px;
+
+  width:150px;
   border-radius: 10px; /* Ajoutez cette ligne pour arrondir les bords */
-  scale: 125%;
+  opacity: 1;
+
 }
+
+
 @keyframes fadein50 {
   0% {
     opacity: 0;
@@ -115,4 +155,5 @@ export default {
     transform: translateY(0%);
   }
 }
+
 </style>
