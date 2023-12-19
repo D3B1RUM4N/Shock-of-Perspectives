@@ -32,18 +32,17 @@ export default {
         <p>● Qu'est ce que je fou là ?</p>
       </section>
       <section>
-        <h4>Eléa Menu</h4>
+        <h4>Eléa <br>Menu</h4>
         <div class="photo">
           <img src="/images/characters/EleaFront.png">
         </div>
         <p>● Designer 667</p>
         <p>● Je coco toutes les recettes des maquettes</p>
-        <p>● Top 2 pipou World</p>
-        <br><br>
-        <p>Approved By Gossa</p>
+        <p>● Approved By Gossa</p>
+
       </section>
       <section>
-        <h4>Loïc Maes</h4>
+        <h4>Loïc <br>Maes</h4>
         <div class="photo">
           <img src="/images/characters/LoicFront.png">
         </div>
@@ -60,7 +59,9 @@ export default {
 .page{
   height: 720px;
   width: 100%;
-  top: 30px;
+  position: absolute;
+
+  font-family: 'Press Start 2P', Serif;
 
   display: flex;
   flex-direction: column;
@@ -82,7 +83,7 @@ export default {
   justify-content : space-around;
   text-align: center;
   align-items: baseline;
-  margin-top: 25px;
+  margin-top: 50px;
 }
 
 section{
@@ -93,27 +94,35 @@ section{
   border-radius: 10px;
   box-shadow: blueviolet 0.1em 0.1em 0.5em;
 
-  text-align : center;
+  text-align : start ;
   //align-items: baseline;
   margin-bottom: 80px;
+  display:flex;
+  flex-direction: column;
+
 }
 
 h1 {
   font-size: 50px;
   color: #fff;
   animation: pulsateLightBlue 0.11s ease-in-out infinite alternate;
+  margin-top: 50px;
 }
 h4 {
   margin-top: 6px;
   margin-bottom: 4px;
-  font-size: 26px;
+  font-size: 22px;
   color: #efefef;
-  animation: pulsateBlue 0.01s ease-in-out infinite alternate
+  animation: pulsateBlue 0.01s ease-in-out infinite alternate;
+  text-align:center;
 }
 
 section p {
-  font-size: 16px;
+  font-size: 11px;
   margin-bottom: 4px;
+  margin-left:15px;
+  margin-right:15px;
+
 }
 
 .photo {
