@@ -72,7 +72,7 @@ export default {
           <img :src="getStringChar(altercations[1])" alt="Image 1">
         </div>
         <div class="content">
-          <h3>Altercation 2</h3>
+          <h3>Altercation 4</h3>
           <ul>
             <li>Calm : {{ getStats(altercations[1]).calm }}</li>
             <li>Frustation : {{ getStats(altercations[1]).frustration }}</li>
@@ -89,7 +89,7 @@ export default {
           <img :src="getStringChar(altercations[2])" alt="Image 1">
         </div>
         <div class="content">
-          <h3>Altercation 3</h3>
+          <h3>Altercation 5</h3>
           <ul>
             <li>Calm : {{ getStats(altercations[2]).calm }}</li>
             <li>Frustation : {{ getStats(altercations[2]).frustration }}</li>
@@ -106,7 +106,7 @@ export default {
           <img :src="getStringChar(altercations[3])" alt="Image 1">
         </div>
         <div class="content">
-          <h3>Altercation 4</h3>
+          <h3>Altercation 6</h3>
           <ul>
             <li>Calm : {{ getStats(altercations[3]).calm }}</li>
             <li>Frustation : {{ getStats(altercations[3]).frustration }}</li>
@@ -122,7 +122,7 @@ export default {
           <img :src="getStringChar(altercations[4])" alt="Image 1">
         </div>
         <div class="content">
-          <h3>Altercation 5</h3>
+          <h3>Altercation 7</h3>
           <ul>
             <li>Calm : {{ getStats(altercations[4]).calm }}</li>
             <li>Frustation : {{ getStats(altercations[4]).frustration }}</li>
@@ -175,7 +175,7 @@ export default {
 
 <style scoped lang="scss">
 
-body {
+.ecran {
   font-family: Arial, sans-serif;
   background-color: #BBD3F0;
   margin: 0;
@@ -188,9 +188,10 @@ body {
 .container {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  width: 800px; /* Largeur du conteneur */
-  padding-left: 20px; /* Ajout d'un espace à gauche pour la barre de défilement */
+  width: 950px; /* Largeur du conteneur */
+
 }
 
 .section {
@@ -221,7 +222,7 @@ body {
 }
 
 .content :nth-child(2) {
-  width : 400px;
+  width : 500px;
 }
 
 .content img {
@@ -234,12 +235,24 @@ body {
 #img2 {
   width:100px;
   height:100px;
-  padding-top:50px;
+  object-fit: cover;
+  margin-top: 50px;
 }
 
+h1{
+  font-family: "Press Start 2P", Serif;
+  font-size:30px;
+  margin-top:30px;
+  margin-bottom:30px;
+}
+
+
 h3 {
+  font-family: "Press Start 2P", Serif;
   text-align: center;
   margin: 0;
+  margin-bottom: 20px;
+
 }
 
 .back-to-top {
