@@ -33,35 +33,33 @@ export default {
 </template>
 
 <style scoped lang="scss">
-:root {
-  --path: url("../../../public/images/buttons/TitleButtonFight.png");
-}
 .btn {
   background-size: cover;
   background-repeat: no-repeat;
   color: #000000;
 
   //padding:10px;
-  width: 70px;
-  height: 70px;
+  width: 277px;
+  height: 82px;
 
   transition: width 0.3s;
 }
 .ImageComplète {
-  width: 62px;
-  margin-left: 4px;
+  height: 68px;
+  width: 277px;
+  margin-top: -62px;
   opacity: 0;
+}
+.ImageComplète:hover {
+  animation: translateFromLeft 0.3s, fadein 0.3s;
+  opacity: 1;
 }
 
 .ImageAltercation {
+  height: 62px;
   width: 62px;
   margin-left: 4px;
   opacity: 1;
-}
-.ImageAltercation:hover {
-  .ImageComplète {
-    animation: fadein 0.5s;
-  }
 }
 
 .text {
@@ -72,6 +70,14 @@ export default {
   transform: translateX(0px); /* Décalez de 0px vers la droite par défaut */
 }
 
+@keyframes translateFromLeft {
+  from {
+    transform: translateX(-100px);
+  }
+  to {
+    transform: translateX(0px);
+  }
+}
 
 @keyframes fadein {
   from {
