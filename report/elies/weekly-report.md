@@ -67,9 +67,13 @@ Fin de la gestion des altercation pour la semaine pro + interface customisation 
 
 # Rapport semaine 8 : Customisation perso
 
-11/12 - 15/12
+11/12 - 17/12
 
 Le squelette de la custom personnage est fait,
 Simon travaille sur du CSS,
 Les interraction avance bien, talk est pris en compte et une nouvelle altercation est lancée
-
+Je me suis rendu compte que je ne respectais pas la Programmation Orienté Object j'ai donc repris tout mes script
+Je me suis aussi rendu compte que je ne respectais pas la methode MVC, j'ai donc encore repris mon code
+j'ai pu aussi avancé sur l'affichage des images de maniere interractive. 
+Je suis content j'ai l'impression qu'on avance tres bien d'un coup
+Loic nous promet depui 3 semaine qu'il travail sur un back mais J-6 avant rendu toujours rien. j'endosserais sa partie...
