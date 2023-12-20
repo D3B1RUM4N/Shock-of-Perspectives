@@ -42,26 +42,24 @@ export default {
   color: #000000;
 
   //padding:10px;
-  width: 70px;
-  height: 70px;
+  width: 277px;
+  height: 82px;
 
   transition: width 0.3s;
 }
 .ImageComplète {
-  width: 62px;
-  margin-left: 4px;
+  height: 62px;
+  margin-top: -62px;
   opacity: 0;
+}
+.ImageComplète:hover {
+  opacity: 1;
 }
 
 .ImageAltercation {
   width: 62px;
   margin-left: 4px;
   opacity: 1;
-}
-.ImageAltercation:hover {
-  .ImageComplète {
-    animation: fadein 0.5s;
-  }
 }
 
 .text {
