@@ -12,9 +12,9 @@ export default {
 </script>
 
 <template>
-  <div class="page">
+  <div class="ecran">
     <h1>Crédits</h1>
-    <div class="credit">
+    <div class="panel">
       <section>
         <h4>Elies Mekhinini</h4>
         <div class="photo">
@@ -56,13 +56,15 @@ export default {
 </template>
 
 <style scoped lang="scss">
-.page{
+/* SCREEN */
+.ecran{
   height: 720px;
   width: 100%;
   position: absolute;
 
   font-family: 'Press Start 2P', Serif;
 
+  /* Flexbox */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -72,20 +74,20 @@ export default {
   filter: brightness(1);
 }
 
-.credit {
+/* PANEL */
+.panel {
   width: 900px;
+  margin-top: 50px;
 
-  //  background: grey;
-  //  opacity: 0.3;
-  // border-radius: 10px;
-
+  /* Flexbox */
   display: flex;
   justify-content : space-around;
   text-align: center;
   align-items: baseline;
-  margin-top: 50px;
+
 }
 
+/* SECTION */
 section{
   width : 200px;
   height : 400px;
@@ -102,12 +104,15 @@ section{
 
 }
 
+/* MAIN TITLE */
 h1 {
   font-size: 50px;
   color: #fff;
   animation: pulsateLightBlue 0.11s ease-in-out infinite alternate;
   margin-top: 50px;
 }
+
+/* CHARACTERS NAMES */
 h4 {
   margin-top: 6px;
   margin-bottom: 4px;
@@ -117,6 +122,7 @@ h4 {
   text-align:center;
 }
 
+/* PARAGRAPHS */
 section p {
   font-size: 11px;
   margin-bottom: 4px;
@@ -125,6 +131,7 @@ section p {
 
 }
 
+/* PICTURES : box */
 .photo {
   width: 200px;
   height: 200px;
@@ -134,6 +141,8 @@ section p {
   margin-bottom: 4px;
   box-shadow: #707070 0.1em 0.1em 0.5em;
 }
+
+/* PICTURES : box and size */
 .photo img {
   width: 100%;
   height: 100%;
@@ -141,16 +150,14 @@ section p {
   border-radius: 20px 20px 20px 20px;
 }
 
-.btn
-{
+/* BUTTON */
+.btn {
   font-size: 40px;
   color: #fff;
   animation: pulsateLightBlue 0.11s ease-in-out infinite alternate;
 }
 
-
-
-
+/* KEYFRAMES */
 @keyframes pulsateBlue {
   100% {
     /* Larger blur radius */
