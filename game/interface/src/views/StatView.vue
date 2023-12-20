@@ -20,7 +20,7 @@ export default {
       return router
     },
     getStringChar(altercation) {
-      return "/images/characters/" + altercation.getNPC().characterString() + "Front.png"
+      return "/images/characters/" + altercation.getNPC().characterString() + "Face.png"
     },
     getStats(altercation) {
       return altercation.getNPC().getStats()

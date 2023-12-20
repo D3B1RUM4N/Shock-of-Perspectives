@@ -4,6 +4,7 @@ import router from "@/router";
 export default {
   name: 'CreditView',
   methods: {
+    // retourne au menu
     arriere () {
       router.push('/')
     }
@@ -18,7 +19,7 @@ export default {
       <section>
         <h4>Elies Mekhinini</h4>
         <div class="photo">
-          <img src="/images/characters/EliesFront.png">
+          <img src="/images/characters/EliesFace.png">
         </div>
         <p>● Toujours dans le Back ^^</p>
         <p>● TheRock me demande des conseils</p>
@@ -26,7 +27,7 @@ export default {
       <section>
         <h4>Simon Williams</h4>
         <div class="photo">
-          <img src="/images/characters/SimonFront.png">
+          <img src="/images/characters/SimonFace.png">
         </div>
         <p>● Toujours dans le Front ...</p>
         <p>● Qu'est ce que je fou là ?</p>
@@ -34,7 +35,7 @@ export default {
       <section>
         <h4>Eléa <br>Menu</h4>
         <div class="photo">
-          <img src="/images/characters/EleaFront.png">
+          <img src="/images/characters/EleaFace.png">
         </div>
         <p>● Designer 667</p>
         <p>● Je coco toutes les recettes des maquettes</p>
@@ -44,7 +45,7 @@ export default {
       <section>
         <h4>Loïc <br>Maes</h4>
         <div class="photo">
-          <img src="/images/characters/LoicFront.png">
+          <img src="/images/characters/LoicFace.png">
         </div>
         <p>● Je fais l'API tkt</p>
       </section>
