@@ -3,38 +3,43 @@ import Character from "../../public/Model/Character.js";
 import store from "@/store";
 import router from "@/router";
 
-
+// on recupere le controller et le character
 let controller = store.state.Controller;
 let character = controller.getCharacter();
 
 export default {
   name: "CharacterChoiceView",
   data() {
+    // les infos pour de l'affichage dynamique
     return {
       character: character,
-      stringChar: "/images/characters/" + character.characterString() + "Front.png",
+      stringChar: "/images/characters/" + character.characterString() + "Face.png",    // characterString() return le string pour l'image du character
       stringColor: character.getColor(),
       stringSexe: character.getSexe(),
       stringOutfit: character.getOutfit()
     }
   },
   methods : {
+    // passage a la prochaine page
     next() {
       character.initStats()
       controller.setCharacter(character)
       //console.log(store.state.player)
       router.push('/altercation')
     },
+    // changement de sexe
     nextSexe() {
-      this.stringChar = "/images/characters/" + character.changeSexe() + "Front.png"
+      this.stringChar = "/images/characters/" + character.changeSexe() + "Face.png"
       this.stringSexe = character.getSexe()
     },
+    // deplacer l'outfit
     nextOutfit(direction) {
-      this.stringChar = "/images/characters/" + character.changeOutfit(direction) + "Front.png"
+      this.stringChar = "/images/characters/" + character.changeOutfit(direction) + "Face.png"
       this.stringOutfit = character.getOutfit()
     },
+    // changer la couleur de peau
     nextColor(color) {
-      this.stringChar = "/images/characters/" + character.changeColor(color) + "Front.png"
+      this.stringChar = "/images/characters/" + character.changeColor(color) + "Face.png"
       this.stringColor = character.getColor()
     }
   }
