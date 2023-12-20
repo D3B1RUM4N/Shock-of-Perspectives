@@ -20,11 +20,11 @@ export default class Altercation {
 
     newNPC(){
         let npc = new Character()
-        for(let i = 0; i < Math.floor(Math.random() * 100)%2 ; i++){
+        if(Math.floor(Math.random() * 100)%2 === 0){
             npc.changeSexe()
         }
-        npc.changeOutfit(Math.floor(Math.random() * 3))
-        npc.changeColor(Math.floor(Math.random() * 3))
+        npc.changeOutfit(Math.floor(Math.random() * 2))
+        npc.changeColor(Math.floor(Math.random() * 2))
         npc.initStats()
         return npc
     }
@@ -39,7 +39,7 @@ export default class Altercation {
                 if (npc.resistance < player.strength) {
                     this.setText("Vous avez gagné le combat, vous vous calmez");
                     await this.wait(1000);
-                    this.player.updateStats()
+                    //this.player.updateStats()
                     player.calm += 10;
                     player.frustration -= 10;
                 } else {
@@ -48,27 +48,23 @@ export default class Altercation {
                 }
                 break;
             case Enum.TALK:
-                // Ajoutez des actions pour Enum.TALK si nécessaire
                 this.setText("Vous essayez de raisonné la personne");
                 await this.wait(1000);
                 if (player.calm < 20 || player.frustration > 80) {
                     this.setText("Vous etes trop énervé pour parler");
                     await this.wait(1000);
-                    this.player.setStats(player);
-                    this.npc.setStats(npc);
                     this.interact(Enum.FIGHT);
                 } else {
                     if (npc.frustration > 80) {
                         this.setText("La personne est trop énervé pour parler");
                         await this.wait(1000);
-                        this.player.setStats(player);
                         this.interact(Enum.GET_FIGHT);
-                        this.npc.setStats(npc);
                     } else {
                         this.setText("Vous avez réussi a calmé la personne, vous vous sentez un peu plus frustré");
                         await this.wait(1000);
                         player.calm += 10;
                         player.frustration += 10;
+                        this.player.setStats(player);
                     }
                 }
                 break;

@@ -1,60 +1,84 @@
+import Statistic from "./Statistic";
+
 let colors = ["African", "Asian", "Caucasian"];
 let sexes = ["Men", "Woman"];
 let outfits = ["Casual", "Streetwear", "Chic", "Dojo"];
 
 const STATS_BY_COLOR = {
-    0: { frustration: 10, calm: 10, resistance: 10, strength: 10 },     //african
-    1: { frustration: 10, calm: 10, resistance: 10, strength: 10 },     //asian
-    2: { frustration: 10, calm: 10, resistance: 10, strength: 10 }      //caucasian
+    0: { frustration: 15, calm: 10, resistance: 5, strength: 10 },     // African
+    1: { frustration: 10, calm: 15, resistance: 10, strength: 15 },     // Asian
+    2: { frustration: 12, calm: 12, resistance: 12, strength: 12 }      // Caucasian
 };
 
 const STATS_BY_SEXE = {
-    0: { frustration: 10, calm: 10, resistance: 10, strength: 10 },     //femme
-    1: { frustration: 10, calm: 10, resistance: 10, strength: 10 }      //homme
+    0: { frustration: 12, calm: 15, resistance: 18, strength: 15 },     // Femme
+    1: { frustration: 15, calm: 12, resistance: 15, strength: 18 }      // Homme
 };
 
 const STATS_BY_OUTFIT = {
-    0: { frustration: 10, calm: 10, resistance: 10, strength: 10 },     //casual
-    1: { frustration: 10, calm: 10, resistance: 10, strength: 10 },     //streetwear
-    2: { frustration: 10, calm: 10, resistance: 10, strength: 10 },     //chic
-    3: { frustration: 10, calm: 10, resistance: 10, strength: 10 }      //dojo
+    0: { frustration: 15, calm: 18, resistance: 10, strength: 12 },     // Casual
+    1: { frustration: 18, calm: 12, resistance: 15, strength: 15 },     // Streetwear
+    2: { frustration: 10, calm: 15, resistance: 12, strength: 18 },     // Chic
+    3: { frustration: 5, calm: 10, resistance: 10, strength: 10 }      // Dojo
 };
 
+
 export default class Character {
-    frustration
-    calm
-    resistance
-    strength
+    statistics
     colorI
     sexeI
     outfitI
 
     constructor() {
-        this.frustration = 0;
-        this.calm = 0;
-        this.resistance = 0;
-        this.strength = 0;
         this.colorI = 0;
         this.sexeI = 0;
         this.outfitI = 0;
+        this.statistics = new Statistic();
     }
     initStats() {
-        this.updateStats(STATS_BY_COLOR[this.colorI]);
-        this.updateStats(STATS_BY_SEXE[this.sexeI]);
-        this.updateStats(STATS_BY_OUTFIT[this.outfitI]);
+        this.randomize(STATS_BY_COLOR[this.colorI], 10)
+        this.randomize(STATS_BY_SEXE[this.sexeI], 10)
+        this.randomize(STATS_BY_OUTFIT[this.outfitI], 10)
+    }
+
+    randomize(stats, range) {
+        if(Math.floor(Math.random() * 100)%2 === 0) {
+            this.statistics.updateFrustration(stats.frustration + Math.floor(Math.random()*range));
+        }else{
+            this.statistics.updateFrustration(stats.frustration - Math.floor(Math.random()*range));
+        }
+        if(Math.floor(Math.random() * 100)%2 === 0) {
+            this.statistics.updateCalm(stats.calm + Math.floor(Math.random()*range));
+        }else{
+            this.statistics.updateCalm(stats.calm - Math.floor(Math.random()*range));
+        }
+        if(Math.floor(Math.random() * 100)%2 === 0) {
+            this.statistics.updateResistance(stats.resistance + Math.floor(Math.random()*range));
+        }else{
+            this.statistics.updateResistance(stats.resistance - Math.floor(Math.random()*range));
+        }
+        if(Math.floor(Math.random() * 100)%2 === 0) {
+            this.statistics.updateStrength(stats.strength + Math.floor(Math.random()*range));
+        }else{
+            this.statistics.updateStrength(stats.strength - Math.floor(Math.random()*range));
+        }
     }
 
     updateStats(stats) {
-        this.frustration += stats.frustration;
-        this.calm += stats.calm;
-        this.resistance += stats.resistance;
-        this.strength += stats.strength;
+        this.statistics.updateStats({
+            frustration: stats.frustration,
+            calm: stats.calm,
+            resistance: stats.resistance,
+            strength: stats.strength
+        })
     }
     setStats(stats) {
-        this.frustration = stats.frustration;
-        this.calm = stats.calm;
-        this.resistance = stats.resistance;
-        this.strength = stats.strength;
+        this.statistics.setStats({
+            frustration: stats.frustration,
+            calm: stats.calm,
+            resistance: stats.resistance,
+            strength: stats.strength
+        })
     }
 
     //getters
@@ -63,14 +87,7 @@ export default class Character {
     getOutfit() {return outfits[this.outfitI]}
     characterString() {return this.getColor() + this.getSexe() + this.getOutfit()}
 
-    getStats() {
-        return {
-            frustration: this.frustration,
-            calm: this.calm,
-            resistance: this.resistance,
-            strength: this.strength
-        }
-    }
+    getStats() {return this.statistics}
 
     //setters
     changeSexe() {

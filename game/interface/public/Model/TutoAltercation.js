@@ -15,18 +15,7 @@ export default class TutoAltercation extends Altercation {
         super(_text, _player);
     }
 
-    newNPC(){
-        let npc = new Character()
-        for(let i = 0; i <  Math.floor(Math.random() * 100)%2; i++){
-            npc.changeSexe()
-        }
-        npc.changeOutfit(Math.floor(Math.random() * 3))
-        npc.changeColor(Math.floor(Math.random() * 3))
-        npc.initStats()
-        return npc
-    }
-
-    setNPC(_npc){
-        this.npc = _npc
+    setPlayer(_player){
+        this.player = _player
     }
 }

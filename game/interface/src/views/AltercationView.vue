@@ -85,23 +85,23 @@ export default {
         </tr>
         <tr>
           <td>calm</td>
-          <td>{{ player.calm }}</td>
-          <td>{{ npc.calm }}</td>
+          <td>{{ player.statistics.calm }}</td>
+          <td>{{ npc.statistics.calm }}</td>
         </tr>
         <tr>
           <td>frustration</td>
-          <td>{{ player.frustration }}</td>
-          <td>{{ npc.frustration }}</td>
+          <td>{{ player.statistics.frustration }}</td>
+          <td>{{ npc.statistics.frustration }}</td>
         </tr>
         <tr>
           <td>Strength</td>
-          <td>{{ player.strength }}</td>
-          <td>{{ npc.strength }}</td>
+          <td>{{ player.statistics.strength }}</td>
+          <td>{{ npc.statistics.strength }}</td>
         </tr>
         <tr>
           <td>Resistance</td>
-          <td>{{ player.resistance }}</td>
-          <td>{{ npc.resistance }}</td>
+          <td>{{ player.statistics.resistance }}</td>
+          <td>{{ npc.statistics.resistance }}</td>
         </tr>
       </table>
     </div>
@@ -133,7 +133,7 @@ export default {
 }
 .text p {
   overflow: hidden; /* Ensures the content is not revealed until the animation */
-  white-space: nowrap; /* Keeps the content on a single line */
+  //white-space: nowrap; /* Keeps the content on a single line */
   margin: 0 auto; /* Gives that scrolling effect as the typing happens */
   //letter-spacing: .15em; /* Adjust as needed */
   animation:

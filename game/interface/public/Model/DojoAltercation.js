@@ -8,7 +8,7 @@ export default class DojoAltercation extends Altercation {
 
     newNPC(){
         let npc = new Character()
-        for(let i = 0; i < Math.floor(Math.random()); i++){
+        if(Math.floor(Math.random() * 100)%2 === 0){
             npc.changeSexe()
         }
         npc.changeOutfit(3)
