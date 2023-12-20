@@ -69,40 +69,6 @@ export default {
 
       <div class="section">
         <div class="content">
-          <img :src="getStringChar(altercations[0])" alt="Image 1">
-        </div>
-        <div class="content">
-          <h3>Altercation 2</h3>
-          <ul>
-            <li>Calm : {{ getStats(altercations[0]).calm }}</li>
-            <li>Frustation : {{ getStats(altercations[0]).frustration }}</li>
-            <li>Strength : {{ getStats(altercations[0]).strength }}</li>
-            <li>Resistance : {{ getStats(altercations[0]).resistance }}</li>
-          </ul>
-        </div>
-        <img :src=" getImgInterraction(interaction(altercations[0]))" id="img2" alt="Image de fin">
-      </div>
-
-
-      <div class="section">
-        <div class="content">
-          <img :src="getStringChar(altercations[0])" alt="Image 1">
-        </div>
-        <div class="content">
-          <h3>Altercation 3</h3>
-          <ul>
-            <li>Calm : {{ getStats(altercations[0]).calm }}</li>
-            <li>Frustation : {{ getStats(altercations[0]).frustration }}</li>
-            <li>Strength : {{ getStats(altercations[0]).strength }}</li>
-            <li>Resistance : {{ getStats(altercations[0]).resistance }}</li>
-          </ul>
-        </div>
-        <img :src=" getImgInterraction(interaction(altercations[0]))" id="img2" alt="Image de fin">
-      </div>
-
-
-      <div class="section">
-        <div class="content">
           <img :src="getStringChar(altercations[1])" alt="Image 1">
         </div>
         <div class="content">
@@ -116,6 +82,7 @@ export default {
         </div>
         <img :src=" getImgInterraction(interaction(altercations[1]))" id="img2" alt="Image de fin">
       </div>
+
 
       <div class="section">
         <div class="content">
@@ -132,6 +99,7 @@ export default {
         </div>
         <img :src=" getImgInterraction(interaction(altercations[2]))" id="img2" alt="Image de fin">
       </div>
+
 
       <div class="section">
         <div class="content">
@@ -183,25 +151,24 @@ export default {
 
       <div class="section">
         <div class="content">
-          <img :src="getStringChar(altercations[0])" alt="Image 1">
+          <img :src="getStringChar(altercations[6])" alt="Image 1">
         </div>
         <div class="content">
           <h3>Dojo 2</h3>
           <ul>
-            <li>Calm : {{ getStats(altercations[0]).calm }}</li>
-            <li>Frustation : {{ getStats(altercations[0]).frustration }}</li>
-            <li>Strength : {{ getStats(altercations[0]).strength }}</li>
-            <li>Resistance : {{ getStats(altercations[0]).resistance }}</li>
+            <li>Calm : {{ getStats(altercations[6]).calm }}</li>
+            <li>Frustation : {{ getStats(altercations[6]).frustration }}</li>
+            <li>Strength : {{ getStats(altercations[6]).strength }}</li>
+            <li>Resistance : {{ getStats(altercations[6]).resistance }}</li>
           </ul>
         </div>
-        <img :src=" getImgInterraction(interaction(altercations[0]))" id="img2" alt="Image de fin">
+        <img :src=" getImgInterraction(interaction(altercations[6]))" id="img2" alt="Image de fin">
       </div>
 
 
       <div class="back-to-top">
         <a href="{{ router().push('/') }}" >Retour à l'accueil</a>
       </div>
-
     </div>
   </div>
 </template>
