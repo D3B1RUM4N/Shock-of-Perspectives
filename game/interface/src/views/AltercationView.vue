@@ -48,12 +48,16 @@ export default {
 
     async fight() {
       console.log("fight")
-      await controller.getAltercation().interact(Enum.FIGHT)
+      if(await controller.getAltercation().interact(Enum.FIGHT) === "end"){
+        await router.push('/')
+      }
       refresh()
     },
     async talk() {
       console.log("talk")
-      await controller.getAltercation().interact(Enum.TALK)
+      if(await controller.getAltercation().interact(Enum.TALK) === "end"){
+        await router.push('/')
+      }
       refresh()
     },
     insult(){

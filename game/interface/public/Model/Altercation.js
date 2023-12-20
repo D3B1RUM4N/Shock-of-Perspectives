@@ -17,6 +17,7 @@ export default class Altercation {
     getNPC(){return this.npc}
 
     setText(_text){this.text = _text}
+    setPlayer(_player){this.player = _player}
 
     newNPC(){
         let npc = new Character()
@@ -28,6 +29,7 @@ export default class Altercation {
         npc.initStats()
         return npc
     }
+
 
     async interact(action) {
         let player = this.player.getStats()

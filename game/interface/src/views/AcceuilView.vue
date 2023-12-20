@@ -1,6 +1,6 @@
 <script>
 import router from "@/router";
-import {initGame} from "../../public/Controller/GameController";
+import GameController, {initGame} from "../../public/Controller/GameController";
 import store from "@/store";
 import {closeApp} from "@/app";
 
@@ -12,9 +12,10 @@ export default {
       store.commit('setController', initGame("")); // _type = 0 : new game
       router.push('/customisation')
     },
-    parametre () {
+    tuto () {
       console.log('parametre click')
-      //router.push('/Parametre')
+      store.commit('setController', initGame("tuto"));
+      router.push('/altercation')
     },
     credit () {
       router.push('/credits')
@@ -34,7 +35,7 @@ export default {
     </div>
     <div class="panel">
       <button class="btn" @click.prevent="jouer()">Jouer</button>
-      <button class="btn" @click.prevent="parametre()">Tutoriel</button>
+      <button class="btn" @click.prevent="tuto()">Tutoriel</button>
       <button class="btn" @click.prevent="credit()">Crédits</button>
       <button class="btn" @click.prevent="quitter()">Quitter</button>
 
