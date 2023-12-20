@@ -26,7 +26,7 @@ const routes = [
     path: '/stats',
     name: 'StatView',
     component: () => import(/* webpackChunkName: "about" */ '../views/StatView.vue')
-  }
+  },
 ]
 
 const router = createRouter({

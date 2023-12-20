@@ -87,7 +87,7 @@ export default class Character {
     getOutfit() {return outfits[this.outfitI]}
     characterString() {return this.getColor() + this.getSexe() + this.getOutfit()}
 
-    getStats() {return this.statistics}
+    getStats() {return this.statistics.getStats()}
 
     //setters
     changeSexe() {
