@@ -51,7 +51,7 @@ export default {
   opacity: 0;
 }
 .ImageComplète:hover {
-  animation: translateFromLeft 0.3s, fadein 0.3s;
+  animation: translateFromLeft 0.5s, fadein 0.5s;
   opacity: 1;
 }
 
