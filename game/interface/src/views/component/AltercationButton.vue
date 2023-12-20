@@ -21,14 +21,13 @@ export default {
     },
   },
 };
-var r = document.querySelector(':root');
-r.style.setProperty('--path', 'url(TitleAlter)');
 </script>
 
 <template>
   <div class="btn">
     <button class="image" @click="handleClick">
-      <img :src="ImageAlter" alt="Image altercation">
+      <img :src="ImageAlter" class="ImageAltercation">
+      <img :src="TitleAlter" class="ImageComplète">
     </button>
   </div>
 </template>
@@ -48,26 +47,38 @@ r.style.setProperty('--path', 'url(TitleAlter)');
 
   transition: width 0.3s;
 }
-  .image {
-    width: 62px;
-    margin-left: 4px;
-  }
+.ImageComplète {
+  width: 62px;
+  margin-left: 4px;
+  opacity: 0;
+}
 
-  .text {
-    opacity: 0;
-    position: absolute;
-    margin-top: 10px;
-    transition: opacity 0.3s, transform 0.3s; /* Ajoutez cette ligne pour une transition fluide */
-    transform: translateX(0px); /* Décalez de 0px vers la droite par défaut */
-  }
-
-.btn:hover{
-  background: var(--path) center/cover no-repeat;
-  width: 235px;
+.ImageAltercation {
+  width: 62px;
+  margin-left: 4px;
   opacity: 1;
 }
-.btn:hover .text{
-  opacity: 1;
-  transform: translateX(50px); /* Décalez de 50px vers la droite lors du survol */
+.ImageAltercation:hover {
+  .ImageComplète {
+    animation: fadein 0.5s;
+  }
+}
+
+.text {
+  opacity: 0;
+  position: absolute;
+  margin-top: 10px;
+  transition: opacity 0.3s, transform 0.3s; /* Ajoutez cette ligne pour une transition fluide */
+  transform: translateX(0px); /* Décalez de 0px vers la droite par défaut */
+}
+
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 </style>
