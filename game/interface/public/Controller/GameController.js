@@ -8,7 +8,7 @@ import router from "@/router";
 export default class GameController{
     type
     player
-    nbAltercation = 2
+    nbAltercation = 5
     altercations = []
 
     constructor(){
@@ -21,6 +21,7 @@ export default class GameController{
     getCharacter(){return this.player;}
     //return last altercation
     getAltercation(){return this.altercations[this.altercations.length - 1];}
+    getAltercations(){return this.altercations;}
 
     setCharacter(character){this.player = character; store.commit('setController', this);}
 
@@ -38,6 +39,7 @@ export default class GameController{
                 this.altercations.push(altercation);
             }else{
                 console.log("FINININININININININ")
+                store.commit('setController', this);
                 router.push('/stats').then(r => r)
             }
         }

@@ -6,6 +6,7 @@ export default class Altercation {
     text
     npc
     player
+    interaction
     constructor(_text, _player) {
         this.setText(_text)
         this.npc = this.newNPC()
@@ -15,6 +16,7 @@ export default class Altercation {
 
     getText(){return this.text}
     getNPC(){return this.npc}
+    getInteraction(){return this.interaction}
 
     setText(_text){this.text = _text}
     setPlayer(_player){this.player = _player}
@@ -48,6 +50,7 @@ export default class Altercation {
                     this.setText("L'adversaire etait trop fort, vous auriez du reflechir avant de vous battre");
                     await this.wait(1000);
                 }
+                this.interaction = Enum.FIGHT;
                 break;
             case Enum.TALK:
                 this.setText("Vous essayez de raisonné la personne");
@@ -67,6 +70,7 @@ export default class Altercation {
                         player.calm += 10;
                         player.frustration += 10;
                         this.player.setStats(player);
+                        this.interaction = Enum.TALK;
                     }
                 }
                 break;
@@ -76,6 +80,7 @@ export default class Altercation {
                     this.setText("Vous avez réussi a évité le coup et le battre");
                     await this.wait(1000);
                 }
+                this.interaction = Enum.FIGHT
                 break;
         }
         this.player.setStats(player);
