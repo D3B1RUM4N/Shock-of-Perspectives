@@ -43,17 +43,22 @@ export default {
 
 <template>
   <div class="ecran">
+    <div class="instruction">
+      <p> Crée ton personnage ! </p><br>
+    </div>
     <div class="sexeChoice">
       <a href="" class="leftSexeBtn" @click.prevent="nextSexe"><img src="/images/buttons/left_semi_arrow.png" alt="left_semi_arrow"></a>
       <p>Sexe : {{ stringSexe }}</p>
       <a href="" class="rightSexeBtn" @click.prevent="nextSexe"><img src="/images/buttons/right_semi_arrow.png" alt="right_semi_arrow"></a>
     </div>
     <div class="skinChoice">
-      <p>Skin : {{ stringColor }}</p>
+      <p>Ethnie :</p>
+      <p>{{ stringColor}}</p>
       <div class="whiteSkin" @click.prevent="nextColor(2)"></div>
       <div class="yellowSkin" @click.prevent="nextColor(1)"></div>
       <div class="blackSkin" @click.prevent="nextColor(0)"></div>
     </div>
+    <div class="ombre"></div>
     <div class="outfitChoice">
       <a href="" class="leftOutfitBtn" @click.prevent="nextOutfit(1)"><img src="/images/buttons/left_semi_arrow.png" alt="left_semi_arrow"></a>
       <img :src="stringChar" :alt="stringChar" class="showPlayer">
@@ -62,6 +67,8 @@ export default {
     <div class="navigation">
       <a href="/" class="previous"><img src="/images/buttons/left_arrow.png"></a>
       <p class="selectedOutfit">{{ stringOutfit }}</p>
+      <p>Utilises les flèches </p>
+      <p>autour du personnage</p>
       <a href="" class="next" @click.prevent="next"><img src="/images/buttons/right_arrow.png"></a>
     </div>
   </div>
@@ -80,6 +87,21 @@ export default {
   font-family: "Press Start 2P", Serif;
 }
 
+
+.instruction {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 65px;
+  top: 0;
+  left: 0;
+  font-size:30px;
+
+  background-color: #3C6493;
+}
   .sexeChoice {
     position: absolute;
     display: flex;
@@ -87,8 +109,8 @@ export default {
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 130px;
-    top: 0;
+    height: 65px;
+    top: 65px;
     left: 0;
     font-size:30px;
 
@@ -110,19 +132,24 @@ export default {
 
   .skinChoice {
     position: absolute;
-    width: 320px;
-    height: 460px;
+    width: 250px;
+    height: 480px;
     top: 130px;
     left: 0;
 
-    padding-left:20px;
+
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     //space items inside the div
     justify-content: space-around;
+    background-color: #79A1D0;
+
   }
 
+  .skinChoice p{
+    margin-top:0px;
+  }
     .whiteSkin {
       /* Ellipse 2 */
 
@@ -130,7 +157,6 @@ export default {
 
       width: 94px;
       height: 94px;
-      margin-left : 40px;
 
       background: #FAD5BA;
       border: 4px solid #000000;
@@ -151,7 +177,6 @@ export default {
 
       width: 94px;
       height: 94px;
-      margin-left : 40px;
 
       background: #5D342F;
       border: 4px solid #000000;
@@ -173,7 +198,6 @@ export default {
 
       width: 94px;
       height: 94px;
-      margin-left : 40px;
 
       background: #FCCE7F;
       border: 4px solid #000000;
@@ -196,8 +220,9 @@ export default {
 
     width: 375px;
     height: 460px;
-    top: 130px;
+    margin-bottom: 60px;
     right: 300px;
+
 
   }
     .leftOutfitBtn{
@@ -214,21 +239,36 @@ export default {
       height: 350px;
       overflow: hidden;
       object-fit: cover;
+      z-index:2;
 
     }
+
+  .ombre{
+    background-color:black;
+    width:200px;
+    height:50px;
+    opacity:0.3;
+    position:absolute;
+    top:64%;
+    left:40.5%;
+    border-radius:50%;
+    z-index: 1;
+  }
 
   .navigation {
     position: absolute;
     display: flex;
+    flex-direction: column;
     text-align: center;
     justify-content: center;
     align-items: center;
 
     width: 100%;
-    height: 130px;
+    height: 110px;
     line-height: 55px;
     bottom: 0;
     left: 0;
+    background-color: #79A1D0;
 
   }
 
@@ -240,16 +280,26 @@ export default {
     }
 
     .navigation p {
-      width: 200px;
-      height: 60px;
+      width: 800px;
       font-size: 30px;
-      margin-bottom: 150px;
+      line-height: 1em;
     }
 
-    .next {
-      width: 100px;
-      height: 100px;
-      position: absolute;
-      left : 88%;
-    }
+.navigation p:nth-child(3) {
+  width: 400px;
+  font-size: 15px;
+  margin-top:10px;
+}
+
+.navigation p:nth-child(4) {
+  width: 400px;
+  font-size: 15px;
+}
+  .next {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    left : 88%;
+  }
+
 </style>

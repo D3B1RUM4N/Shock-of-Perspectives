@@ -77,8 +77,8 @@ export default {
     <div class="interaction">
       <AltercationButton @click.prevent="fight" class="btn" ImageAlter="/images/buttons/ButtonFight.png" TitleAlter="/images/buttons/TitleButtonFight.png"></AltercationButton>
       <AltercationButton @click.prevent="talk" class="btn" ImageAlter="/images/buttons/ButtonTalk.png" TitleAlter="/images/buttons/TitleButtonTalk.png"></AltercationButton>
-      <AltercationButton class="btn" buttonText="Insult" ImageAlter="/images/buttons/ButtonInsult.png" TitleAlter="../../../public/images/buttons/TitleButtonInsult.png"></AltercationButton>
-      <AltercationButton class="btn" buttonText="Leave" ImageAlter="/images/buttons/ButtonLeave.png" TitleAlter="../../../public/images/buttons/TitleButtonLeave.png"></AltercationButton>
+      <AltercationButton class="btn" buttonText="Insult" ImageAlter="/images/buttons/ButtonInsult.png" TitleAlter="/images/buttons/TitleButtonInsult.png"></AltercationButton>
+      <AltercationButton class="btn" buttonText="Leave" ImageAlter="/images/buttons/ButtonLeave.png" TitleAlter="/images/buttons/TitleButtonLeave.png"></AltercationButton>
     </div>
     <div class="stats">
       <table class="tableStats">
@@ -131,16 +131,16 @@ export default {
 }
 
 .text {
-  top: 50px;
   position: absolute;
+  top: 25px;
   inset-inline: 100px;
-  max-height: 170px;
+  max-height: 130px;
   overflow: hidden;
 }
 .text p {
   overflow: hidden; /* Ensures the content is not revealed until the animation */
   margin: 0 auto; /* Gives that scrolling effect as the typing happens */
-  letter-spacing: .15em; /* Adjust as needed */
+  //letter-spacing: .15em; /* Adjust as needed */
   font-family: 'Press Start 2P', cursive;
   opacity: 1;
   animation:
@@ -154,13 +154,14 @@ export default {
 .backgroundText {
   position: absolute;
   width: 90%;
-  height: 200px;
+  height: 150px;
   left: 5%;
+  top: 10px;
   overflow: hidden;
   background-color: white;
-  opacity: 1;
-  border-radius: 40%;
-  filter: blur(400px);
+  opacity: 0.7;
+  border-radius: 25px 25px 25px 25px;
+  filter: blur(2px);
 }
 
 .interaction {
