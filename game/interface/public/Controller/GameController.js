@@ -32,7 +32,7 @@ export default class GameController{
             let altercation = new Altercation("Vas manger du poulet", this.player);
             this.altercations.push(altercation);
         }else{
-            if(this.nbAltercation > -1) {
+            if(this.nbAltercation > -2) {
                 this.nbAltercation--;
                 let altercation = new DojoAltercation("vous vous dirigez vers le dojo pour votre entrainement quotidient", this.player);
                 altercation.setNPC(altercation.newNPC())
