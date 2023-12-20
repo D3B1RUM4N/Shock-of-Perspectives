@@ -1,6 +1,13 @@
 <script>
+import router from "../router";
+
 export default {
   name: "StatView",
+  methods: {
+    router() {
+      return router
+    }
+  },
 
   computed: {
     player() {
@@ -99,7 +106,7 @@ export default {
 
 
       <div class="back-to-top">
-        <a href="#top">Retour à l'accueil</a>
+        <a href="{{ router.push('/') }}" >Retour à l'accueil</a>
       </div>
 
     </div>
