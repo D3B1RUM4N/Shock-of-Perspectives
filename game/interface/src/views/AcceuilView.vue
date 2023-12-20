@@ -1,6 +1,6 @@
 <script>
 import router from "@/router";
-import {initGame} from "../../public/Controller/GameController";
+import GameController, {initGame} from "../../public/Controller/GameController";
 import store from "@/store";
 import {closeApp} from "@/app";
 
@@ -9,12 +9,13 @@ export default {
   name: 'AcceuilView',
   methods: {
     jouer () {
-      store.commit('setController', initGame());
+      store.commit('setController', initGame("")); // _type = 0 : new game
       router.push('/customisation')
     },
-    parametre () {
+    tuto () {
       console.log('parametre click')
-      //router.push('/Parametre')
+      store.commit('setController', initGame("tuto"));
+      router.push('/altercation')
     },
     credit () {
       router.push('/credits')
@@ -34,7 +35,7 @@ export default {
     </div>
     <div class="panel">
       <button class="btn" @click.prevent="jouer()">Jouer</button>
-      <button class="btn" @click.prevent="parametre()">Tutoriel</button>
+      <button class="btn" @click.prevent="tuto()">Tutoriel</button>
       <button class="btn" @click.prevent="credit()">Crédits</button>
       <button class="btn" @click.prevent="quitter()">Quitter</button>
 
@@ -44,17 +45,16 @@ export default {
 
 <style scoped lang="scss">
 
+/* SCREEN : size and background */
 .ecran {
   background-image: url("../../public/images/backgrounds/AccueilBackgroundBlur2.png");
   position: absolute;
   width: 100%;
   height: 720px;
   background-size: cover;
-
-
 }
 
-
+/* TTTLE */
 .titre {
   color: #000000;
   font-size: 64px;
@@ -62,74 +62,68 @@ export default {
   text-align: center;
   margin-top: 270px;
   margin-bottom: 0px;
+
+  /* Animation & transition */
   animation: translateFromTop 1.5s, fadein100 1.5s;
 }
+
+/* PANEL */
 .panel {
   position: absolute;
   height: 80px;
   width: 710px;
   top: 60%;
   left: 52%;
-  transform: translate(-50%,-50%);
   padding-top: 0px;
 
-
- // box-shadow: 0 0 10px black;
-
-
+  /* Flexbox */
   display: flex;
   flex-direction: row;
   justify-content: center;
 
- // background-color: purple;
-  opacity: 1; /* Vous devez spécifier la valeur de l'opacité entre 0 et 1 */
+  opacity: 1; /* Opacité entre 0 et 1 */
   color: #ffffff;
-  border-radius: 10px; /* Ajoutez cette ligne pour arrondir les bords */
+  border-radius: 10px;
 
+  /* Animation & transition */
   animation: fadein 1.5s;
+  transform: translate(-50%,-50%);
   transition: opacity 1.5s, transform 1.5s;
 }
 
-
+/* BUTTON : size, color and hover */
 .btn {
   background-color: lightskyblue;
-  color: #000000;
   padding:0px;
   margin-top: 2%;
   margin-bottom: 2%;
   margin-right:40px;
   margin-left:40px;
+
   font-weight: bold;
-  border: solid black;
-  //font-size:12px;
+  color: #000000;
 
   width:150px;
-  border-radius: 10px; /* Ajoutez cette ligne pour arrondir les bords */
-  opacity: 1;
+  border: solid black;
+  border-radius: 10px;
+  opacity: 1; /* Opacité entre 0 et 1 */
+
+  /* Animation & transition */
   animation: translateFromTop 1.5s;
+  transition: transform 0.5s ease, box-shadow 0.3s ease;
 }
 
 .btn:hover {
-  background-color: lightskyblue;
-  color: #000000;
-  padding:0px;
-  margin-top: 2%;
-  margin-bottom: 2%;
-  margin-right:40px;
-  margin-left:40px;
-  font-weight: bold;
-  border: solid black;
-  box-shadow: 0px 5px 5x midnightblue;
-
-  //font-size:12px;
-
   width:150px;
   border-radius: 10px; /* Ajoutez cette ligne pour arrondir les bords */
   opacity: 1;
+  box-shadow: 0 15px 10px -5px rgba(100, 149, 237, 1);
 
+  /* Animation & transition */
+  transform: translateY(-10px);
 }
 
-
+/* KEYFRAMES */
 @keyframes fadein50 {
   0% {
     opacity: 0;
@@ -146,7 +140,6 @@ export default {
     opacity: 100;
   }
 }
-
 @keyframes translateFromTop {
   0% {
     transform: translateY(-50%);

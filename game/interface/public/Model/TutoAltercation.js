@@ -1,33 +1,21 @@
+import Altercation from "./Altercation";
 import Character from "./Character";
 import {Enum} from "./Enum";
-import router from "@/router";
 
-export default class Altercation {
-    text
-    npc
-    player
-    constructor(_text, _player) {
-        this.setText(_text)
-        this.npc = this.newNPC()
-        this.player = _player
-    }
+export default class TutoAltercation extends Altercation {
 
+    constructor(_text) {
+        super(_text);
 
-    getText(){return this.text}
-    getNPC(){return this.npc}
-
-    setText(_text){this.text = _text}
-    setPlayer(_player){this.player = _player}
-
-    newNPC(){
-        let npc = new Character()
-        if(Math.floor(Math.random() * 100)%2 === 0){
-            npc.changeSexe()
+        let _player = new Character();
+        for (let i = 0; i < Math.floor(Math.random() * 100) % 2; i++) {
+            _player.changeSexe();
         }
-        npc.changeOutfit(Math.floor(Math.random() * 2))
-        npc.changeColor(Math.floor(Math.random() * 2))
-        npc.initStats()
-        return npc
+        _player.changeOutfit(Math.floor(Math.random() * 3));
+        _player.changeColor(Math.floor(Math.random() * 3));
+        _player.initStats();
+
+        this.setPlayer(_player);
     }
 
 
@@ -78,16 +66,11 @@ export default class Altercation {
                 }
                 break;
         }
+        this.setText("Vous avez fini le tutoriel, bonne chance pour la suite")
+        await this.wait(1000);
         this.player.setStats(player);
         this.npc.setStats(npc);
-        //altercation(player, npc);
+        return "end";
     }
 
-    wait(milliseconds) {
-        return new Promise(resolve => {
-            setTimeout(() => {
-                resolve();
-            }, milliseconds);
-        });
-    }
 }
