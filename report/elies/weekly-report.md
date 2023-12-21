@@ -77,3 +77,12 @@ Je me suis aussi rendu compte que je ne respectais pas la methode MVC, j'ai donc
 j'ai pu aussi avancé sur l'affichage des images de maniere interractive. 
 Je suis content j'ai l'impression qu'on avance tres bien d'un coup
 Loic nous promet depui 3 semaine qu'il travail sur un back mais J-6 avant rendu toujours rien. j'endosserais sa partie...
+
+# Rapport semaine 9 : Rush Final
+
+18/12 - 22/12
+
+Mercredi une boucle de jeu complete a été realisé.
+Background interractif.
+Loic nous parle de la mise en place d'une API pour avoir des interraction plus varié qui affecte plus precisément les statistiques.
+J'ai peur que cela ecrase toutes nos heures de travail.
