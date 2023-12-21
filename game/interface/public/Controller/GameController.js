@@ -46,6 +46,7 @@ export default class GameController{
     }
 
     tutoAltercation(){
+        console.log("tuto")
         let altercation = new TutoAltercation("Bienvenue dans le tuto. Vous rencontrerais des personnes" +
             " dans la rues qui vont vous lancé des pics. A vous de voir comment vous allez reagire a cela. Prennez bien en " +
             "compte quel personnage vous incarnez. Vos choix impacte votre personne ce qui peut faire varié vos prochaines altercation.");

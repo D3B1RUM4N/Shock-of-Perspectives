@@ -10,11 +10,13 @@ export default {
   methods: {
     // envoi sur la view customisation
     jouer () {
+      store.commit('setController', null)
       store.commit('setController', initGame("")); // _type = 0 : new game
       router.push('/customisation')
     },
     // lance une altercation de tuto
     tuto () {
+      store.commit('setController', null)
       console.log('parametre click')
       store.commit('setController', initGame("tuto"));
       router.push('/altercation')
