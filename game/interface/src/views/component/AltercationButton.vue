@@ -1,10 +1,6 @@
 <script>
 export default {
   props: {
-    buttonText: {
-      type: String,
-      default: 'Click me', // Texte par défaut si aucun texte n'est fourni
-    },
     ImageAlter:{
       type: String,
       default: 'https://img.pixers.pics/pho_wat(s3:700/FO/56/49/23/41/700_FO56492341_3a5776815d8f42755e584315db67b85b.jpg,700,700,cms:2018/10/5bd1b6b8d04b8_220x50-watermark.png,over,480,650,jpg)/posters-panneau-de-limitation-de-vitesse-50.jpg',
@@ -14,18 +10,12 @@ export default {
       default: 'https://img.pixers.pics/pho_wat(s3:700/FO/56/49/23/41/700_FO56492341_3a5776815d8f42755e584315db67b85b.jpg,700,700,cms:2018/10/5bd1b6b8d04b8_220x50-watermark.png,over,480,650,jpg)/posters-panneau-de-limitation-de-vitesse-50.jpg',
     },
   },
-  methods: {
-    handleClick() {
-      // Émettre un événement ou exécuter une action lors du clic
-      console.log('button clicked');
-    },
-  },
 };
 </script>
 
 <template>
   <div class="btn">
-    <button class="image" @click="handleClick">
+    <button class="image">
       <img :src="ImageAlter" class="ImageAltercation">
       <img :src="TitleAlter" class="ImageComplète">
     </button>
