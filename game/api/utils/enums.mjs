@@ -4,13 +4,13 @@ export default {
         'Femme'
     ],
     csps: [
-        'Pauvre',
-        'Moyenne',
-        'Riche'
+        'Streetwear',
+        'Casual',
+        'Chic'
     ],
     skins: [
-        'Noir',
-        'Blanc',
-        'Asiatique'
+        'Africain',
+        'Asiatique',
+        'Caucasien'
     ]
 }
