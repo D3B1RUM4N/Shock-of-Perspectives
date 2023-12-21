@@ -35,14 +35,13 @@ export default {
 <template>
   <div class="ecran">
     <div class="titre">
-      <p>Nom du jeu</p>
+      <p>Shock of Perspectives</p>
     </div>
     <div class="panel">
       <button class="btn" @click.prevent="jouer()">Jouer</button>
       <button class="btn" @click.prevent="tuto()">Tutoriel</button>
       <button class="btn" @click.prevent="credit()">Crédits</button>
       <button class="btn" @click.prevent="quitter()">Quitter</button>
-
     </div>
   </div>
 </template>
@@ -64,8 +63,7 @@ export default {
   font-size: 64px;
   font-family: 'Press Start 2P', serif;
   text-align: center;
-  margin-top: 270px;
-  margin-bottom: 0px;
+  margin-top: 240px;
 
   /* Animation & transition */
   animation: translateFromTop 1.5s, fadein100 1.5s;
@@ -78,7 +76,6 @@ export default {
   width: 710px;
   top: 60%;
   left: 52%;
-  padding-top: 0px;
 
   /* Flexbox */
   display: flex;
@@ -98,7 +95,7 @@ export default {
 /* BUTTON : size, color and hover */
 .btn {
   background-color: lightskyblue;
-  padding:0px;
+  padding:0;
   margin-top: 2%;
   margin-bottom: 2%;
   margin-right:40px;
