@@ -184,7 +184,7 @@ export default {
 
 .perso {
   position: absolute;
-  top: 420px;
+  top: 470px;
   right: 750px;
   width: 150px;
   height: 250px;
@@ -197,7 +197,7 @@ export default {
 
 .ennemi {
   position: absolute;
-  top: 350px;
+  top: 470px;
   right: 150px;
   width: 150px;
   height: 250px;
