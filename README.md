@@ -83,11 +83,14 @@ Félicitation, vous pouvez maintenant exécuter le code en tant que dev et le mo
 ## Captures d'écran du jeu
 
 ![Ecran de création du personnage du joueur](readme/jeu1.png)
-Ecran de création du personnage du joueur
+Ecran de création du personnage du joueur  
+
 ![Altercation dans la ville entre le joueur et un pnj](readme/jeu2.png)
-Altercation dans la ville entre le joueur et un pnj
+Altercation dans la ville entre le joueur et un pnj  
+
 ![Altercation dans le dojo](readme/jeu3.png)
-Altercation dans le dojo
+Altercation dans le dojo  
+
 ![Page récapitulative de la game](readme/jeu4.png)
 Page récapitulative de la game
 
