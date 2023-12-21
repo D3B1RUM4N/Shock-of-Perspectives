@@ -34,3 +34,16 @@ export async function react (res, payload) {
     res.status(HttpStatus.INTERNAL_ERROR).json(e)
   }
 }
+
+export async function getResume (res, session) {
+  try {
+    if (!await getModel('session').findByPk(session)) return res.status(HttpStatus.NOT_FOUND).json('No session found!')
+
+    const steps = await getModel('step').findAll({ where: { sessionCode: session } })
+    if (steps.length === 0) return res.status(HttpStatus.NO_CONTENT).json()
+    res.json(steps)
+  } catch (e) {
+    console.log(e)
+    res.status(HttpStatus.INTERNAL_ERROR).json(e)
+  }
+}
