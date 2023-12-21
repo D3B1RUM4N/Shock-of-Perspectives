@@ -1,4 +1,4 @@
-## Présentation du projet (comme sur steam)
+## Présentation du projet 
 
 Plongez dans une expérience immersive créée par une équipe d'étudiants passionnés, explorant le spectre complexe de la violence et sa perception au travers d'un monde interactif captivant.  
 
@@ -80,4 +80,10 @@ Appliquez et validez.</br>
 
 Félicitation, vous pouvez maintenant exécuter le code en tant que dev et le modifié. Pour toutes question, veuillez vous référer à la doc [Vue.JS](https://vuejs.org/guide/introduction.html)
 
+## Captures d'écran du jeu
+
+![Ecran de création du personnage du joueur](readme/jeu1.png)
+![Altercation dans la ville entre le joueur et un pnj](readme/jeu2.png)
+![Altercation dans le dojo](readme/jeu3.png)
+![Page récapitulative de la game](readme/jeu4.png)
 
