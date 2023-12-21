@@ -7,6 +7,7 @@ export async function react (res, payload) {
 
   try {
     if (!await getModel('session').findByPk(session)) return res.status(HttpStatus.NOT_FOUND).json('No session found!')
+
     if (!await getModel('altercation').findByPk(altercation)) return res.status(HttpStatus.NOT_FOUND).json('No altercation found!')
     if (!await getModel('reaction').findByPk(reaction)) return res.status(HttpStatus.NOT_FOUND).json('No reaction found!')
     const affects = await getModel('affect').findAll({ where: { reactionId: reaction } })
@@ -23,11 +24,13 @@ export async function react (res, payload) {
       })
     }
 
-    res.status(HttpStatus.CREATED).json(await getModel('step').create({
+    const step = await getModel('step').create({
       sessionCode: session,
       altercationId: altercation,
       reactionId: reaction
-    }))
+    })
+    if (await getModel('step').count({ where: { sessionCode: session } }) === (process.env.NODE_ENV === 'development' ? 2 : 7)) return res.status(300).json()
+    res.status(HttpStatus.CREATED).json(step)
   } catch (e) {
     if (e instanceof UniqueConstraintError) return res.status(HttpStatus.CONFLICT).json(e)
     if (e instanceof ValidationError) return res.status(HttpStatus.BAD_REQUEST).json(e)
