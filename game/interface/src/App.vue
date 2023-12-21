@@ -13,6 +13,7 @@
       this.$store.dispatch('askCriteria')
       this.$store.dispatch('askCharacters')
       this.$store.dispatch('askReactions')
+      this.$store.dispatch('askStatistics')
     }
   }
 </script>
@@ -41,6 +42,3 @@
     right: 20px;
   }
 </style>
-
-<script setup>
-</script>

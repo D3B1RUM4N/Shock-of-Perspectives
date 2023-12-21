@@ -12,6 +12,7 @@ export class GameController {
     // Mock lists
     static CHARACTERS = []
     static REACTIONS = []
+    static STATISTICS = []
     // Game data
     characterOptions = new CharacterOptions('Homme', 'Caucasien', 'Streetwear')
     character = undefined
@@ -19,6 +20,9 @@ export class GameController {
     session = undefined
 
     // STORE
+    storeStatistics (statistics) {
+        GameController.STATISTICS = [...statistics]
+    }
     storeCharacters (characters) {
         GameController.CHARACTERS = [...characters]
     }
@@ -59,9 +63,6 @@ export class GameController {
             altercation: this.altercation.id,
             reaction: reaction.id
         })
-    }
-    terminate () {
-        store.dispatch('askResume')
     }
 }
 

@@ -5,6 +5,7 @@ import { randomString } from '@/assets/js/utils/strings.utils'
 import { Reaction } from '@/assets/js/models/altercation.model'
 import { GameController, Resume } from '@/assets/js/controllers/game.controller'
 import { Character, CharacterOptions } from '@/assets/js/models/character.model'
+import {Statistic} from "@/assets/js/models/statistic.model";
 
 export default createStore({
   state: {
@@ -13,6 +14,9 @@ export default createStore({
   },
   getters: {},
   mutations: {
+    storeStatistics (state, payload) {
+      state.controller.storeStatistics(payload.map(s => new Statistic(s)))
+    },
     storeCharacters (state, payload) {
       state.controller.storeCharacters(payload.map(c => {
         const { gender, skin, csp, name } = c
@@ -42,6 +46,16 @@ export default createStore({
     }
   },
   actions: {
+    async askStatistics (state) {
+      try {
+        const { data, status } = await axios.get('/stats')
+        if (status === 204) return console.error('No statistics found!')
+        state.commit('storeStatistics', data)
+      } catch (e) {
+        console.error(e)
+        await router.push('/')
+      }
+    },
     async askCriteria (state) {
       try {
         const { data, status } = await axios.get('/characters/criteria')
