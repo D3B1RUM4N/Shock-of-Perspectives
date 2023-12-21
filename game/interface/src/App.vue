@@ -6,11 +6,13 @@
     name: 'App',
     methods: {
       closeBtnClick () {
-        //call closeBut.eventlistener on app.js
-        console.log('closeBtnClick')
         closeApp()
-        //router.push('/Acceuil')
       },
+    },
+    created () {
+      this.$store.dispatch('askCriteria')
+      this.$store.dispatch('askCharacters')
+      this.$store.dispatch('askReactions')
     }
   }
 </script>
