@@ -4,15 +4,16 @@ import AltercationButton from "@/views/component/AltercationButton.vue";
 import {Enum as Enum} from "../../public/Model/Enum";
 import store from "@/store";
 
+// initialisation du controller
 let controller = store.state.Controller;
-if(controller == null)
+if(controller == null)                    // si le controller n'existe pas on retourne au menu (catch d'erreur)
   router.push('/')
-if(controller.getType() !== "tuto") {
+if(controller.getType() !== "tuto") {     // si c'est un tuto on ne repete pas les altercations
   refresh()
 }
 
 export function refresh() {
-  controller.newAltercation();
+  controller.newAltercation();            // on crée une altercation
 }
 
 export default {
@@ -20,45 +21,49 @@ export default {
   components: {AltercationButton},
 
   computed: {
+    // recupere les info du joueur
     player() {
       return controller.getCharacter();
     },
+    // recupere les info du npc
     npc() {
       return controller.getAltercation().getNPC();
     },
+    // recupere le texte de l'altercation
     text() {
       return controller.getAltercation().getText();
     },
+    // recupere l'image du joueur
     stringPlayer(){
       console.log(this.player.characterString())
-      return "/images/characters/" + this.player.characterString() + "Right.png"
+      return "/images/characters/" + this.player.characterString() + "Droite.png"
     },
-
+    // recupere l'image du npc
     stringNPC(){
       console.log(this.npc.characterString())
-      return "/images/characters/" + this.npc.characterString() + "Left.png"
+      return "/images/characters/" + this.npc.characterString() + "Gauche.png"
     },
-
-
   },
   methods:{
+    // retourne au menu
     arriere(){
       router.push('/')
     },
-
+    // On teste l'altercation avec la reponse FIGHT
     async fight() {
       console.log("fight")
-      if(await controller.getAltercation().interact(Enum.FIGHT) === "end"){
+      if(await controller.getAltercation().interact(Enum.FIGHT) === "end"){ // l'altercation return end si c'etait un tuto, on retourne au menu
         await router.push('/')
       }
-      refresh()
+      refresh()       // nouvelle altercation
     },
+    // On teste l'altercation avec la reponse TALK
     async talk() {
       console.log("talk")
-      if(await controller.getAltercation().interact(Enum.TALK) === "end"){
+      if(await controller.getAltercation().interact(Enum.TALK) === "end"){  // l'altercation return end si c'etait un tuto, on retourne au menu
         await router.push('/')
       }
-      refresh()
+      refresh()    // nouvelle altercation
     },
     insult(){
       /*console.log("insult")

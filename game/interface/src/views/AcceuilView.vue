@@ -8,18 +8,22 @@ import {closeApp} from "@/app";
 export default {
   name: 'AcceuilView',
   methods: {
+    // envoi sur la view customisation
     jouer () {
       store.commit('setController', initGame("")); // _type = 0 : new game
       router.push('/customisation')
     },
+    // lance une altercation de tuto
     tuto () {
       console.log('parametre click')
       store.commit('setController', initGame("tuto"));
       router.push('/altercation')
     },
+    // affiche les credits
     credit () {
       router.push('/credits')
     },
+    // Ferme le jeu
     quitter () {
       console.log('closeBtnClick')
       closeApp()
