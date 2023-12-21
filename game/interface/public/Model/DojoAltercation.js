@@ -3,7 +3,7 @@ import Character from "./Character";
 
 export default class DojoAltercation extends Altercation {
     constructor(_text, _player) {
-        super(_text, _player);
+        super(_text, _player, "/images/backgrounds/DojoBackground.jpg");
     }
 
     newNPC(){

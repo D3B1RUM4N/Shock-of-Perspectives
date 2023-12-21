@@ -22,6 +22,14 @@ export default class GameController{
     //return last altercation
     getAltercation(){return this.altercations[this.altercations.length - 1];}
     getAltercations(){return this.altercations;}
+    randBackGround(){
+        console.log("getBackGround")
+        if((Math.floor(Math.random() * 100)%2 === 0)){
+            return "/images/backgrounds/NightBackgroundNightClub.png"
+        }else{
+            return "/images/backgrounds/NightBackgroundMexicosAriba.png"
+        }
+    }
 
     setCharacter(character){this.player = character; store.commit('setController', this);}
 
@@ -29,7 +37,7 @@ export default class GameController{
         if(this.nbAltercation > 0) {
             this.nbAltercation--;
 
-            let altercation = new Altercation("Vas manger du poulet", this.player);
+            let altercation = new Altercation("Vas manger du poulet", this.player, this.randBackGround());
             this.altercations.push(altercation);
         }else{
             if(this.nbAltercation > -2) {
@@ -44,6 +52,7 @@ export default class GameController{
             }
         }
     }
+
 
     tutoAltercation(){
         console.log("tuto")

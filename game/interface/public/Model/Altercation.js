@@ -7,16 +7,19 @@ export default class Altercation {
     npc
     player
     interaction
-    constructor(_text, _player) {
+    background
+    constructor(_text, _player, _background) {
         this.setText(_text)
         this.npc = this.newNPC()
         this.player = _player
+        this.background = _background
     }
 
 
     getText(){return this.text}
     getNPC(){return this.npc}
     getInteraction(){return this.interaction}
+    getBackground(){return this.background}
 
     setText(_text){this.text = _text}
     setPlayer(_player){this.player = _player}
