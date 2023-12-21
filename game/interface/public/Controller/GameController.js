@@ -42,6 +42,7 @@ export default class GameController{
         }else{
             if(this.nbAltercation > -2) {
                 this.nbAltercation--;
+                this.player.changeOutfit(3)
                 let altercation = new DojoAltercation("vous vous dirigez vers le dojo pour votre entrainement quotidient", this.player);
                 altercation.setNPC(altercation.newNPC())
                 this.altercations.push(altercation);

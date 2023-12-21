@@ -13,6 +13,11 @@ export default class DojoAltercation extends Altercation {
         }
         npc.changeOutfit(3)
         npc.changeColor(Math.floor(Math.random() * 3))
+
+        if(npc.characterString() === this.player.characterString()){
+            npc = this.newNPC()
+        }
+
         npc.initStats()
         return npc
     }

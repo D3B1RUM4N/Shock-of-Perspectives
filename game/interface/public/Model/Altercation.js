@@ -10,8 +10,8 @@ export default class Altercation {
     background
     constructor(_text, _player, _background) {
         this.setText(_text)
-        this.npc = this.newNPC()
         this.player = _player
+        this.npc = this.newNPC()
         this.background = _background
     }
 
@@ -31,6 +31,11 @@ export default class Altercation {
         }
         npc.changeOutfit(Math.floor(Math.random() * 2))
         npc.changeColor(Math.floor(Math.random() * 2))
+
+        if(npc.characterString() === this.player.characterString()){
+            npc = this.newNPC()
+        }
+
         npc.initStats()
         return npc
     }
