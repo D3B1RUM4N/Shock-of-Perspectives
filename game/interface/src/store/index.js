@@ -127,10 +127,10 @@ export default createStore({
           reaction: reaction
         })
         setTimeout(() => {
-          if (status === 300) return state.dispatch('askResume')
           state.dispatch('nextAltercation')
         }, 500)
       } catch (e) {
+        if (e.response.status === 300) return state.dispatch('askResume')
         console.error(e)
         await router.push('/')
       }
