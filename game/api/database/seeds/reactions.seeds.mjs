@@ -1,10 +1,18 @@
 import {getModel} from "#db/index.mjs";
 
 const reactions = [
-  'Se battre',
-  'Réponse posée',
-  'Réponse aggressive',
-  'Prendre la fuite',
+  {
+    label: 'TitleButtonFight',
+    icon: 'ButtonFight'
+  },
+  {
+    label: 'TitleButtonTalk',
+    icon: 'ButtonTalk'
+  },
+  {
+    label: 'TitleButtonInsult',
+    icon: 'ButtonInsult'
+  }
 ]
 
 export default async function seed () {
@@ -15,8 +23,8 @@ export default async function seed () {
     console.log(`[Seeder] Creating reaction (${++count}/${reactions.length})...`)
     try {
       await getModel('reaction').create({
-        label: r,
-        icon: '-'
+        label: r.label,
+        icon: r.icon
       })
     } catch (e) { console.log(e) }
   }
