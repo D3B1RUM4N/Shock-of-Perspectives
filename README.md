@@ -13,10 +13,14 @@ Préparez-vous à plonger dans un monde où vos choix définissent votre parcour
 ## Procédure d’installation (pour dev)
 
 ### Prérequis (versions)
-NodeJS : [18.18.2 ou supperieur](https://nodejs.org/en)
-pnpm : [https://pnpm.io/installation](https://pnpm.io/installation)
-PHPStorm : [https://www.jetbrains.com/fr-fr/phpstorm/](https://www.jetbrains.com/fr-fr/phpstorm/)
-gitbash (ou autre moyen d’acceder a git) : [https://git-scm.com/downloads](https://git-scm.com/downloads)
+NodeJS : [18.18.2 ou supperieur](https://nodejs.org/en)  
+
+pnpm : [https://pnpm.io/installation](https://pnpm.io/installation)  
+
+PHPStorm : [https://www.jetbrains.com/fr-fr/phpstorm/](https://www.jetbrains.com/fr-fr/phpstorm/)  
+
+gitbash (ou autre moyen d’acceder a git) : [https://git-scm.com/downloads](https://git-scm.com/downloads)  
+
 
 ### Commencement
 Commencez par forker le repository git : [Repository Git](https://gitlab.unistra.fr/maes-t3/maj23-t3-d)
