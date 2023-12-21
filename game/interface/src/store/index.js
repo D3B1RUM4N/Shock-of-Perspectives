@@ -37,11 +37,8 @@ export default createStore({
       state.controller.storeSession(payload)
     },
     storeResume (state, payload) {
-      const { stats, history } = payload
-      state.resume = new Resume(
-          stats,
-          history
-      )
+      const { statistics, history } = payload
+      state.resume = new Resume(statistics.resume, history)
     }
   },
   actions: {
@@ -106,7 +103,7 @@ export default createStore({
         if (resGameHistory.status === 204) console.warn('No history found for the current session!')
 
         state.commit('storeResume', {
-          stats: resSessionStats.data,
+          statistics: resSessionStats.data,
           history: resGameHistory.data
         })
         setTimeout(() => router.push('/stats'), 1000)

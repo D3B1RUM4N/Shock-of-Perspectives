@@ -8,6 +8,7 @@ export default {
       return this.$store.state.resume.history
     },
     stats () {
+      console.log(this.$store.state.resume.statistics)
       return this.$store.state.resume.statistics
     },
     playerAvatar () {

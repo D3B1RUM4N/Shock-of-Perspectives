@@ -70,7 +70,7 @@ export class Resume {
     history
 
     constructor (statistics, history) {
-        this.statictics = statistics
+        this.statistics = statistics
         this.history    = history
     }
 }
