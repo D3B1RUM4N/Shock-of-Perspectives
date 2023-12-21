@@ -1,47 +1,23 @@
 <script>
-import router from "../router";
-import store from "@/store";
-import {Enum} from "../../public/Model/Enum";
-
-
-let controller = store.state.Controller;
-let altercations = controller.getAltercations();
+import {GameController} from "@/assets/js/controllers/game.controller";
 
 export default {
   name: "StatView",
-  data() {
-    return {
-      altercations: altercations,
-    }
-  },
-
-  methods: {
-    router() {
-      return router
-    },
-    getStringChar(altercation) {
-      return "/images/characters/" + altercation.getNPC().characterString() + "Face.png"
-    },
-    getStats(altercation) {
-      return altercation.getNPC().getStats()
-    },
-    interaction(altercation){
-      return altercation.getInteraction()
-    },
-    getImgInterraction(interaction){
-      switch(interaction){
-        case Enum.FIGHT:
-          return "/images/buttons/ButtonFight.png"
-        case Enum.TALK:
-          return "/images/buttons/ButtonTalk.png"
-      }
-    }
-  },
-
   computed: {
-    player() {
-
+    history () {
+      return this.$store.state.resume.history
     },
+    stats () {
+      return this.$store.state.resume.statistics
+    },
+    playerAvatar () {
+      return `/images/characters/${this.$store.state.controller.characterOptions.buildImageURI('Face')}`
+    }
+  },
+  methods: {
+    reaction (altercation) {
+      return GameController.REACTIONS.find(r => r.id === altercation?.reactionId)
+    }
   }
 }
 </script>
@@ -51,130 +27,32 @@ export default {
     <div class="container">
       <h1>Récapitulatif de la game</h1>
 
-      <div class="section">
-        <div class="content">
-          <img :src="getStringChar(altercations[0])" alt="Image 1">
-        </div>
-        <div class="content">
-          <h3>Altercation 1</h3>
-          <ul>
-            <li>Calm : {{ getStats(altercations[0]).calm }}</li>
-            <li>Frustation : {{ getStats(altercations[0]).frustration }}</li>
-            <li>Strength : {{ getStats(altercations[0]).strength }}</li>
-            <li>Resistance : {{ getStats(altercations[0]).resistance }}</li>
-          </ul>
-        </div>
-        <img :src=" getImgInterraction(interaction(altercations[0]))" id="img2" alt="Image de fin">
-      </div>
+      <section class="stats" v-if="stats">
+        <img :src="playerAvatar" alt="" class="stats--player" />
 
-      <div class="section">
-        <div class="content">
-          <img :src="getStringChar(altercations[1])" alt="Image 1">
+        <div class="stats__box" v-for="s in stats" :key="s">
+          {{ s }}
         </div>
-        <div class="content">
-          <h3>Altercation 2</h3>
-          <ul>
-            <li>Calm : {{ getStats(altercations[1]).calm }}</li>
-            <li>Frustation : {{ getStats(altercations[1]).frustration }}</li>
-            <li>Strength : {{ getStats(altercations[1]).strength }}</li>
-            <li>Resistance : {{ getStats(altercations[1]).resistance }}</li>
-          </ul>
-        </div>
-        <img :src=" getImgInterraction(interaction(altercations[1]))" id="img2" alt="Image de fin">
-      </div>
+      </section>
 
-
-      <div class="section">
-        <div class="content">
-          <img :src="getStringChar(altercations[2])" alt="Image 1">
+      <section class="history" v-if="history">
+        <div class="history--section" v-for="a in history" :key="a">
+          <div class="content">
+            <h3>Altercation {{ a.id - history[0].id + 1 }}</h3>
+            <p>{{ a.label }}</p>
+            <img :src="`/images/buttons/${reaction(a).icon}.png`" alt="" />
+          </div>
         </div>
-        <div class="content">
-          <h3>Altercation 3</h3>
-          <ul>
-            <li>Calm : {{ getStats(altercations[2]).calm }}</li>
-            <li>Frustation : {{ getStats(altercations[2]).frustration }}</li>
-            <li>Strength : {{ getStats(altercations[2]).strength }}</li>
-            <li>Resistance : {{ getStats(altercations[2]).resistance }}</li>
-          </ul>
-        </div>
-        <img :src=" getImgInterraction(interaction(altercations[2]))" id="img2" alt="Image de fin">
-      </div>
-
-
-      <div class="section">
-        <div class="content">
-          <img :src="getStringChar(altercations[3])" alt="Image 1">
-        </div>
-        <div class="content">
-          <h3>Altercation 4</h3>
-          <ul>
-            <li>Calm : {{ getStats(altercations[3]).calm }}</li>
-            <li>Frustation : {{ getStats(altercations[3]).frustration }}</li>
-            <li>Strength : {{ getStats(altercations[3]).strength }}</li>
-            <li>Resistance : {{ getStats(altercations[3]).resistance }}</li>
-          </ul>
-        </div>
-        <img :src=" getImgInterraction(interaction(altercations[3]))" id="img2" alt="Image de fin">
-      </div>
-
-      <div class="section">
-        <div class="content">
-          <img :src="getStringChar(altercations[4])" alt="Image 1">
-        </div>
-        <div class="content">
-          <h3>Altercation 5</h3>
-          <ul>
-            <li>Calm : {{ getStats(altercations[4]).calm }}</li>
-            <li>Frustation : {{ getStats(altercations[4]).frustration }}</li>
-            <li>Strength : {{ getStats(altercations[4]).strength }}</li>
-            <li>Resistance : {{ getStats(altercations[4]).resistance }}</li>
-          </ul>
-        </div>
-        <img :src=" getImgInterraction(interaction(altercations[4]))" id="img2" alt="Image de fin">
-      </div>
-
-      <div class="section">
-        <div class="content">
-          <img :src="getStringChar(altercations[5])" alt="Image 1">
-        </div>
-        <div class="content">
-          <h3>Dojo 1</h3>
-          <ul>
-            <li>Calm : {{ getStats(altercations[5]).calm }}</li>
-            <li>Frustation : {{ getStats(altercations[5]).frustration }}</li>
-            <li>Strength : {{ getStats(altercations[5]).strength }}</li>
-            <li>Resistance : {{ getStats(altercations[5]).resistance }}</li>
-          </ul>
-        </div>
-        <img :src=" getImgInterraction(interaction(altercations[5]))" id="img2" alt="Image de fin">
-      </div>
-
-      <div class="section">
-        <div class="content">
-          <img :src="getStringChar(altercations[6])" alt="Image 1">
-        </div>
-        <div class="content">
-          <h3>Dojo 2</h3>
-          <ul>
-            <li>Calm : {{ getStats(altercations[6]).calm }}</li>
-            <li>Frustation : {{ getStats(altercations[6]).frustration }}</li>
-            <li>Strength : {{ getStats(altercations[6]).strength }}</li>
-            <li>Resistance : {{ getStats(altercations[6]).resistance }}</li>
-          </ul>
-        </div>
-        <img :src=" getImgInterraction(interaction(altercations[6]))" id="img2" alt="Image de fin">
-      </div>
-
+      </section>
 
       <div class="back-to-top">
-        <a href="{{ router().push('/') }}" >Retour à l'accueil</a>
+        <RouterLink to="/">Retour à l'accueil</RouterLink>
       </div>
     </div>
   </div>
 </template>
 
 <style scoped lang="scss">
-
 .ecran {
   font-family: Arial, sans-serif;
   background-image: url("../../public/images/backgrounds/DojoBackground.jpg");

@@ -1,89 +1,54 @@
 <script>
-import router from "@/router";
 import AltercationButton from "@/views/component/AltercationButton.vue";
-import {Enum as Enum} from "../../public/Model/Enum";
-import store from "@/store";
-
-// initialisation du controller
-let controller = store.state.Controller;
-if(controller == null)                    // si le controller n'existe pas on retourne au menu (catch d'erreur)
-  router.push('/')
-if(controller.getType() !== "tuto") {     // si c'est un tuto on ne repete pas les altercations
-  refresh()
-}
-export function refresh() {
-  controller.newAltercation();            // on crée une altercation
-}
+import {GameController} from "@/assets/js/controllers/game.controller";
 
 export default {
   name: "AltercationView",
   components: {AltercationButton},
   computed: {
-    // recupere les info du joueur
     player() {
-      return controller.getCharacter();
+      return this.$store.state.controller.character
     },
-    // recupere les info du npc
     npc() {
-      return controller.getAltercation().getNPC();
+      return this.$store.state.controller.altercation?.character
     },
-    // recupere le texte de l'altercation
     text() {
-      return controller.getAltercation().getText();
+      return this.$store.state.controller.altercation?.label
     },
-    // recupere l'image du joueur
-    stringPlayer(){
-      console.log(this.player.characterString())
-      return "/images/characters/" + this.player.characterString() + "Droite.png"
+    playerImage () {
+      return `/images/characters/${this.player.specs.buildImageURI('Droite')}`
     },
-    // recupere l'image du npc
-    stringNPC(){
-      console.log(this.npc.characterString())
-      return "/images/characters/" + this.npc.characterString() + "Gauche.png"
+    npcImage () {
+      return `/images/characters/${this.npc?.specs.buildImageURI('Gauche')}`
     },
-    getBackground(){
-      return controller.getAltercation().getBackground()
+    background () {
+      // TODO: return random background
+      return '/images/backgrounds/NightBackgroundNightClub.png'
+    },
+    reactions () {
+      return GameController.REACTIONS
     }
   },
   methods:{
-    // retourne au menu
-    arriere(){
-      router.push('/')
-    },
-    // On teste l'altercation avec la reponse FIGHT
-    async fight() {
-      console.log("fight")
-      if(await controller.getAltercation().interact(Enum.FIGHT) === "end"){ // l'altercation return end si c'etait un tuto, on retourne au menu
-        await router.push('/')
-      }
-      refresh()       // nouvelle altercation
-    },
-    // On teste l'altercation avec la reponse TALK
-    async talk() {
-      console.log("talk")
-      if(await controller.getAltercation().interact(Enum.TALK) === "end"){  // l'altercation return end si c'etait un tuto, on retourne au menu
-        await router.push('/')
-      }
-      refresh()    // nouvelle altercation
-    },
-    insult(){
-      /*console.log("insult")
-      interact(this.player, this.npc, Enum.INSULT)*/
-    },
+    react (reaction) {
+      this.$store.state.controller.react(reaction)
+    }
+  },
+  created () {
+    if (this.$store.state.controller.altercation && this.$store.state.controller.session) return
+    this.$router.push('/')
   }
 }
 </script>
 
 <template>
-  <div class="ecran" :style="{backgroundImage: `url(${getBackground})`}">
+  <div class="ecran" :style="{backgroundImage: `url(${background})`}">
     <div class="backgroundText"></div>
     <div class="text">
       <p>{{text}}</p>
     </div>
     <div class="interaction">
-      <AltercationButton @click.prevent="fight" class="btn" ImageAlter="/images/buttons/ButtonFight.png" TitleAlter="/images/buttons/TitleButtonFight.png"></AltercationButton>
-      <AltercationButton @click.prevent="talk" class="btn" ImageAlter="/images/buttons/ButtonTalk.png" TitleAlter="/images/buttons/TitleButtonTalk.png"></AltercationButton>
-      <AltercationButton class="btn" buttonText="Insult" ImageAlter="/images/buttons/ButtonInsult.png" TitleAlter="/images/buttons/TitleButtonInsult.png"></AltercationButton>
+      <AltercationButton @click.prevent="react(reaction)" v-for="reaction in reactions" :key="reaction" class="btn" :ImageAlter="`/images/buttons/${reaction.icon}.png`" :TitleAlter="`/images/buttons/${reaction.label}.png`"></AltercationButton>
     </div>
     <div class="stats">
       <table class="tableStats">
@@ -96,31 +61,31 @@ export default {
       <table class="tableInteractions">
         <tr>
           <td>calm</td>
-          <td>{{ player.statistics.calm }}</td>
-          <td>{{ npc.statistics.calm }}</td>
+          <td>{{ player.statistics?.calm }}</td>
+          <td>{{ npc.statistics?.calm }}</td>
         </tr>
         <tr>
           <td>frustration</td>
-          <td>{{ player.statistics.frustration }}</td>
-          <td>{{ npc.statistics.frustration }}</td>
+          <td>{{ player.statistics?.frustration }}</td>
+          <td>{{ npc.statistics?.frustration }}</td>
         </tr>
         <tr>
           <td>Strength</td>
-          <td>{{ player.statistics.strength }}</td>
-          <td>{{ npc.statistics.strength }}</td>
+          <td>{{ player.statistics?.strength }}</td>
+          <td>{{ npc.statistics?.strength }}</td>
         </tr>
         <tr>
           <td>Resistance</td>
-          <td>{{ player.statistics.resistance }}</td>
-          <td>{{ npc.statistics.resistance }}</td>
+          <td>{{ player.statistics?.resistance }}</td>
+          <td>{{ npc.statistics?.resistance }}</td>
         </tr>
       </table>
     </div>
     <div class="perso">
-      <img :src="stringPlayer" :alt="stringPlayer" class="showPlayer">
+      <img :src="playerImage" alt="" class="showPlayer">
     </div>
     <div class="ennemi">
-      <img :src="stringNPC" :alt="stringNPC" class="showNPC">
+      <img :src="npcImage" alt="" class="showNPC">
     </div>
   </div>
 </template>

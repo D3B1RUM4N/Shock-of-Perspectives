@@ -2,6 +2,7 @@ import axios from 'axios'
 import router from '@/router'
 import { createStore } from 'vuex'
 import { randomString } from '@/assets/js/utils/strings.utils'
+import { Reaction } from '@/assets/js/models/altercation.model'
 import { GameController, Resume } from '@/assets/js/controllers/game.controller'
 import { Character, CharacterOptions } from '@/assets/js/models/character.model'
 
@@ -27,7 +28,7 @@ export default createStore({
       state.controller.storeCsps(csps)
     },
     storeReactions (state, payload) {
-      state.controller.storeReactions(payload.map(({id, label, dojo}) => new Reaction(id, label, dojo)))
+      state.controller.storeReactions(payload.map(r => new Reaction(r)))
     },
     setNewAltercation (state, payload) {
       state.controller.setAltercation(payload)
@@ -66,7 +67,7 @@ export default createStore({
       try {
         const { data, status } = await axios.get('/reactions')
         if (status === 204) return console.error('No reactions found!')
-        state.commit('storeCharacters', data)
+        state.commit('storeReactions', data)
       } catch (e) {
         console.error(e)
       }
@@ -76,7 +77,7 @@ export default createStore({
       try {
         const { data } = await axios.get('/altercations')
         state.commit('setNewAltercation', data)
-        setTimeout(() => router.push('/altercation'), 1000)
+        setTimeout(() => router.push('/altercation'), 2000)
       } catch (e) {
         console.error(e)
         await router.push('/')
@@ -95,21 +96,45 @@ export default createStore({
       }
     },
     async askResume (state, sessionCode) {
-      const { code } = state.controller.session
+      await router.push('/loading')
+      const { code } = state.state.controller.session
+
       try {
         const resSessionStats = await axios.get(`/session/${code}`)
         const resGameHistory  = await axios.get(`/game/resume/${code}`)
-        if (resSessionStats.status === 204) return console.error('No stats found for the current session!')
-        if (resGameHistory.status === 204) return console.error('No history found for the current session!')
+        if (resSessionStats.status === 204) console.warn('No stats found for the current session!')
+        if (resGameHistory.status === 204) console.warn('No history found for the current session!')
 
         state.commit('storeResume', {
           stats: resSessionStats.data,
           history: resGameHistory.data
         })
+        setTimeout(() => router.push('/stats'), 1000)
       } catch (e) {
         console.error(e)
+        await router.push('/')
       }
-    }
+    },
+    async react (state, payload) {
+      const { code } = state.state.controller.session
+      console.log(code)
+      const { altercation, reaction } = payload
+
+      try {
+        const { status } = await axios.post('/game/react', {
+          session: code,
+          altercation: altercation,
+          reaction: reaction
+        })
+        setTimeout(() => {
+          if (status === 300) return state.dispatch('askResume')
+          state.dispatch('nextAltercation')
+        }, 500)
+      } catch (e) {
+        console.error(e)
+        await router.push('/')
+      }
+    },
   },
   modules: {}
 })
