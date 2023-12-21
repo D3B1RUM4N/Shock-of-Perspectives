@@ -1,7 +1,4 @@
 <script>
-import Character from "../../public/Model/Character.js";
-import store from "@/store";
-import router from "@/router";
 import {GameController} from "@/assets/js/controllers/game.controller";
 
 export default {
