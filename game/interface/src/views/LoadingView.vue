@@ -1,15 +1,18 @@
 <script>
 export default {
-  name: "LoadingView",
-  methods : {
-    // /images/loadings/loadings1/Loading1.gif
-  }
+  name: "LoadingView"
 }
 </script>
 
 <template>
-  <div class="imgBack"></div>
+  <img src="/images/loadings/loadings1/loading1.gif" alt="" class="imgBack"/>
 </template>
 
 <style scoped lang="scss">
+.imgBack {
+  inset: 0;
+  object-fit: cover;
+  position: absolute;
+  object-position: center;
+}
 </style>
