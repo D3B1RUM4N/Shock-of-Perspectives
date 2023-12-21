@@ -6,7 +6,7 @@ import {closeApp} from "@/app";
 
 
 export default {
-  name: 'AcceuilView',
+  name: 'AccueilView',
   methods: {
     // envoi sur la view customisation
     jouer () {
@@ -27,7 +27,6 @@ export default {
     },
     // Ferme le jeu
     quitter () {
-      console.log('closeBtnClick')
       closeApp()
     }
   }
