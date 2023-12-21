@@ -18,6 +18,9 @@ export default {
   methods: {
     reaction (altercation) {
       return GameController.REACTIONS.find(r => r.id === altercation?.reactionId)
+    },
+    statistic (stat) {
+      return GameController.STATISTICS.find(s => s.id === stat?.statisticId)
     }
   }
 }
@@ -32,7 +35,8 @@ export default {
         <img :src="playerAvatar" alt="" class="stats--player" />
 
         <div class="stats__box" v-for="s in stats" :key="s">
-          {{ s }}
+          <p class="stats__box--label">{{ statistic(s).label }}</p>
+          <span class="stats__box--value">{{ s.score }}</span>
         </div>
       </section>
 
@@ -55,10 +59,11 @@ export default {
 
 <style scoped lang="scss">
 .ecran {
+  background-size: 100%;
   font-family: Arial, sans-serif;
-  background-image: url("../../public/images/backgrounds/DojoBackground.jpg");
+  background-attachment: fixed;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-image: url("../../public/images/backgrounds/DojoBackground.jpg");
   background-position: center;
   margin: 0;
   display: flex;
@@ -123,7 +128,7 @@ export default {
 }
 
 h1{
-  font-family: "Press Start 2P", Serif;
+  font-family: "Press Start 2P", serif;
   font-size:30px;
   margin-top:30px;
   margin-bottom:30px;
@@ -131,7 +136,7 @@ h1{
 
 
 h3 {
-  font-family: "Press Start 2P", Serif;
+  font-family: "Press Start 2P", serif;
   text-align: center;
   margin: 0;
   margin-bottom: 20px;
