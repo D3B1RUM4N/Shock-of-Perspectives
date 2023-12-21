@@ -182,7 +182,7 @@ $accentColor: #E8D6C1;
   }
 
   .skinChoice p{
-    margin-top:0px;
+    transform: translateY(-30px);
   }
     .whiteSkin {
       /* Ellipse 2 */
@@ -244,6 +244,10 @@ $accentColor: #E8D6C1;
   .yellowSkin:hover{
     box-shadow: 0 0 15px 5px white;
     transform: translateY(-5px);
+  }
+
+  .whiteSkin, .blackSkin, .yellowSkin {
+    transform: translateY(-30px);
   }
 
   .outfitChoice {
@@ -335,6 +339,7 @@ $accentColor: #E8D6C1;
   height: 75px;
   position: absolute;
   right: 8.5%;
+  z-index: 2;
 }
 
 
