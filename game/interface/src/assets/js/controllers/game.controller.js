@@ -32,7 +32,7 @@ export class GameController {
         GameController.CSPS = [...csps]
     }
     storeReactions (reactions) {
-        GameController.REACTIONS = [reactions]
+        GameController.REACTIONS = [...reactions]
     }
     storeSession (session) {
         this.storeCharacter (session.characterName)
@@ -59,6 +59,9 @@ export class GameController {
             altercation: this.altercation.id,
             reaction: reaction.id
         })
+    }
+    terminate () {
+        store.dispatch('askResume')
     }
 }
 
