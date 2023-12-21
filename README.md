@@ -13,78 +13,71 @@ Préparez-vous à plonger dans un monde où vos choix définissent votre parcour
 [inclure un lien ou autre vers le fichier d’installation dans le git]
 
 
-## Procédure d’installation (pour dev)
-
-### Prérequis (versions)
-NodeJS : [18.18.2 ou supperieur](https://nodejs.org/en)  
-
-pnpm : [https://pnpm.io/installation](https://pnpm.io/installation)  
-
-PHPStorm : [https://www.jetbrains.com/fr-fr/phpstorm/](https://www.jetbrains.com/fr-fr/phpstorm/)  
-
-gitbash (ou autre moyen d’acceder a git) : [https://git-scm.com/downloads](https://git-scm.com/downloads)  
-
+## Procédure d'installation (pour dev)
+### Prérequis
+[NodeJS](https://nodejs.org/en) : 18.18.2 ou supperieur </br>
+[pnpm](https://pnpm.io/installation)</br>
+[PHPStorm](https://www.jetbrains.com/fr-fr/phpstorm/) : Ou autre IDE compatible VueJS</br>
+[GitBash](https://git-scm.com/downloads) : ou autre moyen de communiqué avec Gitlab
 
 ### Commencement
-Commencez par forker le repository git : [Repository Git](https://gitlab.unistra.fr/maes-t3/maj23-t3-d)  
-
-ouvrez le terminal avec un accès à git ou git Desktop, clonez votre dépôt git avec
-```git clone [votre lien]```.  
-
-pour mettre en place votre projet git, regardez [wiki/git_commands]
-
+Commencez par forker le [repository git]( https://gitlab.unistra.fr/maes-t3/maj23-t3-d)</br>
+Pour mettre en place votre projet git, regardez [le Wiki des commandes](wiki/git_commands.md)
+Ouvrez le terminal avec un accès à git ou git Desktop, clonez votre dépôt git avec 
+```
+git clone [votre lien]
+```
 
 ### Arborescence
-Brainstorm -> contiens toutes nos 1eres idée  
-
-Game -> api -> contient l’API utilisée en jeux  
-
-Interface -> le fichier a ouvrir sur votre IDE  
-
-public -> contient les images et asset
-
-src -> Contient les Modèles, vue et contrôler ainsi que les routes et le store
-
-le reste du fichier interface n’est pas a modifier
-
-Report -> Les rapport de chaque devs du projet
-
-Ressource -> les ressource trouvée ou utilisée pour chaqu’une de nos idées
-
-Wiki -> Contient une résumé des commandes git utiles
-
+Projet
+├── Brainstorm</br>
+│   └── contient toutes nos 1eres idées</br>
+├── Game</br>
+│   └── api</br>
+│       └── contient l’API utilisée en jeux</br>
+├── Interface</br>
+│   └── le fichier a ouvrir sur votre IDE</br>
+├── public</br>
+│   └── contient les images et asset</br>
+├── src</br>
+│   ├── Contient les Modèles, vue et contrôler</br>
+│   ├── routes</br>
+│   └── store</br>
+│   └── le reste du fichier interface n’est pas à modifier</br>
+├── Report</br>
+│   └── Les rapports de chaque dev du projet</br>
+├── Resource</br>
+│   └── les ressources trouvées ou utilisées pour chaque idée</br>
+└── Wiki</br>
+    └── Contient un résumé des commandes git utiles</br>
 
 ### Mise en place
-Telechargez et installez Node.JS dans le fichier de votre choix.
-
-Telechargez et installez pnpm suivant votre système d’exploitation.
-
-Ouvrez un terminal dans le fichier [game/Interface]
-```cd votre/chemin/vers/game/interface```
-
-mettez a jour pnpm
-```pnpm update```
-
-Installer vue@cli comme suit
-```npm install -g @vue/cli```
-
-pui installez toutes les dependence avec
-```pnpm install```
-
+Telechargez et installez Node.JS dans le fichier de votre choix.</br>
+Telechargez et installez pnpm suivant cotre system d'exploitation.</br>
+Ouvrez un terminal dans le dossier `game/interface`
+```
+cd votre/chemin/vers/game/interface
+```
+Mettez a jour pnpm, pui installez vue@cli et finissez par installer toutes les dependance :
+```
+pnpm update
+npm install -g @vue/cli
+pnpm install
+```
 Ouvrez le dossier interface avec PHPStorm (que l’on va appeler PS). Pour executé la version dev il faut parametrer une nouvelle configuration pour cela : 
-
+![configuration](readme/installation1.png)
 Creez une nouvelle configuration,
-
-
+![npm](readme/installation2.png)
 Sélectionnez une configuration npm
+![parametters](readme/installation3.png)
 
-Selectionnez le chemin vers votre package.json
-votre chemin vers node.exe que vous avez installer avec Node.JS
-et pour package manager le chemin vers pnpm trouvable grace a 
-Sur windows : ```pnpm where```
-Sur Linux : ````which pnpm```
-Appliquez et validez.
+Selectionnez le chemin vers votre package.json</br>
+votre chemin vers node.exe que vous avez installer avec Node.JS</br>
+et pour package manager le chemin vers pnpm trouvable grace a (sur le terminal)</br>
+Sur windows : ```pnpm where```</br>
+Sur Linux : ```which pnpm```</br>
+Appliquez et validez.</br>
 
-Félicitation, vous pouvez maintenant exécuter le code en tant que dev et le modifié. Pour toutes question, veuillez vous référer à la doc Vue.JS : https://vuejs.org/guide/introduction.html
+Félicitation, vous pouvez maintenant exécuter le code en tant que dev et le modifié. Pour toutes question, veuillez vous référer à la doc [Vue.JS](https://vuejs.org/guide/introduction.html)
 
 
