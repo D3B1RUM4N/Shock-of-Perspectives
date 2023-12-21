@@ -12,7 +12,7 @@ export default {
     jouer () {
       store.commit('setController', null)
       store.commit('setController', initGame("")); // _type = 0 : new game
-      router.push('/customisation')
+      router.push('/loading')
     },
     // lance une altercation de tuto
     tuto () {
