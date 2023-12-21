@@ -1,7 +1,7 @@
 import Statistic from "./Statistic";
 
-let colors = ["African", "Asian", "Caucasian"];
-let sexes = ["Men", "Woman"];
+let colors = ["Africain", "Asiatique", "Caucasien"];
+let sexes = ["Homme", "Femme"];
 let outfits = ["Casual", "Streetwear", "Chic", "Dojo"];
 
 const STATS_BY_COLOR = {
@@ -87,7 +87,7 @@ export default class Character {
     getOutfit() {return outfits[this.outfitI]}
     characterString() {return this.getColor() + this.getSexe() + this.getOutfit()}
 
-    getStats() {return this.statistics}
+    getStats() {return this.statistics.getStats()}
 
     //setters
     changeSexe() {
