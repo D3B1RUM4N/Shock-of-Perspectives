@@ -27,6 +27,11 @@ const routes = [
     name: 'StatView',
     component: () => import(/* webpackChunkName: "about" */ '../views/StatView.vue')
   },
+  {
+    path: '/loading',
+    name: 'LoadingView',
+    component: () => import(/* webpackChunkName: "about" */ '../views/LoadingView.vue')
+  }
 ]
 
 const router = createRouter({

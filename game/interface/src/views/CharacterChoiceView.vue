@@ -76,10 +76,43 @@ export default {
       <p>autour du personnage</p>
       <a href="" class="next" @click.prevent="next"><img src="/images/buttons/right_arrow.png"></a>
     </div>
-  </div>
+    <svg viewBox='0 0 200 200' width='200' height='200' xmlns='http://www.w3.org/2000/svg' class="linkLeft__svg" aria-labelledby="link1-title link1-desc">
+      <title id="link1-title">Retourner au menu principal</title>
+
+      <path id="link-circle" class="link__path" d="M 20, 100 a 80,80 0 1,1 160,0 a 80,80 0 1,1 -160,0" stroke="none" fill="none" />
+
+      <text class="link__text">
+        <textPath href="#link-circle" stroke="none">
+          Retourner au menu principal
+        </textPath>
+      </text>
+    </svg>
+
+    <svg viewBox='0 0 200 200' width='200' height='200' xmlns='http://www.w3.org/2000/svg' class="linkRight__svg" aria-labelledby="link1-title link1-desc">
+      <title id="link1-title">Lancer la partie</title>
+
+      <path id="link-circle" class="link__path" d="M 20, 100 a 80,80 0 1,1 160,0 a 80,80 0 1,1 -160,0" stroke="none" fill="none" />
+
+      <text class="link__text">
+        <textPath href="#link-circle" stroke="none">
+          Lancer la partie
+        </textPath>
+      </text>
+    </svg>
+    </div>
 </template>
 
 <style scoped lang="scss">
+$rotationDuration: 20s;
+$hoverDuration: 0.3s;
+
+$easeIn: cubic-bezier(0.32, 0, 0.67, 0);
+$easeOut: cubic-bezier(0.33, 1, 0.68, 1);
+
+$textColor: #2B3338;
+$bgColor: #A6B8B1;
+$accentColor: #E8D6C1;
+
 .ecran {
   position: absolute;
   width: 100%;
@@ -90,6 +123,7 @@ export default {
   background-color: #BBD3F0;
 
   font-family: "Press Start 2P", Serif;
+  overflow-y: hidden;
 }
 
 
@@ -153,7 +187,7 @@ export default {
   }
 
   .skinChoice p{
-    margin-top:0px;
+    transform: translateY(-30px);
   }
     .whiteSkin {
       /* Ellipse 2 */
@@ -217,6 +251,10 @@ export default {
     transform: translateY(-5px);
   }
 
+  .whiteSkin, .blackSkin, .yellowSkin {
+    transform: translateY(-30px);
+  }
+
   .outfitChoice {
     display: flex;
     flex-direction: row;
@@ -278,10 +316,11 @@ export default {
   }
 
     .previous {
-      width: 100px;
-      height: 100px;
+      width: 75px;
+      height: 75px;
       position: absolute;
-      right:88%;
+      left: 8.5%;
+      z-index: 2;
     }
 
     .navigation p {
@@ -300,11 +339,73 @@ export default {
   width: 400px;
   font-size: 15px;
 }
-  .next {
-    width: 100px;
-    height: 100px;
-    position: absolute;
-    left : 88%;
+.next {
+  width: 75px;
+  height: 75px;
+  position: absolute;
+  right: 8.5%;
+  z-index: 2;
+}
+
+
+
+
+.linkLeft__svg {
+  position: absolute;
+  bottom: 13px;
+  left: 8%;
+  width: 5rem;
+  height: 5rem;
+  display: inline-block;
+  font-family: "Press Start 2P", cursive;
+  font-size: 15px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.1175em;
+  word-spacing: 0.3em;
+  text-decoration: none;
+  transform-box: fill-box;
+  fill: $textColor;
+  stroke: $textColor;
+  stroke-width: 0.05em;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  animation: rotate 10s infinite linear;
+  z-index: 1;
   }
 
+.linkRight__svg {
+  position: absolute;
+  bottom: 13px;
+  right: 8%;
+  width: 5rem;
+  height: 5rem;
+  display: inline-block;
+  font-family: "Press Start 2P", cursive;
+  font-size: 15px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.1175em;
+  word-spacing: 0.3em;
+  text-decoration: none;
+  transform-box: fill-box;
+  fill: $textColor;
+  stroke: $textColor;
+  stroke-width: 0.05em;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  animation: rotate 10s infinite linear;
+  z-index: 1;
+}
+
+
+
+
+
+
+@keyframes rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
 </style>

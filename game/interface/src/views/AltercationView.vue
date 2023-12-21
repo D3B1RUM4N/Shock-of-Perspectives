@@ -11,7 +11,6 @@ if(controller == null)                    // si le controller n'existe pas on re
 if(controller.getType() !== "tuto") {     // si c'est un tuto on ne repete pas les altercations
   refresh()
 }
-
 export function refresh() {
   controller.newAltercation();            // on crée une altercation
 }
@@ -19,7 +18,6 @@ export function refresh() {
 export default {
   name: "AltercationView",
   components: {AltercationButton},
-
   computed: {
     // recupere les info du joueur
     player() {
@@ -43,6 +41,9 @@ export default {
       console.log(this.npc.characterString())
       return "/images/characters/" + this.npc.characterString() + "Gauche.png"
     },
+    getBackground(){
+      return controller.getAltercation().getBackground()
+    }
   },
   methods:{
     // retourne au menu
@@ -74,7 +75,7 @@ export default {
 </script>
 
 <template>
-  <div class="ecran">
+  <div class="ecran" :style="{backgroundImage: `url(${getBackground})`}">
     <div class="backgroundText"></div>
     <div class="text">
       <p>{{text}}</p>
@@ -83,7 +84,6 @@ export default {
       <AltercationButton @click.prevent="fight" class="btn" ImageAlter="/images/buttons/ButtonFight.png" TitleAlter="/images/buttons/TitleButtonFight.png"></AltercationButton>
       <AltercationButton @click.prevent="talk" class="btn" ImageAlter="/images/buttons/ButtonTalk.png" TitleAlter="/images/buttons/TitleButtonTalk.png"></AltercationButton>
       <AltercationButton class="btn" buttonText="Insult" ImageAlter="/images/buttons/ButtonInsult.png" TitleAlter="/images/buttons/TitleButtonInsult.png"></AltercationButton>
-      <AltercationButton class="btn" buttonText="Leave" ImageAlter="/images/buttons/ButtonLeave.png" TitleAlter="/images/buttons/TitleButtonLeave.png"></AltercationButton>
     </div>
     <div class="stats">
       <table class="tableStats">
@@ -130,9 +130,12 @@ export default {
   position: absolute;
   width: 100%;
   height: 720px;
-  background-image: url("../../public/images/backgrounds/NightBackgroundNightClub.png");
+  //background-image: url("../../public/images/backgrounds/NightBackgroundNightClub.png");
   background-size: cover;
-  background-position-y: -300px;
+  background-repeat: no-repeat;
+
+  background-position: center;
+
 }
 
 .text {
@@ -181,7 +184,7 @@ export default {
 
 .perso {
   position: absolute;
-  top: 420px;
+  top: 470px;
   right: 750px;
   width: 150px;
   height: 250px;
@@ -194,7 +197,7 @@ export default {
 
 .ennemi {
   position: absolute;
-  top: 350px;
+  top: 470px;
   right: 150px;
   width: 150px;
   height: 250px;

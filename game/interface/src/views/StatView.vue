@@ -72,7 +72,7 @@ export default {
           <img :src="getStringChar(altercations[1])" alt="Image 1">
         </div>
         <div class="content">
-          <h3>Altercation 4</h3>
+          <h3>Altercation 2</h3>
           <ul>
             <li>Calm : {{ getStats(altercations[1]).calm }}</li>
             <li>Frustation : {{ getStats(altercations[1]).frustration }}</li>
@@ -89,7 +89,7 @@ export default {
           <img :src="getStringChar(altercations[2])" alt="Image 1">
         </div>
         <div class="content">
-          <h3>Altercation 5</h3>
+          <h3>Altercation 3</h3>
           <ul>
             <li>Calm : {{ getStats(altercations[2]).calm }}</li>
             <li>Frustation : {{ getStats(altercations[2]).frustration }}</li>
@@ -106,7 +106,7 @@ export default {
           <img :src="getStringChar(altercations[3])" alt="Image 1">
         </div>
         <div class="content">
-          <h3>Altercation 6</h3>
+          <h3>Altercation 4</h3>
           <ul>
             <li>Calm : {{ getStats(altercations[3]).calm }}</li>
             <li>Frustation : {{ getStats(altercations[3]).frustration }}</li>
@@ -122,7 +122,7 @@ export default {
           <img :src="getStringChar(altercations[4])" alt="Image 1">
         </div>
         <div class="content">
-          <h3>Altercation 7</h3>
+          <h3>Altercation 5</h3>
           <ul>
             <li>Calm : {{ getStats(altercations[4]).calm }}</li>
             <li>Frustation : {{ getStats(altercations[4]).frustration }}</li>
@@ -177,7 +177,10 @@ export default {
 
 .ecran {
   font-family: Arial, sans-serif;
-  background-color: #BBD3F0;
+  background-image: url("../../public/images/backgrounds/DojoBackground.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
   margin: 0;
   display: flex;
   justify-content: center;
@@ -205,8 +208,9 @@ export default {
   border-radius: 10px;
   overflow: hidden;
   transition: box-shadow 0.3s ease;
-  background-color: #79A1D0;
-  font-size: 1.3rem; ;
+  background-color: rgba(121, 161, 208, 0.9);
+  font-size: 1.3rem;
+  box-shadow: #3b3737 0.1em 0.1em 0.5em;
 }
 
 .section:hover {

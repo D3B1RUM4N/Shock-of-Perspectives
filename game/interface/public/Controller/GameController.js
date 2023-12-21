@@ -22,6 +22,14 @@ export default class GameController{
     //return last altercation
     getAltercation(){return this.altercations[this.altercations.length - 1];}
     getAltercations(){return this.altercations;}
+    randBackGround(){
+        console.log("getBackGround")
+        if((Math.floor(Math.random() * 100)%2 === 0)){
+            return "/images/backgrounds/NightBackgroundNightClub.png"
+        }else{
+            return "/images/backgrounds/NightBackgroundMexicosAriba.png"
+        }
+    }
 
     setCharacter(character){this.player = character; store.commit('setController', this);}
 
@@ -29,11 +37,12 @@ export default class GameController{
         if(this.nbAltercation > 0) {
             this.nbAltercation--;
 
-            let altercation = new Altercation("Vas manger du poulet", this.player);
+            let altercation = new Altercation("Vas manger du poulet", this.player, this.randBackGround());
             this.altercations.push(altercation);
         }else{
             if(this.nbAltercation > -2) {
                 this.nbAltercation--;
+                this.player.changeOutfit(3)
                 let altercation = new DojoAltercation("vous vous dirigez vers le dojo pour votre entrainement quotidient", this.player);
                 altercation.setNPC(altercation.newNPC())
                 this.altercations.push(altercation);
@@ -45,7 +54,9 @@ export default class GameController{
         }
     }
 
+
     tutoAltercation(){
+        console.log("tuto")
         let altercation = new TutoAltercation("Bienvenue dans le tuto. Vous rencontrerais des personnes" +
             " dans la rues qui vont vous lancé des pics. A vous de voir comment vous allez reagire a cela. Prennez bien en " +
             "compte quel personnage vous incarnez. Vos choix impacte votre personne ce qui peut faire varié vos prochaines altercation.");
