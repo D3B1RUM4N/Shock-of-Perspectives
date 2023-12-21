@@ -3,7 +3,7 @@ import Character from "../../public/Model/Character";
 
 export default createStore({
   state: {
-    Controller: null,
+    Controller: null
   },
   getters: {
   },

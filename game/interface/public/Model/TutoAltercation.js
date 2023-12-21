@@ -4,8 +4,8 @@ import {Enum} from "./Enum";
 
 export default class TutoAltercation extends Altercation {
 
-    constructor(_text) {
-        super(_text);
+    constructor(_text, _background) {
+        super(_text, null, _background);
 
         let _player = new Character();
         for (let i = 0; i < Math.floor(Math.random() * 100) % 2; i++) {
