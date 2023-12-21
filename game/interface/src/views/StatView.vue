@@ -138,9 +138,7 @@ h1{
 h3 {
   font-family: "Press Start 2P", serif;
   text-align: center;
-  margin: 0;
-  margin-bottom: 20px;
-
+  margin: 0 0 20px;
 }
 
 .back-to-top {
