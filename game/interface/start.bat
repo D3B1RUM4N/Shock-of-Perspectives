@@ -1,2 +1,2 @@
 @echo off
-start pnpm i && pnpm run electron:serve
+pnpm i && pnpm run electron:serve

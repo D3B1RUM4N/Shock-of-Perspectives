@@ -1,2 +1,2 @@
 @echo off
-start pnpm i && pnpm run start:win
+pnpm i && pnpm run start:win
