@@ -66,6 +66,8 @@ export default {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  text-align:center;
+
 
   opacity: 1; /* Opacité entre 0 et 1 */
   color: #ffffff;
@@ -80,14 +82,12 @@ export default {
 /* BUTTON : size, color and hover */
 .btn {
   background-color: lightskyblue;
-  padding:0;
-  margin-top: 2%;
-  margin-bottom: 2%;
-  margin-right:40px;
-  margin-left:40px;
+  padding:10px;
+  margin:auto;
 
   font-weight: bold;
   color: #000000;
+  justify-content: center;
 
   width:150px;
   border: solid black;
