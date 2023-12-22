@@ -8,6 +8,8 @@ Au-delà de l'exploration de la violence sous ses multiples formes, ce jeu explo
 
 Préparez-vous à plonger dans un monde où vos choix définissent votre parcours, où la perception de la violence évolue au fil de vos actions, et où la pratique du jiu-jitsu devient un guide essentiel pour surmonter les épreuves. Relevez le défi et explorez les profondeurs fascinantes de ce jeu, où la réflexion et l'action se rencontrent pour vous offrir une expérience unique et enrichissante.
 
+Voir aussi : [Description.md](./Description.md)
+
 ## Lien vers le téléchargement
 
 [inclure un lien ou autre vers le fichier d’installation dans le git]
