@@ -1,15 +1,19 @@
 <script>
+// Import simulated credit data from the credits.mocks.js file
 import creditsMocks from "@/assets/js/mocks/credits.mocks";
 
 export default {
-  name: 'CreditView',
+  name: 'CreditView', // Vue component name
+
   computed: {
-    developers () {
-      return creditsMocks
+    developers() {
+      // Returns simulated credit data
+      return creditsMocks;
     }
   }
 }
 </script>
+
 
 <template>
   <div class="ecran">
@@ -33,7 +37,7 @@ export default {
 
 <style scoped lang="scss">
 /* SCREEN */
-.ecran{
+.ecran {
   height: 720px;
   width: 100%;
   position: absolute;
@@ -47,7 +51,7 @@ export default {
   background-image: url("../../public/images/backgrounds/NightBackgroundMexicosAriba.png");
   background-size: cover;
   background-position: center;
-  filter: brightness(1);
+  filter: brightness(1); /* Adjustment of background image brightness */
 }
 
 /* PANEL */
@@ -57,34 +61,30 @@ export default {
 
   /* Flexbox */
   display: flex;
-  justify-content : space-around;
+  justify-content: space-around;
   text-align: center;
   align-items: baseline;
-
 }
 
 /* SECTION */
-section{
-  width : 200px;
-  height : 400px;
+section {
+  width: 200px;
+  height: 400px;
   background: grey;
-  opacity: 0.8;
+  opacity: 0.8; /* Opacity of grey background */
   border-radius: 10px;
-  box-shadow: blueviolet 0.1em 0.1em 0.5em;
-
-  text-align : start ;
-  //align-items: baseline;
+  box-shadow: blueviolet 0.1em 0.1em 0.5em; /* Blueviolet shadow */
+  text-align: start;
   margin-bottom: 80px;
-  display:flex;
+  display: flex;
   flex-direction: column;
-
 }
 
 /* MAIN TITLE */
 h1 {
   font-size: 50px;
-  color: #fff;
-  animation: pulsateLightBlue 0.11s ease-in-out infinite alternate;
+  color: #fff; /* Text color */
+  animation: pulsateLightBlue 0.11s ease-in-out infinite alternate; /* Text animation */
   margin-top: 50px;
 }
 
@@ -93,16 +93,16 @@ h4 {
   margin-top: 6px;
   margin-bottom: 4px;
   font-size: 22px;
-  color: #efefef;
-  animation: pulsateBlue 0.01s ease-in-out infinite alternate;
-  text-align:center;
+  color: #efefef; /* Text color */
+  animation: pulsateBlue 0.01s ease-in-out infinite alternate; /* Text animation */
+  text-align: center;
 }
 
 /* PARAGRAPHS */
 section ul li {
   font-size: 11px;
   margin-bottom: 4px;
-  margin-right:15px;
+  margin-right: 15px;
   line-height: 1.6;
 }
 
@@ -110,11 +110,11 @@ section ul li {
 .photo {
   width: 200px;
   height: 200px;
-  background: #848484;
-  opacity: 1;
-  border-radius: 20px 20px 20px 20px;
+  background: #848484; /* Background color */
+  opacity: 1; /* Opacity */
+  border-radius: 20px; /* Rounded corners */
   margin-bottom: 4px;
-  box-shadow: #707070 0.1em 0.1em 0.5em;
+  box-shadow: #707070 0.1em 0.1em 0.5em; /* Box shadow */
 }
 
 /* PICTURES : box and size */
@@ -122,14 +122,14 @@ section ul li {
   width: 100%;
   height: 100%;
   opacity: 1;
-  border-radius: 20px 20px 20px 20px;
+  border-radius: 20px; /* Rounded corners */
 }
 
 /* BUTTON */
 .btn {
   font-size: 40px;
-  color: #fff;
-  animation: pulsateLightBlue 0.11s ease-in-out infinite alternate;
+  color: #fff; /* Text color */
+  animation: pulsateLightBlue 0.11s ease-in-out infinite alternate; /* Text animation */
 }
 
 /* KEYFRAMES */
@@ -188,27 +188,25 @@ section ul li {
 @keyframes pulsatePink {
   100% {
     /* Larger blur radius */
-    text-shadow:
-        0 0 4px #8400ff,
-        0 0 11px #8400ff,
-        0 0 19px #8400ff,
-        0 0 40px #bf00ff,
-        0 0 80px #bf00ff,
-        0 0 90px #bf00ff,
-        0 0 100px #bf00ff,
-        0 0 150px #bf00ff;
+    text-shadow: 0 0 4px #8400ff,
+    0 0 11px #8400ff,
+    0 0 19px #8400ff,
+    0 0 40px #bf00ff,
+    0 0 80px #bf00ff,
+    0 0 90px #bf00ff,
+    0 0 100px #bf00ff,
+    0 0 150px #bf00ff;
   }
   0% {
     /* A slightly smaller blur radius */
-    text-shadow:
-        0 0 4px #8400ff,
-        0 0 10px #8400ff,
-        0 0 18px #8400ff,
-        0 0 38px #bf00ff,
-        0 0 73px #bf00ff,
-        0 0 80px #bf00ff,
-        0 0 94px #bf00ff,
-        0 0 140px #bf00ff;
+    text-shadow: 0 0 4px #8400ff,
+    0 0 10px #8400ff,
+    0 0 18px #8400ff,
+    0 0 38px #bf00ff,
+    0 0 73px #bf00ff,
+    0 0 80px #bf00ff,
+    0 0 94px #bf00ff,
+    0 0 140px #bf00ff;
   }
 }
 </style>

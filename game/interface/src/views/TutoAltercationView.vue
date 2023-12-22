@@ -1,59 +1,66 @@
 <script>
 import AltercationButton from "@/views/component/AltercationButton.vue";
-import {GameController} from "@/assets/js/controllers/game.controller";
+import { GameController } from "@/assets/js/controllers/game.controller";
 
 export default {
   name: "TutoAltercationView",
-  components: {AltercationButton},
+  components: { AltercationButton },
   data: () => ({
     intro: true,
     customText: 'Bienvenue dans le tutoriel ! Dans ce jeu, vous allez vous retrouver face à des situations violentes dans la rue et dans un dojo. Votre but, réagir à ces altercations de la manière qui vous semble le mieux.'
   }),
   computed: {
+    // Computed properties to retrieve information from the store
     player() {
-      const gender = this.$store.state.controller.characterOptions.gender
-      const skin = this.$store.state.controller.characterOptions.skin
-      const csp = this.$store.state.controller.characterOptions.csp
+      const gender = this.$store.state.controller.characterOptions.gender;
+      const skin = this.$store.state.controller.characterOptions.skin;
+      const csp = this.$store.state.controller.characterOptions.csp;
 
-      return GameController.CHARACTERS.find(({ specs }) => specs.gender === gender && specs.skin === skin && specs.csp === csp)
+      // Find the character in the GameController.CHARACTERS array based on gender, skin, and csp
+      return GameController.CHARACTERS.find(({ specs }) => specs.gender === gender && specs.skin === skin && specs.csp === csp);
     },
     npc() {
-      return this.$store.state.controller.altercation?.character
+      return this.$store.state.controller.altercation?.character;
     },
     text() {
-      return this.customText || this.$store.state.controller.altercation?.label
+      return this.customText || this.$store.state.controller.altercation?.label;
     },
-    playerImage () {
-      return `/images/characters/${this.player.specs.buildImageURI('Droite')}`
+    playerImage() {
+      return `/images/characters/${this.player.specs.buildImageURI('Droite')}`;
     },
-    npcImage () {
-      return `/images/characters/${this.npc?.specs.buildImageURI('Gauche')}`
+    npcImage() {
+      return `/images/characters/${this.npc?.specs.buildImageURI('Gauche')}`;
     },
-    background () {
-      return `/images/backgrounds/${this.$store.state.controller.altercation?.background}`
+    background() {
+      return `/images/backgrounds/${this.$store.state.controller.altercation?.background}`;
     },
-    reactions () {
-      return GameController.REACTIONS
+    reactions() {
+      return GameController.REACTIONS;
     }
   },
   methods: {
-    react (reaction) {
-      this.customText = reaction.message
-      setTimeout(() => this.$router.push('/'), 4500)
+    // Method to handle reactions
+    react(reaction) {
+      this.customText = reaction.message;
+      // After a delay, navigate back to the main page
+      setTimeout(() => this.$router.push('/'), 4500);
     }
   },
-  created () {
-    if (this.$store.state.controller.altercation) return
-    this.$router.push('/')
+  created() {
+    // Redirect to the main page if there is no altercation in the store
+    if (this.$store.state.controller.altercation) return;
+    this.$router.push('/');
   },
-  mounted () {
+  mounted() {
+    // After a delay, set intro to false and clear customText
     setTimeout(() => {
-      this.intro = false
-      this.customText = undefined
-    }, 7500)
+      this.intro = false;
+      this.customText = undefined;
+    }, 7500);
   }
 }
 </script>
+
 
 <template>
   <div class="ecran" :style="{backgroundImage: `url(${background})`}">
@@ -72,18 +79,14 @@ export default {
     </div>
   </div>
 </template>
-
 <style scoped lang="scss">
 .ecran {
   position: absolute;
   width: 100%;
   height: 720px;
-  //background-image: url("../../public/images/backgrounds/NightBackgroundNightClub.png");
   background-size: cover;
   background-repeat: no-repeat;
-
   background-position: center;
-
 }
 
 .text {
@@ -93,20 +96,24 @@ export default {
   max-height: 130px;
   overflow: hidden;
 }
+
 .text p {
-  overflow: hidden; /* Ensures the content is not revealed until the animation */
-  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
-  //letter-spacing: .15em; /* Adjust as needed */
+  overflow: hidden;
+  margin: 0 auto;
   font-family: 'Press Start 2P', cursive;
   opacity: 1;
-  animation:
-      typing 1.5s steps(40, end);
+  animation: typing 1.5s steps(40, end);
 }
-/* The typing effect */
+
 @keyframes typing {
-  from { width: 50% }
-  to { width: 100% }
+  from {
+    width: 50%;
+  }
+  to {
+    width: 100%;
+  }
 }
+
 .backgroundText {
   position: absolute;
   width: 90%;
@@ -122,11 +129,12 @@ export default {
 
 .interaction {
   position: absolute;
-  top:200px;
+  top: 200px;
   display: flex;
   flex-direction: column;
 }
-.btn{
+
+.btn {
   margin-top: 5px;
 }
 
@@ -136,7 +144,6 @@ export default {
   right: 750px;
   width: 150px;
   height: 250px;
-  //background-color: red;
   text-align: center;
   line-height: 100px;
   font-size: 50px;
@@ -149,7 +156,6 @@ export default {
   right: 150px;
   width: 150px;
   height: 250px;
-  //background-color: blue;
   text-align: center;
   line-height: 100px;
   font-size: 50px;
@@ -166,6 +172,7 @@ export default {
   }
   opacity: 0;
 }
+
 .tableInteractions {
   border-collapse: collapse;
   color: #ffffff;
@@ -177,9 +184,11 @@ export default {
   }
   opacity: 0;
 }
+
 img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 </style>
+
