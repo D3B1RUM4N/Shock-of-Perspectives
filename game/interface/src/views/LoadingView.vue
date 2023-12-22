@@ -25,10 +25,21 @@ export default {
   object-fit: cover; /* Scales the image to cover the entire area */
   position: absolute; /* Positioned absolutely */
   object-position: center; /* Centers the image within its container */
+  z-index:1;
 }
 
 .tips {
-  background-color: white;
+
+  z-index:2;
+  position:absolute;
+  font-family: "Press Start 2P", Serif;
+  color:white;
+  font-size:18px;
+  bottom:5px;
+  width: 99%;
+  min-height: 50px;
+  left:10px;
+  background-color: black;
 }
 </style>
 
