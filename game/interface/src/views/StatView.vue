@@ -19,6 +19,9 @@ export default {
     reaction (altercation) {
       return GameController.REACTIONS.find(r => r.id === altercation?.reactionId)
     },
+    character (altercation) {
+      return GameController.CHARACTERS.find(c => c.name === altercation?.characterName)
+    },
     statistic (stat) {
       return GameController.STATISTICS.find(s => s.id === stat?.statisticId)
     }
@@ -46,6 +49,7 @@ export default {
             <h3>Altercation {{ a.id - history[0].id + 1 }}</h3>
             <p>{{ a.label }}</p>
             <img :src="`/images/buttons/${reaction(a).icon}.png`" alt="" />
+            <img :src="`/images/characters/${character(a)?.specs.buildImageURI('Face')}`" :alt="a.characterName" />
           </div>
         </div>
       </section>

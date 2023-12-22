@@ -85,8 +85,10 @@ export default createStore({
     },
     async nextAltercation (state) {
       await router.push('/loading')
+      const { code } = state.state.controller.session
+
       try {
-        const { data } = await axios.get('/altercations')
+        const { data } = await axios.get(`/altercations/${code}`)
         state.commit('setNewAltercation', data)
         setTimeout(() => router.push('/altercation'), 2000)
       } catch (e) {
@@ -128,14 +130,14 @@ export default createStore({
     },
     async react (state, payload) {
       const { code } = state.state.controller.session
-      console.log(code)
-      const { altercation, reaction } = payload
+      const { altercation, reaction, character } = payload
 
       try {
         const { status } = await axios.post('/game/react', {
           session: code,
-          altercation: altercation,
-          reaction: reaction
+          altercation,
+          reaction,
+          character
         })
         setTimeout(() => {
           state.dispatch('nextAltercation')
@@ -145,7 +147,7 @@ export default createStore({
         console.error(e)
         await router.push('/')
       }
-    },
+    }
   },
   modules: {}
 })

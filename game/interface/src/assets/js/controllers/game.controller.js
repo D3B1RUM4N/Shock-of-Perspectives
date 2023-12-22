@@ -61,7 +61,8 @@ export class GameController {
     react (reaction) {
         store.dispatch('react', {
             altercation: this.altercation.id,
-            reaction: reaction.id
+            reaction: reaction.id,
+            character: this.altercation.character.name
         })
     }
 }
