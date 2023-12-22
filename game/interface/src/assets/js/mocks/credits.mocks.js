@@ -1,3 +1,4 @@
+// Script contenant les données des crédits et des devs
 export default [
   {
     name: 'Elies Mekhinini',

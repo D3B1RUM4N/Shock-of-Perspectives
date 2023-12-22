@@ -1,11 +1,12 @@
+// Class representing a Statistic in the game
 export class Statistic {
-  id
-  label
-  defaultScore
+  id           // Identifier for the statistic
+  label        // Label or name for the statistic
+  defaultScore // Default score value for the statistic
 
-  constructor (payload) {
+  // Constructor to initialize a Statistic instance
+  constructor(payload) {
     const { id, label, defaultScore } = payload
-
     this.id           = id
     this.label        = label
     this.defaultScore = defaultScore
