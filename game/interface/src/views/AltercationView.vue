@@ -22,8 +22,7 @@ export default {
       return `/images/characters/${this.npc?.specs.buildImageURI('Gauche')}`
     },
     background () {
-      // TODO: return random background
-      return '/images/backgrounds/NightBackgroundNightClub.png'
+      return `/images/backgrounds/${this.$store.state.controller.altercation?.background}`
     },
     reactions () {
       return GameController.REACTIONS
@@ -49,37 +48,6 @@ export default {
     </div>
     <div class="interaction">
       <AltercationButton @click.prevent="react(reaction)" v-for="reaction in reactions" :key="reaction" class="btn" :ImageAlter="`/images/buttons/${reaction.icon}.png`" :TitleAlter="`/images/buttons/${reaction.label}.png`"></AltercationButton>
-    </div>
-    <div class="stats">
-      <table class="tableStats">
-        <tr>
-          <th>Stat</th>
-          <th>Player</th>
-          <th>NPC</th>
-        </tr>
-      </table>
-      <table class="tableInteractions">
-        <tr>
-          <td>calm</td>
-          <td>{{ player.statistics?.calm }}</td>
-          <td>{{ npc.statistics?.calm }}</td>
-        </tr>
-        <tr>
-          <td>frustration</td>
-          <td>{{ player.statistics?.frustration }}</td>
-          <td>{{ npc.statistics?.frustration }}</td>
-        </tr>
-        <tr>
-          <td>Strength</td>
-          <td>{{ player.statistics?.strength }}</td>
-          <td>{{ npc.statistics?.strength }}</td>
-        </tr>
-        <tr>
-          <td>Resistance</td>
-          <td>{{ player.statistics?.resistance }}</td>
-          <td>{{ npc.statistics?.resistance }}</td>
-        </tr>
-      </table>
     </div>
     <div class="perso">
       <img :src="playerImage" alt="" class="showPlayer">
