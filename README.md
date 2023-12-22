@@ -12,8 +12,8 @@ Voir aussi : [Description.md](./Description.md)
 
 ## Lien vers le téléchargement
 
-pour telecharger notre jeux vous pouvez passer par [lien de telechargement]() ou telcharger le repository et executé
-[le fichier](./game/launcher.bat) : game/launcher.bat
+pour telecharger notre jeux vous pouvez passer par [lien de telechargement](https://git.unistra.fr/maes-t3/maj23-t3-d/-/archive/main/maj23-t3-d-main.zip) Deplacez vous vers le
+[launcher](./game/launcher.bat) : `game/launcher.bat` et double cliquez
 
 
 
