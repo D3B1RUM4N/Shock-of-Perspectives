@@ -3,16 +3,12 @@ import {tipsModel} from "@/assets/js/models/tips.model";
 
 let tips = new tipsModel();
 export default {
-<<<<<<< HEAD
   name: "LoadingView",
   computed: {
     tips() {
       return tips.getTip();
     }
   }
-=======
-  name: "LoadingView" // Defines the Vue component name as "LoadingView"
->>>>>>> e053cd3acf8400780014cb343592efa4c7b4b49b
 }
 </script>
 
