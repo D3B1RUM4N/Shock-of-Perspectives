@@ -5,7 +5,7 @@ export default {
   name: 'AccueilView',
   methods: {
     tuto () {
-      console.log('tuto click')
+      this.$store.dispatch('askTutorialAltercation')
     },
     credit () {
       this.$router.push('/credits')

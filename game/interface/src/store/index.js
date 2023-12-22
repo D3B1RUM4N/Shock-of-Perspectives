@@ -20,8 +20,7 @@ export default createStore({
     storeCharacters (state, payload) {
       state.controller.storeCharacters(payload.map(c => {
         const { gender, skin, csp, name } = c
-        const options = new CharacterOptions(gender, skin, csp)
-        return new Character(name, options)
+        return new Character(name, { gender, skin, csp })
       }))
     },
     storeCriteria (state, payload) {
@@ -144,6 +143,18 @@ export default createStore({
         }, 500)
       } catch (e) {
         if (e.response.status === 300) return state.dispatch('askResume')
+        console.error(e)
+        await router.push('/')
+      }
+    },
+    async askTutorialAltercation (state) {
+      await router.push('/loading')
+
+      try {
+        const { data } = await axios.get('/altercations/tuto')
+        state.commit('setNewAltercation', data)
+        setTimeout(() => router.push('/tuto'), 2000)
+      } catch (e) {
         console.error(e)
         await router.push('/')
       }
