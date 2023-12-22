@@ -7,7 +7,7 @@ export default [
         await createAltercation(res, req.body.label)
     }),
     // Get a random altercation
-    new Route(HttpMethod.GET, '/altercations', [], async (req, res) => {
-        await getRandomAltercation(res, undefined)
+    new Route(HttpMethod.GET, '/altercations/:code', [], async (req, res) => {
+        await getRandomAltercation(res, req.params.code)
     })
 ]
