@@ -54,7 +54,36 @@ export async function getRandomAltercation (res, sessionCode) {
 
         res.json(element)
     } catch (e) {
-        console.log(e)
+        res.status(HttpStatus.INTERNAL_ERROR).json(e)
+    }
+}
+
+export async function getRandomTutorialAltercation (res) {
+    try {
+        const model = getModel(modelName)
+        const list = await model.findAll({
+            attributes: {
+                include: [ 'id' ]
+            }
+        })
+        if (list.length === 0) return res.status(HttpStatus.NO_CONTENT).json()
+
+        const mapped = list.map(e => e.id)
+        let element = await model.findByPk(mapped[Math.floor(Math.random() * mapped.length)])
+        if (!element) return res.status(HttpStatus.NOT_FOUND).json()
+        element = element.toJSON()
+        element.dojo = true
+
+        const characters = await getModel('character').findAll({
+            attributes: {
+                include: [ 'name' ]
+            }
+        })
+        const _characters = characters.map(c => c.name)
+        element.characterName = _characters[Math.floor(Math.random() * _characters.length)]
+
+        res.json(element)
+    } catch (e) {
         res.status(HttpStatus.INTERNAL_ERROR).json(e)
     }
 }
