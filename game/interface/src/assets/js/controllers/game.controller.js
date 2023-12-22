@@ -1,15 +1,17 @@
+// Import the necessary modules
 import store from '@/store'
 import { Altercation, Reaction } from '@/assets/js/models/altercation.model'
 import { Character, CharacterOptions } from '@/assets/js/models/character.model'
 import { Session } from '@/assets/js/models/session.model'
 import { randomString } from '@/assets/js/utils/strings.utils'
 
+// Class GameController responsible for the game logic
 export class GameController {
-    // Criteria
+    // Criteria for the game
     static GENDERS = []
     static SKINS = []
     static CSPS = []
-    // Mock lists
+    // Mock lists for simulation
     static CHARACTERS = []
     static REACTIONS = []
     static STATISTICS = []
@@ -19,46 +21,54 @@ export class GameController {
     altercation = undefined
     session = undefined
 
-    // STORE
-    storeStatistics (statistics) {
+    // Function to store statistics in the game memory
+    storeStatistics(statistics) {
         GameController.STATISTICS = [...statistics]
     }
-    storeCharacters (characters) {
+    // Function to store characters in the game memory
+    storeCharacters(characters) {
         GameController.CHARACTERS = [...characters]
     }
-    storeGenders (genders) {
+    // Function to store genders in the game memory
+    storeGenders(genders) {
         GameController.GENDERS = [...genders]
     }
-    storeSkins (skins) {
+    // Function to store skins in the game memory
+    storeSkins(skins) {
         GameController.SKINS = [...skins]
     }
-    storeCsps (csps) {
+    // Function to store CSPs in the game memory
+    storeCsps(csps) {
         GameController.CSPS = [...csps]
     }
-    storeReactions (reactions) {
+    // Function to store reactions in the game memory
+    storeReactions(reactions) {
         GameController.REACTIONS = [...reactions]
     }
-    storeSession (session) {
-        this.storeCharacter (session.characterName)
+    // Function to store the session in the game memory
+    storeSession(session) {
+        this.storeCharacter(session.characterName)
         this.session = new Session(session.code, session.name, this.character)
     }
-    storeCharacter (name) {
+    // Function to store the character in the game memory
+    storeCharacter(name) {
         this.character = new Character(name, this.characterOptions)
     }
 
-    // SETTERS
-    setAltercation (payload) {
+    // Setter functions
+    setAltercation(payload) {
         this.altercation = new Altercation(payload)
     }
 
-    // GAME METHODS
-    static switchAltercation () {
+    // Game methods
+    static switchAltercation() {
         store.dispatch('nextAltercation')
     }
-    static createSession (characterOptions) {
+    static createSession(characterOptions) {
         store.dispatch('createSession', characterOptions.buildRequestOptions())
     }
-    react (reaction) {
+    // Function for character reaction to an altercation
+    react(reaction) {
         store.dispatch('react', {
             altercation: this.altercation.id,
             reaction: reaction.id,
@@ -67,12 +77,14 @@ export class GameController {
     }
 }
 
+// Class Resume for storing game statistics and history
 export class Resume {
     statistics
     history
 
-    constructor (statistics, history) {
+    // Constructor of the class
+    constructor(statistics, history) {
         this.statistics = statistics
-        this.history    = history
+        this.history = history
     }
 }
