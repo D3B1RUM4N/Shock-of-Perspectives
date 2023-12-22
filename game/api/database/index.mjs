@@ -4,6 +4,7 @@ import seedCharacters from '#db/seeds/characters.seeds.mjs'
 import seedAltercations from '#db/seeds/altercations.seeds.mjs'
 import seedReactions from '#db/seeds/reactions.seeds.mjs'
 import seedStatistics from '#db/seeds/statistics.seeds.mjs'
+import seedAffects from '#db/seeds/affects.seeds.mjs'
 
 export function createORM () {
     const dialect = process.env.DB_DIALECT?.toLowerCase() || 'sqlite'
@@ -46,6 +47,7 @@ export default async function initDatabase () {
         await seedAltercations()
         await seedReactions()
         await seedStatistics()
+        await seedAffects()
 
         console.log('\n> Database synced!')
     } catch (e) {
