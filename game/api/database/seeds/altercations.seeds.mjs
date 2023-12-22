@@ -16,6 +16,6 @@ export default async function seeds () {
     try {
       console.log(`[Seeder] Creating altercation (${++count}/${altercations.length})...`)
       await getModel('altercation').create({ label: a })
-    } catch (e) { console.log(e) }
+    } catch (e) {}
   }
 }

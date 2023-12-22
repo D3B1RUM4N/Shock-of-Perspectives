@@ -40,6 +40,6 @@ export default async function seed () {
         statisticId: a.statistic,
         amount: a.amount
       })
-    } catch (e) { console.log(e) }
+    } catch (e) {}
   }
 }
