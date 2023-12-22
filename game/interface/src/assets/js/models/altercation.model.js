@@ -7,14 +7,21 @@ export class Altercation {
     label
     dojo
     character
+    background
+
+    static BACKGROUNDS = [
+        'NightBackgroundMexicosAriba.png',
+        'NightBackgroundNightClub.png'
+    ]
 
     constructor (payload) {
-        const { id, label, dojo } = payload
+        const { id, label, dojo, characterName } = payload
 
-        this.id        = id
-        this.label     = label
-        this.dojo      = dojo
-        this.character = selectRandom(GameController.CHARACTERS)
+        this.id         = id
+        this.label      = label
+        this.dojo       = dojo
+        this.character  = GameController.CHARACTERS.find(c => c.name === characterName)
+        this.background = this.dojo ? 'DojoBackground.jpg' : selectRandom(Altercation.BACKGROUNDS)
     }
 
     react (reaction) {
