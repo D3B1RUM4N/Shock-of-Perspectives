@@ -1,6 +1,13 @@
 <script>
+import creditsMocks from "@/assets/js/mocks/credits.mocks";
+
 export default {
-  name: 'CreditView'
+  name: 'CreditView',
+  computed: {
+    developers () {
+      return creditsMocks
+    }
+  }
 }
 </script>
 
@@ -8,38 +15,14 @@ export default {
   <div class="ecran">
     <h1>Crédits</h1>
     <div class="panel">
-      <section>
-        <h4>Elies Mekhinini</h4>
+      <section v-for="d in developers" :key="d">
+        <h4 v-html="d.name"></h4>
         <div class="photo">
-          <img src="/images/characters/EliesFace.png" alt="" />
+          <img :src="`/images/characters/${d.avatar}.png`" alt="" />
         </div>
-        <p>● Toujours dans le Back ^^</p>
-        <p>● TheRock me demande des conseils</p>
-      </section>
-      <section>
-        <h4>Simon Williams</h4>
-        <div class="photo">
-          <img src="/images/characters/SimonFace.png" alt="" />
-        </div>
-        <p>● Toujours dans le Front ...</p>
-        <p>● Qu'est ce que je fou là ?</p>
-      </section>
-      <section>
-        <h4>Eléa <br>Menu</h4>
-        <div class="photo">
-          <img src="/images/characters/EleaFace.png" alt="" />
-        </div>
-        <p>● Designer 667</p>
-        <p>● Je coco toutes les recettes des maquettes</p>
-        <p>● Approved By Gossa</p>
-
-      </section>
-      <section>
-        <h4>Loïc <br>Maes</h4>
-        <div class="photo">
-          <img src="/images/characters/LoicFace.png" alt="" />
-        </div>
-        <p>● Je fais l'API tkt</p>
+        <ul style="list-style-type: disc;margin-left: 1.5em;">
+          <li v-for="q in d.quotes" :key="q">{{ q }}</li>
+        </ul>
       </section>
     </div>
     <div class="return">
@@ -116,12 +99,11 @@ h4 {
 }
 
 /* PARAGRAPHS */
-section p {
+section ul li {
   font-size: 11px;
   margin-bottom: 4px;
-  margin-left:15px;
   margin-right:15px;
-
+  line-height: 1.6;
 }
 
 /* PICTURES : box */
