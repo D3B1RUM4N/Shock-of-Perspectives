@@ -12,15 +12,17 @@ Voir aussi : [Description.md](./Description.md)
 
 ## Lien vers le téléchargement
 
-[inclure un lien ou autre vers le fichier d’installation dans le git]
+pour telecharger notre jeux vous pouvez passer par [lien de telechargement]() ou telcharger le repository et executé
+[le fichier](./game/launcher.bat) : game/launcher.bat
+
 
 
 ## Procédure d'installation (pour dev)
 ### Prérequis
-[NodeJS](https://nodejs.org/en) : 18.18.2 ou supperieur </br>
+[NodeJS](https://nodejs.org/en) : 18.18.2 ou supérieur </br>
 [pnpm](https://pnpm.io/installation)</br>
 [PHPStorm](https://www.jetbrains.com/fr-fr/phpstorm/) : Ou autre IDE compatible VueJS</br>
-[GitBash](https://git-scm.com/downloads) : ou autre moyen de communiqué avec Gitlab
+[GitBash](https://git-scm.com/downloads) : ou autre moyen de communiquer avec Gitlab
 
 ### Commencement
 Commencez par forker le [repository git]( https://gitlab.unistra.fr/maes-t3/maj23-t3-d)</br>
@@ -38,7 +40,7 @@ Projet
 │   └── api</br>
 │       └── contient l’API utilisée en jeux</br>
 ├── Interface</br>
-│   └── le fichier a ouvrir sur votre IDE</br>
+│   └── le fichier à ouvrir sur votre IDE</br>
 ├── public</br>
 │   └── contient les images et asset</br>
 ├── src</br>
@@ -56,6 +58,14 @@ Projet
 ### Mise en place
 Telechargez et installez Node.JS dans le fichier de votre choix.</br>
 Telechargez et installez pnpm suivant cotre system d'exploitation.</br>
+
+Deplacez vous dans `game/api`, renommez ``.env.exemple`` en `.env`.
+Ouvrez un terminal, et executez : pour installer les dependance et lancer l'api.
+```
+pnpm install
+pnpm run start:win
+```
+
 Ouvrez un terminal dans le dossier `game/interface`
 ```
 cd votre/chemin/vers/game/interface
