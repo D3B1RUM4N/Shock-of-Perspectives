@@ -1,38 +1,60 @@
 <script>
-import {GameController} from "@/assets/js/controllers/game.controller";
+// Importing the 'GameController' class
+import { GameController } from "@/assets/js/controllers/game.controller";
 
+// Exporting the component definition
 export default {
+  // Component name
   name: "CharacterChoiceView",
+
+  // Computed properties
   computed: {
-    skin () {
-      return this.$store.state.controller.characterOptions.skin
+    // Computed property for retrieving the selected skin from Vuex store
+    skin() {
+      return this.$store.state.controller.characterOptions.skin;
     },
-    gender () {
-      return this.$store.state.controller.characterOptions.gender
+
+    // Computed property for retrieving the selected gender from Vuex store
+    gender() {
+      return this.$store.state.controller.characterOptions.gender;
     },
-    csp () {
-      return this.$store.state.controller.characterOptions.csp
+
+    // Computed property for retrieving the selected CSP (Clothes, Skin, Pose) from Vuex store
+    csp() {
+      return this.$store.state.controller.characterOptions.csp;
     },
-    imageURI () {
-      return `/images/characters/${this.$store.state.controller.characterOptions.buildImageURI('Face')}`
+
+    // Computed property for generating the image URI for the character's face
+    imageURI() {
+      return `/images/characters/${this.$store.state.controller.characterOptions.buildImageURI('Face')}`;
     }
   },
-  methods : {
+
+  // Component methods
+  methods: {
+    // Method to proceed to the next step and create a game session
     next() {
-      GameController.createSession(this.$store.state.controller.characterOptions)
+      GameController.createSession(this.$store.state.controller.characterOptions);
     },
-    nextSexe (direction) {
-      this.$store.state.controller.characterOptions.nextGender(direction)
+
+    // Method to change the selected gender
+    nextSexe(direction) {
+      this.$store.state.controller.characterOptions.nextGender(direction);
     },
-    nextOutfit (direction) {
-      this.$store.state.controller.characterOptions.nextCsp(direction)
+
+    // Method to change the selected outfit (CSP)
+    nextOutfit(direction) {
+      this.$store.state.controller.characterOptions.nextCsp(direction);
     },
-    nextColor (color) {
-      this.$store.state.controller.characterOptions.selectSkin(color)
+
+    // Method to change the selected skin color
+    nextColor(color) {
+      this.$store.state.controller.characterOptions.selectSkin(color);
     }
   }
 }
 </script>
+
 
 <template>
   <div class="ecran">
@@ -101,6 +123,7 @@ $textColor: #2B3338;
 $bgColor: #A6B8B1;
 $accentColor: #E8D6C1;
 
+/* SCREEN : La fenêtre principale */
 .ecran {
   position: absolute;
   width: 100%;
@@ -114,7 +137,7 @@ $accentColor: #E8D6C1;
   overflow-y: hidden;
 }
 
-
+/* INSTRUCTION : La barre d'instruction en haut */
 .instruction {
   position: absolute;
   display: flex;
@@ -129,6 +152,7 @@ $accentColor: #E8D6C1;
 
   background-color: #3C6493;
 }
+/* SEXE CHOICE : La barre pour choisir le sexe */
   .sexeChoice {
     position: absolute;
     display: flex;
@@ -174,7 +198,8 @@ $accentColor: #E8D6C1;
 
   }
 
-  .skinChoice p{
+/* SKIN CHOICE : Le choix de la couleur de peau */
+.skinChoice p{
     transform: translateY(-30px);
   }
     .whiteSkin {
@@ -243,7 +268,8 @@ $accentColor: #E8D6C1;
     transform: translateY(-30px);
   }
 
-  .outfitChoice {
+/* OUTFIT CHOICE : Le choix de la tenue */
+.outfitChoice {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -286,7 +312,8 @@ $accentColor: #E8D6C1;
     z-index: 1;
   }
 
-  .navigation {
+/* NAVIGATION : La barre de navigation en bas */
+.navigation {
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -337,7 +364,7 @@ $accentColor: #E8D6C1;
 
 
 
-
+/* SVG link animations for navigation */
 .linkLeft__svg {
   position: absolute;
   bottom: 13px;
@@ -385,11 +412,6 @@ $accentColor: #E8D6C1;
   animation: rotate 10s infinite linear;
   z-index: 1;
 }
-
-
-
-
-
 
 @keyframes rotate {
   to {
