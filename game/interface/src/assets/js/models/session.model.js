@@ -14,11 +14,11 @@ export class Session {
     }
 
     saveCookieSession () {
-        setCookie(KEY_NAME, this.code, 72_000_000)
+        setCookie(Session.KEY_NAME, this.code, 72_000_000)
     }
 
     saveLocalStorageSession () {
-        localStorage.setItem(KEY_NAME, this.code)
+        localStorage.setItem(Session.KEY_NAME, this.code)
     }
 
     saveSessionCode (persistent = false) {
