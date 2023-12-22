@@ -1,14 +1,6 @@
 <script>
-import router from "@/router";
-
 export default {
-  name: 'CreditView',
-  methods: {
-    // retourne au menu
-    arriere () {
-      router.push('/')
-    }
-  }
+  name: 'CreditView'
 }
 </script>
 
@@ -19,7 +11,7 @@ export default {
       <section>
         <h4>Elies Mekhinini</h4>
         <div class="photo">
-          <img src="/images/characters/EliesFace.png">
+          <img src="/images/characters/EliesFace.png" alt="" />
         </div>
         <p>● Toujours dans le Back ^^</p>
         <p>● TheRock me demande des conseils</p>
@@ -27,7 +19,7 @@ export default {
       <section>
         <h4>Simon Williams</h4>
         <div class="photo">
-          <img src="/images/characters/SimonFace.png">
+          <img src="/images/characters/SimonFace.png" alt="" />
         </div>
         <p>● Toujours dans le Front ...</p>
         <p>● Qu'est ce que je fou là ?</p>
@@ -35,7 +27,7 @@ export default {
       <section>
         <h4>Eléa <br>Menu</h4>
         <div class="photo">
-          <img src="/images/characters/EleaFace.png">
+          <img src="/images/characters/EleaFace.png" alt="" />
         </div>
         <p>● Designer 667</p>
         <p>● Je coco toutes les recettes des maquettes</p>
@@ -45,13 +37,13 @@ export default {
       <section>
         <h4>Loïc <br>Maes</h4>
         <div class="photo">
-          <img src="/images/characters/LoicFace.png">
+          <img src="/images/characters/LoicFace.png" alt="" />
         </div>
         <p>● Je fais l'API tkt</p>
       </section>
     </div>
     <div class="return">
-      <button class="btn" @click.prevent="arriere()">Main menu</button>
+      <RouterLink to="/" class="btn">Main menu</RouterLink>
     </div>
   </div>
 </template>
@@ -63,7 +55,7 @@ export default {
   width: 100%;
   position: absolute;
 
-  font-family: 'Press Start 2P', Serif;
+  font-family: 'Press Start 2P', serif;
 
   /* Flexbox */
   display: flex;

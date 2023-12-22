@@ -6,11 +6,14 @@
     name: 'App',
     methods: {
       closeBtnClick () {
-        //call closeBut.eventlistener on app.js
-        console.log('closeBtnClick')
         closeApp()
-        //router.push('/Acceuil')
       },
+    },
+    created () {
+      this.$store.dispatch('askCriteria')
+      this.$store.dispatch('askCharacters')
+      this.$store.dispatch('askReactions')
+      this.$store.dispatch('askStatistics')
     }
   }
 </script>
@@ -28,7 +31,7 @@
   .nav {
     position: absolute;
     top: 0;
-    left: 0px;
+    left: 0;
     width: 100%;
     height: 50px;
     margin: 0;
@@ -39,5 +42,3 @@
     right: 20px;
   }
 </style>
-<script setup>
-</script>

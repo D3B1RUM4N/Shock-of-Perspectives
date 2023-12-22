@@ -12,7 +12,8 @@
   },
   "main": "background.js",
   "dependencies": {
-    "core-js": "^3.8.3",
+    "axios": "^1.6.2",
+    "core-js": "^3.34.0",
     "electron-serve": "^1.2.0",
     "vue": "^3.2.13",
     "vue-router": "^4.0.3",

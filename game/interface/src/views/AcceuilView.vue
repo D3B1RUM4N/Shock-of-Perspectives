@@ -1,33 +1,16 @@
 <script>
-import router from "@/router";
-import GameController, {initGame} from "../../public/Controller/GameController";
-import store from "@/store";
 import {closeApp} from "@/app";
 
-
 export default {
-  name: 'AcceuilView',
+  name: 'AccueilView',
   methods: {
-    // envoi sur la view customisation
-    jouer () {
-      store.commit('setController', null)
-      store.commit('setController', initGame("")); // _type = 0 : new game
-      router.push('/loading')
-    },
-    // lance une altercation de tuto
     tuto () {
-      store.commit('setController', null)
-      console.log('parametre click')
-      store.commit('setController', initGame("tuto"));
-      router.push('/altercation')
+      this.$store.dispatch('askTutorialAltercation')
     },
-    // affiche les credits
     credit () {
-      router.push('/credits')
+      this.$router.push('/credits')
     },
-    // Ferme le jeu
     quitter () {
-      console.log('closeBtnClick')
       closeApp()
     }
   }
@@ -40,7 +23,7 @@ export default {
       <p>Shock of Perspectives</p>
     </div>
     <div class="panel">
-      <button class="btn" @click.prevent="jouer()">Jouer</button>
+      <RouterLink to="/customisation" class="btn">Jouer</RouterLink>
       <button class="btn" @click.prevent="tuto()">Tutoriel</button>
       <button class="btn" @click.prevent="credit()">Crédits</button>
       <button class="btn" @click.prevent="quitter()">Quitter</button>

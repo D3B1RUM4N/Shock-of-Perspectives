@@ -1,46 +1,34 @@
 <script>
-import Character from "../../public/Model/Character.js";
-import store from "@/store";
-import router from "@/router";
-
-// on recupere le controller et le character
-let controller = store.state.Controller;
-let character = controller.getCharacter();
+import {GameController} from "@/assets/js/controllers/game.controller";
 
 export default {
   name: "CharacterChoiceView",
-  data() {
-    // les infos pour de l'affichage dynamique
-    return {
-      character: character,
-      stringChar: "/images/characters/" + character.characterString() + "Face.png",    // characterString() return le string pour l'image du character
-      stringColor: character.getColor(),
-      stringSexe: character.getSexe(),
-      stringOutfit: character.getOutfit()
+  computed: {
+    skin () {
+      return this.$store.state.controller.characterOptions.skin
+    },
+    gender () {
+      return this.$store.state.controller.characterOptions.gender
+    },
+    csp () {
+      return this.$store.state.controller.characterOptions.csp
+    },
+    imageURI () {
+      return `/images/characters/${this.$store.state.controller.characterOptions.buildImageURI('Face')}`
     }
   },
   methods : {
-    // passage a la prochaine page
     next() {
-      character.initStats()
-      controller.setCharacter(character)
-      //console.log(store.state.player)
-      router.push('/altercation')
+      GameController.createSession(this.$store.state.controller.characterOptions)
     },
-    // changement de sexe
-    nextSexe() {
-      this.stringChar = "/images/characters/" + character.changeSexe() + "Face.png"
-      this.stringSexe = character.getSexe()
+    nextSexe (direction) {
+      this.$store.state.controller.characterOptions.nextGender(direction)
     },
-    // deplacer l'outfit
-    nextOutfit(direction) {
-      this.stringChar = "/images/characters/" + character.changeOutfit(direction) + "Face.png"
-      this.stringOutfit = character.getOutfit()
+    nextOutfit (direction) {
+      this.$store.state.controller.characterOptions.nextCsp(direction)
     },
-    // changer la couleur de peau
-    nextColor(color) {
-      this.stringChar = "/images/characters/" + character.changeColor(color) + "Face.png"
-      this.stringColor = character.getColor()
+    nextColor (color) {
+      this.$store.state.controller.characterOptions.selectSkin(color)
     }
   }
 }
@@ -52,29 +40,29 @@ export default {
       <p> Crée ton personnage ! </p><br>
     </div>
     <div class="sexeChoice">
-      <a href="" class="leftSexeBtn" @click.prevent="nextSexe"><img src="/images/buttons/left_semi_arrow.png" alt="left_semi_arrow"></a>
-      <p>Sexe : {{ stringSexe }}</p>
-      <a href="" class="rightSexeBtn" @click.prevent="nextSexe"><img src="/images/buttons/right_semi_arrow.png" alt="right_semi_arrow"></a>
+      <button class="leftSexeBtn" @click.prevent="nextSexe(-1)"><img src="/images/buttons/left_semi_arrow.png" alt="left_semi_arrow" /></button>
+      <p>Sexe : {{ gender }}</p>
+      <button class="rightSexeBtn" @click.prevent="nextSexe(1)"><img src="/images/buttons/right_semi_arrow.png" alt="right_semi_arrow"></button>
     </div>
     <div class="skinChoice">
       <p>Ethnie :</p>
-      <p>{{ stringColor}}</p>
-      <div class="whiteSkin" @click.prevent="nextColor(2)"></div>
-      <div class="yellowSkin" @click.prevent="nextColor(1)"></div>
-      <div class="blackSkin" @click.prevent="nextColor(0)"></div>
+      <p>{{ skin }}</p>
+      <button class="whiteSkin" @click.prevent="nextColor(2)"></button>
+      <button class="yellowSkin" @click.prevent="nextColor(1)"></button>
+      <button class="blackSkin" @click.prevent="nextColor(0)"></button>
     </div>
     <div class="ombre"></div>
     <div class="outfitChoice">
       <a href="" class="leftOutfitBtn" @click.prevent="nextOutfit(1)"><img src="/images/buttons/left_semi_arrow.png" alt="left_semi_arrow"></a>
-      <img :src="stringChar" :alt="stringChar" class="showPlayer">
+      <img :src="imageURI" :alt="imageURI" class="showPlayer">
       <a href="" class="rightOutfitBtn" @click.prevent="nextOutfit(-1)"><img src="/images/buttons/right_semi_arrow.png" alt="right_semi_arrow"></a>
     </div>
     <div class="navigation">
-      <a href="/" class="previous"><img src="/images/buttons/left_arrow.png"></a>
-      <p class="selectedOutfit">{{ stringOutfit }}</p>
+      <a href="/" class="previous"><img src="/images/buttons/left_arrow.png" alt="" /></a>
+      <p class="selectedOutfit">{{ csp }}</p>
       <p>Utilises les flèches </p>
       <p>autour du personnage</p>
-      <a href="" class="next" @click.prevent="next"><img src="/images/buttons/right_arrow.png"></a>
+      <a href="" class="next" @click.prevent="next"><img src="/images/buttons/right_arrow.png" alt="" /></a>
     </div>
     <svg viewBox='0 0 200 200' width='200' height='200' xmlns='http://www.w3.org/2000/svg' class="linkLeft__svg" aria-labelledby="link1-title link1-desc">
       <title id="link1-title">Retourner au menu principal</title>
@@ -122,7 +110,7 @@ $accentColor: #E8D6C1;
   align-items: center;
   background-color: #BBD3F0;
 
-  font-family: "Press Start 2P", Serif;
+  font-family: "Press Start 2P", serif;
   overflow-y: hidden;
 }
 

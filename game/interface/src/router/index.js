@@ -18,6 +18,11 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/AltercationView.vue')
   },
   {
+    path: '/tuto',
+    name: 'Tuto',
+    component: () => import(/* webpackChunkName: "about" */ '../views/TutoAltercationView.vue')
+  },
+  {
     path: '/customisation',
     name: 'CharacterChoiceView',
     component: () => import(/* webpackChunkName: "about" */ '../views/CharacterChoiceView.vue')

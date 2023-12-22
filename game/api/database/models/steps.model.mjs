@@ -11,6 +11,9 @@ const fks = [
     }),
     new ForeignKey(FkConstraintMethod.HAS_MANY, 'reaction', name, {
         foreignKey: 'reactionId'
+    }),
+    new ForeignKey(FkConstraintMethod.HAS_MANY, 'character', name, {
+        foreignKey: 'characterName'
     })
 ]
 

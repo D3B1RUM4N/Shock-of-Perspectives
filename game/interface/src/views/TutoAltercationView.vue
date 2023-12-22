@@ -3,14 +3,19 @@ import AltercationButton from "@/views/component/AltercationButton.vue";
 import {GameController} from "@/assets/js/controllers/game.controller";
 
 export default {
-  name: "AltercationView",
+  name: "TutoAltercationView",
   components: {AltercationButton},
   data: () => ({
-    customText: undefined
+    intro: true,
+    customText: 'Bienvenue dans le tutoriel ! Dans ce jeu, vous allez vous retrouver face à des situations violentes dans la rue et dans un dojo. Votre but, réagir à ces altercations de la manière qui vous semble le mieux.'
   }),
   computed: {
     player() {
-      return this.$store.state.controller.character
+      const gender = this.$store.state.controller.characterOptions.gender
+      const skin = this.$store.state.controller.characterOptions.skin
+      const csp = this.$store.state.controller.characterOptions.csp
+
+      return GameController.CHARACTERS.find(({ specs }) => specs.gender === gender && specs.skin === skin && specs.csp === csp)
     },
     npc() {
       return this.$store.state.controller.altercation?.character
@@ -31,15 +36,21 @@ export default {
       return GameController.REACTIONS
     }
   },
-  methods:{
+  methods: {
     react (reaction) {
       this.customText = reaction.message
-      setTimeout(() => this.$store.state.controller.react(reaction), 4500)
+      setTimeout(() => this.$router.push('/'), 4500)
     }
   },
   created () {
-    if (this.$store.state.controller.altercation && this.$store.state.controller.session) return
+    if (this.$store.state.controller.altercation) return
     this.$router.push('/')
+  },
+  mounted () {
+    setTimeout(() => {
+      this.intro = false
+      this.customText = undefined
+    }, 7500)
   }
 }
 </script>
@@ -50,7 +61,7 @@ export default {
     <div class="text">
       <p>{{text}}</p>
     </div>
-    <div class="interaction">
+    <div class="interaction" v-if="!intro">
       <AltercationButton @click.prevent="react(reaction)" v-for="reaction in reactions" :key="reaction" class="btn" :ImageAlter="`/images/buttons/${reaction.icon}.png`" :TitleAlter="`/images/buttons/${reaction.label}.png`"></AltercationButton>
     </div>
     <div class="perso">
