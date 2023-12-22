@@ -36,12 +36,14 @@ export class Reaction {
     id
     label
     icon
+    message
 
     constructor (payload) {
-        const { id, label, icon } = payload
+        const { id, label, icon, message } = payload
 
-        this.id    = id
-        this.label = label
-        this.icon  = icon
+        this.id      = id
+        this.label   = label
+        this.icon    = icon
+        this.message = message
     }
 }

@@ -36,9 +36,10 @@ export default {
       return GameController.REACTIONS
     }
   },
-  methods:{
+  methods: {
     react (reaction) {
-      this.$router.push('/')
+      this.customText = reaction.message
+      setTimeout(() => this.$router.push('/'), 4500)
     }
   },
   created () {
@@ -49,7 +50,7 @@ export default {
     setTimeout(() => {
       this.intro = false
       this.customText = undefined
-    }, 5000)
+    }, 7500)
   }
 }
 </script>

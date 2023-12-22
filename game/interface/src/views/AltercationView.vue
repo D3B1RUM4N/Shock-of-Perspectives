@@ -5,6 +5,9 @@ import {GameController} from "@/assets/js/controllers/game.controller";
 export default {
   name: "AltercationView",
   components: {AltercationButton},
+  data: () => ({
+    customText: undefined
+  }),
   computed: {
     player() {
       return this.$store.state.controller.character
@@ -13,7 +16,7 @@ export default {
       return this.$store.state.controller.altercation?.character
     },
     text() {
-      return this.$store.state.controller.altercation?.label
+      return this.customText || this.$store.state.controller.altercation?.label
     },
     playerImage () {
       return `/images/characters/${this.player.specs.buildImageURI('Droite')}`
@@ -30,7 +33,8 @@ export default {
   },
   methods:{
     react (reaction) {
-      this.$store.state.controller.react(reaction)
+      this.customText = reaction.message
+      setTimeout(() => this.$store.state.controller.react(reaction), 4500)
     }
   },
   created () {
