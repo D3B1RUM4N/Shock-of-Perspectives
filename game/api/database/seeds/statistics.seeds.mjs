@@ -16,8 +16,6 @@ export default async function seed () {
         label: s,
         defaultScore: 0
       })
-    } catch (e) {
-      console.log(e)
-    }
+    } catch (e) {}
   }
 }

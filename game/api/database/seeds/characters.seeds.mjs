@@ -38,12 +38,14 @@ class Character {
   }
 
   async create () {
-    await getModel('character').create({
-        name: this.name,
-        gender: this.gender,
-        skin: this.skin,
-        csp: this.csp
-  })
+    try {
+        await getModel('character').create({
+            name: this.name,
+            gender: this.gender,
+            skin: this.skin,
+            csp: this.csp
+        })
+    } catch (e) {}
   }
 }
 

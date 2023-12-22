@@ -30,6 +30,6 @@ export default async function seed () {
         icon: r.icon,
         message: r.message
       })
-    } catch (e) { console.log(e) }
+    } catch (e) {}
   }
 }
