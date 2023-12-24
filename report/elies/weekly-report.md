@@ -24,7 +24,7 @@ Avons donc decidé de reinitialisé notre projet et de repartire sur une idee di
     - [ ] PHP
     - [ ] Autres
 
-Apres brainstorm avec l'equipe nous avons decidé d'utilisé Vue JS et nous nous somme deonné 2 semaine pour prendre en main l'outil.
+Apres brainstorm avec l'equipe nous avons decidé d'utilisé Vue JS et nous nous somme donné 2 semaine pour prendre en main l'outil.
 
 # Rapport semaine 3 - Vacances
 30/09 - 03/11
@@ -86,3 +86,9 @@ Mercredi une boucle de jeu complete a été realisé.
 Background interractif.
 Loic nous parle de la mise en place d'une API pour avoir des interraction plus varié qui affecte plus precisément les statistiques.
 J'ai peur que cela ecrase toutes nos heures de travail.
+
+# Rapport Jour-j
+
+22/12
+
+Correction de bug qui sont apparus, affinage du CSS, creation du readme et de l'executable, ecriture du wiki.
